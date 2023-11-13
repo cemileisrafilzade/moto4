@@ -1,38 +1,73 @@
 @import "../../assets/colors.scss";
 .header {
-  padding: 0 10%;
+  padding: 0 15%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   img {
     margin: 14px 0;
-    // width: 150px;
-    // height: 70px;
-    // border: none;
   }
   .nav {
-    width:40%;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     a {
-        text-align: center;
-        // bor  der: 5px solid red;
-        // width: 170px;
-        // padding: 20px 4px;
+      text-align: center;
       font-size: 18px;
       font-weight: 400;
       color: $primary;
-      &:hover{
-font-weight: 500;
+      &:hover {
+        font-weight: 500;
         color: $focus;
         padding-bottom: 5px;
         border-bottom: 2px solid $focus;
       }
     }
+    .active {
+        font-weight: 500;
+        color: $focus;
+        padding-bottom: 5px;
+        border-bottom: 2px solid $focus;
+      }
   }
   .btns {
     display: flex;
     gap: 20px;
   }
+}
+.footer{
+    padding: 30px 15%;
+    h3{
+        font-weight: 500;
+        font-size: 20px;
+        color: $font;
+        padding: 20px 0;
+    }
+    ul{
+        display: flex;
+//  align-items: center;
+ justify-content: space-between;    
+ padding-left: 0;  
+ padding-bottom: 30px;
+    border-bottom: 1px solid $lightBorder; 
+ li{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 400;
+span{
+    padding-right: 10px;
+}
+}    
+}
+
+.copyright{
+    color: $lightFont;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+}
 }
