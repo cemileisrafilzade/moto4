@@ -1,8 +1,8 @@
 import React from 'react'
-
+import styles from './style.module.scss'
 function Homepage() {
   return (
-    <div>Homepage</div>
+    <div className={styles.container}>Homepage</div>
   )
 }
 

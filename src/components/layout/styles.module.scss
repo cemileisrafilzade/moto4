@@ -1,0 +1,38 @@
+@import "../../assets/colors.scss";
+.header {
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    margin: 14px 0;
+    // width: 150px;
+    // height: 70px;
+    // border: none;
+  }
+  .nav {
+    width:40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+        text-align: center;
+        // bor  der: 5px solid red;
+        // width: 170px;
+        // padding: 20px 4px;
+      font-size: 18px;
+      font-weight: 400;
+      color: $primary;
+      &:hover{
+font-weight: 500;
+        color: $focus;
+        padding-bottom: 5px;
+        border-bottom: 2px solid $focus;
+      }
+    }
+  }
+  .btns {
+    display: flex;
+    gap: 20px;
+  }
+}
