@@ -14,9 +14,11 @@
   }
 }
 .top {
+  position: relative;
+
   img {
     border-radius: 8px;
-    position: relative;
+    // position: relative;
     width: 100%;
     object-fit: contain;
   }
@@ -27,6 +29,7 @@
     z-index: 3;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     i {
       color: $white;
     }
@@ -35,6 +38,8 @@
       right: 0 !important;
       opacity: 0.8;
       margin-right: 0;
+      font-size: 20px;
+
     }
   }
   ul li {
@@ -55,6 +60,19 @@
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
+  }
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button{
+        background-color: $blue;
+        color: $white;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 4px;
+    }
   }
   p {
     font-weight: 400;

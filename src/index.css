@@ -7,10 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 * {
   padding: 0;
   margin: 0;
@@ -22,4 +18,23 @@ a{
 }
 ul li{
   list-style: none;
+}
+.css-1oj2twp-MuiPagination-root{
+  display: flex !important;
+  justify-content: center !important;
+  margin: 50px 0 !important;
+}
+.MuiButtonBase-root {
+/* margin: 30px !important; */
+  /* background-color: red !important; */
+  font-size: 16px !important;
+  font-family: 'Montserrat',sans-serif !important;
+}
+.css-10w330c-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
+  background-color: #620985 !important;
+  color: #ffffff !important;
+}
+.css-10w330c-MuiButtonBase-root-MuiPaginationItem-root{
+  border: 1px solid #0000001A !important;
+  color: #0000001A !important;
 }

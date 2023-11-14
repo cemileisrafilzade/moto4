@@ -28,7 +28,13 @@ function ProductCart({ product }) {
         <img src={product.img} alt="" />
       </div>
       <div className={styles.info}>
+        <div className={styles.header}>
+
         <h1>{product.price} <span>{product.currency}</span></h1>
+        {product.salon&&
+        <button>Salon</button>
+        }
+        </div>
         <p>{product.name}</p>
 
         <ul>

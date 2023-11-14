@@ -8,6 +8,7 @@ import mercedesG55 from "../assets/productImgs/mercedesG55.svg";
 export const products = [
   {
     id: 1,
+    salon:false,
     name: "Audi A4",
     price: "21 000",
     currency: "$",
@@ -23,6 +24,7 @@ export const products = [
   },
   {
     id: 2,
+    salon:false,
     name: "Bentley Mulsanne",
     price: "162 500",
     currency: "$",
@@ -38,6 +40,7 @@ export const products = [
   },
   {
     id: 3,
+    salon:false,
     name: "Chevrolet Camaro",
     price: "23 500",
     currency: "$",
@@ -53,6 +56,7 @@ export const products = [
   },
   {
     id: 4,
+    salon:false,
     name: "Mercedes-Benz G 55 AMG",
     price: "162 500",
     currency: "AZN",
@@ -68,6 +72,7 @@ export const products = [
   },
   {
     id: 5,
+    salon:true,
     name: "Mercedes-Benz S 500",
     price: "75 500",
     currency: "$",
@@ -83,6 +88,7 @@ export const products = [
   },
   {
     id: 6,
+    salon:true,
     name: "Ferrari California",
     price: "185 000",
     currency: "$",
