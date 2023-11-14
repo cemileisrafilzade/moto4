@@ -1,0 +1,27 @@
+@import "../../assets/colors.scss";
+
+.container {
+  background-color: $background;
+  min-height: 100vh;
+  padding: 30px 15%;
+  position: relative;
+  h1 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+.titleWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  margin-top: 30px;
+}
+.products{
+width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20;
+row-gap: 30px;
+}

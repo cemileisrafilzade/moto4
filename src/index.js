@@ -8,7 +8,7 @@ import { BrowserRouter, Route, RouterProvider, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import Faq from "./pages/Faq/Faq";
 import { initializeIcons } from "@fluentui/react";
-import Add from "./pages/Add/Add";
+import Advertisement from "./pages/Advertisement/Advertisement";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +17,7 @@ root.render(
       <Layout>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/elan" element={<Add />} />
+          <Route path="/elan" element={<Advertisement />} />
           <Route path="/faq" element={<Faq />} />
         </Routes>
       </Layout>

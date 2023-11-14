@@ -1,5 +1,7 @@
+@import '../../assets/colors.scss';
+
 .container{
-    background-color: #F0F3F8;
+    background-color: $background;
     padding:0 15%;
 height: 100vh;
 }
