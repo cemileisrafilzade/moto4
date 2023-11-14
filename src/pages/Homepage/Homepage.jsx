@@ -1,9 +1,18 @@
-import React from 'react'
-import styles from './style.module.scss'
+import React from "react";
+import "../../sass/pages/_home.scss";
+
+import FilterTab from "../../components/FilterTab/FilterTab";
+
 function Homepage() {
   return (
-    <div className={styles.container}>Homepage</div>
-  )
+    <main className="home">
+      <div className="home__hero">
+        <div className="home__hero__content">
+          <FilterTab />
+        </div>
+      </div>
+    </main>
+  );
 }
 
-export default Homepage
+export default Homepage;
