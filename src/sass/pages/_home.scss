@@ -20,7 +20,20 @@
       text-align: center;
       height: 100%;
       padding: auto 220px 0;
-      @include flexbox($justify: center, $items: flex-end);
+      @include flexbox(
+        $direction: column,
+        $justify: center,
+        $items: flex-start,
+        $gap: 1.5rem
+      );
+
+      &__firstLine {
+        @include flexbox($justify: flex-start, $items: center, $gap: 1rem);
+      }
+
+      &__secondLine {
+        @include flexbox($justify: flex-start, $items: center, $gap: 1rem);
+      }
     }
   }
 
