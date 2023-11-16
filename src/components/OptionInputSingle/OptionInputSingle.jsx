@@ -6,17 +6,18 @@ import match from "autosuggest-highlight/match";
 
 import "../../sass/components/_optionInput.scss";
 
-export default function OptionInputSingle({ options, holder }) {
+export default function OptionInputSingle({ options, holder, isYear }) {
   return (
     <Autocomplete
       id="highlights-demo"
       classes={{ popupIndicator: "custom-popup-indicator" }}
       sx={{
-        minWidth: "235px",
+        minWidth: `${isYear ? "117px" : "235px"}`,
         marginLeft: "0",
+        margin: `${isYear && "0"}`,
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
           { borderColor: "#620985" },
-        "& .MuiAutocomplete-inputRoot": { padding: "8px 10px" },
+        "& .MuiAutocomplete-inputRoot": { padding: "5px" },
         borderRadius: "8px",
       }}
       options={options}
@@ -27,7 +28,11 @@ export default function OptionInputSingle({ options, holder }) {
           {...params}
           sx={{
             backgroundColor: "#fff",
-            borderRadius: "8px",
+            borderTopLeftRadius: `${isYear && holder === "İl,Min" && "8px"}`,
+            borderBottomLeftRadius: `${isYear && holder === "İl,Min" && "8px"}`,
+            borderTopRightRadius: `${isYear && holder === "Max" && "8px"}`,
+            borderBottomRightRadius: `${isYear && holder === "Max" && "8px"}`,
+            borderRadius: `${!isYear && "8px"}`,
           }}
           placeholder={holder}
         />
@@ -37,7 +42,7 @@ export default function OptionInputSingle({ options, holder }) {
         const parts = parse(option.title, matches);
 
         return (
-          <li {...props} style={{ padding: "10px", fontSize: "16px" }}>
+          <li {...props} style={{ padding: "5px", fontSize: "16px" }}>
             <div>
               {parts.map((part, index) => (
                 <span

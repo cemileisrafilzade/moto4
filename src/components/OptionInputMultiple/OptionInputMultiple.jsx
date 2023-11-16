@@ -24,11 +24,11 @@ export default function OptionInputMultiple({ options, holder }) {
       classes={{ popupIndicator: "custom-popup-indicator" }}
       sx={{
         minWidth: "235px",
-
+        overflow: "hidden",
         marginLeft: "0",
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
           { borderColor: "#620985" },
-        "& .MuiAutocomplete-inputRoot": { padding: "8px 10px" },
+        "& .MuiAutocomplete-inputRoot": { padding: "5px" },
         borderRadius: "8px",
         "& .MuiAutocomplete-tag": {
           display: "flex",
@@ -66,6 +66,7 @@ export default function OptionInputMultiple({ options, holder }) {
           sx={{
             backgroundColor: "#fff",
             borderRadius: "8px",
+            overflow: "hidden",
           }}
         />
       )}

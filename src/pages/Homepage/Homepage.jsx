@@ -2,32 +2,18 @@ import React from "react";
 import "../../sass/pages/_home.scss";
 
 import FilterTab from "../../components/FilterTab/FilterTab";
-import HomeOptionInput from "../../components/OptionInputSingle/OptionInputSingle";
 import OptionInputMultiple from "../../components/OptionInputMultiple/OptionInputMultiple";
+import OptionInputSingle from "../../components/OptionInputSingle/OptionInputSingle";
 
-const filterTabOne = {
-  all: "hamısı",
-  new: "yeni",
-  old: "sürülmüş",
-};
-
-const filterTabTwo = {
-  all: "hamısı",
-  credit: "kredit",
-  barter: "barter",
-};
-
-const options1 = [
-  { title: "BMW" },
-  { title: "Mercedes-Benz" },
-  { title: "Toyota" },
-];
-
-const options2 = [{ title: "1-series" }, { title: "116" }, { title: "118" }];
-
-const options3 = [{ title: "Pikap" }, { title: "Sedan" }];
-
-const options4 = [{ title: "Bakı" }, { title: "Gəncə" }, { title: "Xankəndi" }];
+import {
+  filterTabOne,
+  filterTabTwo,
+  brandOptions,
+  modelOptions,
+  banOptions,
+  cityOptions,
+  yearOptions,
+} from "../../constants";
 
 function Homepage() {
   return (
@@ -39,12 +25,46 @@ function Homepage() {
             <FilterTab filterTab={filterTabTwo} />
           </div>
           <div className="home__hero__content__secondLine">
-            <HomeOptionInput options={options1} holder="Marka" />
-            <OptionInputMultiple options={options2} holder="Model" />
-            <OptionInputMultiple options={options3} holder="Ban növü" />
-            <HomeOptionInput options={options4} holder="Şəhər" />
+            <OptionInputSingle options={brandOptions} holder="Marka" />
+            <OptionInputMultiple options={modelOptions} holder="Model" />
+            <OptionInputMultiple options={banOptions} holder="Ban növü" />
+            <OptionInputSingle options={cityOptions} holder="Şəhər" />
           </div>
-          <div className="home__hero__content__thirdLine"></div>
+          <div className="home__hero__content__thirdLine">
+            <div className="home__hero__content__thirdLine__amount">
+              <input
+                type="number"
+                placeholder="Qiymət,Min"
+                className="amount__min"
+              />
+              <input type="number" placeholder="Max" className="amount__max" />
+            </div>
+            <select className="home__hero__content__thirdLine__currency">
+              <option value="AZN">AZN</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+            <div className="home__hero__content__thirdLine__year">
+              <OptionInputSingle options={yearOptions} holder="İl,Min" isYear />
+              <OptionInputSingle options={yearOptions} holder="Max" isYear />
+            </div>
+            <input
+              type="text"
+              placeholder="Elan kodu"
+              className="home__hero__content__thirdLine__code"
+            />
+          </div>
+          <div className="home__hero__content__fourthLine">
+            <button className="home__hero__content__fourthLine__clearBtn">
+              Təmizlə &#10005;
+            </button>
+            <button className="home__hero__content__fourthLine__moreFilter">
+              Daha çox filtr
+            </button>
+            <button className="home__hero__content__fourthLine__search">
+              Axtar
+            </button>
+          </div>
         </div>
       </div>
     </main>
