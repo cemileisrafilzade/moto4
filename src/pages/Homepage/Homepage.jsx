@@ -4,6 +4,7 @@ import "../../sass/pages/_home.scss";
 import FilterTab from "../../components/FilterTab/FilterTab";
 import OptionInputMultiple from "../../components/OptionInputMultiple/OptionInputMultiple";
 import OptionInputSingle from "../../components/OptionInputSingle/OptionInputSingle";
+import HomeCars from "../../scenes/HomeBody";
 
 import {
   filterTabOne,
@@ -67,6 +68,7 @@ function Homepage() {
           </div>
         </div>
       </div>
+      <HomeCars />
     </main>
   );
 }
