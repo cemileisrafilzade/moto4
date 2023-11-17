@@ -1,0 +1,90 @@
+@import "../../assets/colors.scss";
+
+.container {
+  padding: 30px 15%;
+  background-color: $background;
+  color: $font;
+  min-height: 100vh;
+  a {
+    &:focus {
+      color: $primary;
+    }
+  }
+  .nav {
+    a {
+      color: $lightFont !important;
+    }
+    i {
+      padding: 0 10px;
+      color: $lightFont !important;
+    }
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  h2 {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .baseInfo{
+    display: flex;
+    align-items:center ;
+justify-content: space-between;
+    .inputs{ 
+      justify-content: space-between;
+      display: flex;
+    }
+  }
+  .autocomplete {
+    margin-right: 20px;
+   width: 235px;
+    border: 1px solid #0000001a !important;
+    border-radius: 8px !important;
+    background-color: $white !important;
+    &:focus-within {
+      border: 1px solid $primary !important;
+    }
+    fieldset {
+    }
+    .css-1h51icj-MuiAutocomplete-root {
+      &:focus {
+      }
+      .Mui-focused,
+      .MuiAutocomplete-hasPopupIcon {
+        border: 1px solid $primary !important;
+      }
+    }
+    label {
+      color: $font !important;
+    }
+    * {
+      font-family: "Montserrat", sans-serif !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .radioGroup div{
+    display: flex !important;
+flex-direction:row !important;
+font-size: 16px;
+*{
+font-weight: 400;
+  font-family: "Montserrat",  sans-serif !important;
+}
+
+.MuiFormControlLabel-label {
+    }
+  }
+}

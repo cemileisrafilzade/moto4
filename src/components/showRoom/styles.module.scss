@@ -1,0 +1,10 @@
+.label {
+    margin-left: 20px;
+}
+.container {
+  width:100% ;
+  flex-direction: row !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 20px;
+}
