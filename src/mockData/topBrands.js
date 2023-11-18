@@ -11,9 +11,10 @@ export const topBrands = [
   },
   {
     id: 3,
-    img: "/topBrands/toyoto.png",
-    title: "Toyoto",
+    img: "/topBrands/porsche.png",
+    title: "Porsche",
   },
+
   {
     id: 4,
     img: "/topBrands/lexus.png",
@@ -21,22 +22,22 @@ export const topBrands = [
   },
   {
     id: 5,
+    img: "/topBrands/toyoto.png",
+    title: "Toyoto",
+  },
+  {
+    id: 6,
     img: "/topBrands/nissan.png",
     title: "Nissan",
   },
   {
-    id: 6,
+    id: 7,
     img: "/topBrands/bmw.png",
     title: "BMW",
   },
   {
-    id: 7,
+    id: 8,
     img: "/topBrands/kia.png",
     title: "KIA",
-  },
-  {
-    id: 8,
-    img: "/topBrands/porsche.png",
-    title: "Porsche",
   },
 ];
