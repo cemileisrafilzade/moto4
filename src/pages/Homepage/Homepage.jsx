@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../sass/pages/_home.scss";
 
 import FilterTab from "../../components/FilterTab/FilterTab";
@@ -16,14 +16,65 @@ import {
   yearOptions,
 } from "../../constants";
 
+export const INITIAL_DATA = {
+  tabOne: "hamısı",
+  tabTwo: "hamısı",
+  brand: "",
+  model: "",
+  banType: "",
+  city: "",
+  minPrice: null,
+  maxPrice: null,
+  currency: "AZN",
+  minYear: null,
+  maxYear: null,
+  code: "",
+};
+
 function Homepage() {
+  const [data, setData] = useState(INITIAL_DATA);
+  const [tabOneDefaultValue, setTabOneDefaultValue] = useState("all");
+  const [tabTwoDefaultValue, setTwoOneDefaultValue] = useState("all");
+
+  const handleChange = ({ target }) => {
+    setData((prevValues) => ({
+      ...prevValues,
+      [target.name]: target.value,
+    }));
+  };
+
+  const handleSearch = () => {
+    console.log(data);
+    setData(INITIAL_DATA);
+    setTabOneDefaultValue("all");
+    setTwoOneDefaultValue("all");
+  };
+
+  const handleClear = () => {
+    setData(INITIAL_DATA);
+    setTabOneDefaultValue("all");
+    setTwoOneDefaultValue("all");
+  };
+
   return (
     <main className="home">
       <div className="home__hero">
         <div className="home__hero__content">
           <div className="home__hero__content__firstLine">
-            <FilterTab filterTab={filterTabOne} />
-            <FilterTab filterTab={filterTabTwo} />
+            <FilterTab
+              handleChange={handleChange}
+              tabs={filterTabOne}
+              tabDefaultValue={tabOneDefaultValue}
+              setTabDefaultValue={setTabOneDefaultValue}
+              tabKey="tabOne"
+            />
+            <FilterTab
+              handleChange={handleChange}
+              tabs={filterTabTwo}
+              tabDefaultValue={tabTwoDefaultValue}
+              setTabDefaultValue={setTwoOneDefaultValue}
+              tabKey="tabTwo"
+            />
           </div>
           <div className="home__hero__content__secondLine">
             <OptionInputSingle options={brandOptions} holder="Marka" />
@@ -56,13 +107,19 @@ function Homepage() {
             />
           </div>
           <div className="home__hero__content__fourthLine">
-            <button className="home__hero__content__fourthLine__clearBtn">
+            <button
+              className="home__hero__content__fourthLine__clearBtn"
+              onClick={handleClear}
+            >
               Təmizlə &#10005;
             </button>
             <button className="home__hero__content__fourthLine__moreFilter">
               Daha çox filtr
             </button>
-            <button className="home__hero__content__fourthLine__search">
+            <button
+              className="home__hero__content__fourthLine__search"
+              onClick={handleSearch}
+            >
               Axtar
             </button>
           </div>
