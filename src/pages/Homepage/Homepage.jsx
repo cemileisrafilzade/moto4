@@ -15,8 +15,10 @@ import {
   cityOptions,
   yearOptions,
 } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 function Homepage() {
+  const navigate=useNavigate()
   return (
     <main className="home">
       <div className="home__hero">
@@ -59,7 +61,7 @@ function Homepage() {
             <button className="home__hero__content__fourthLine__clearBtn">
               Təmizlə &#10005;
             </button>
-            <button className="home__hero__content__fourthLine__moreFilter">
+            <button onClick={()=>navigate('/more-filters')} className="home__hero__content__fourthLine__moreFilter">
               Daha çox filtr
             </button>
             <button className="home__hero__content__fourthLine__search">

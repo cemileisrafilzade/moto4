@@ -1,7 +1,7 @@
 @import "../../assets/colors.scss";
 
 .container {
-  padding: 30px 15%;
+  padding: 30px 18%;
   background-color: $background;
   color: $font;
   min-height: 100vh;
@@ -12,6 +12,7 @@
     }
   }
   .nav {
+    font-family: 'Montserrat',sans-serif  !important;
     a {
       color: $lightFont !important;
     }
@@ -117,7 +118,7 @@
       border: none;
     }
     * {
-      font-family: "Montserrat", sans-serif;
+      font-family: "Montserrat", sans-serif !important;
     }
     .first {
       border-right: 1px solid #0000001a;

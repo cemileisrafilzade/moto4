@@ -1,7 +1,7 @@
 @import "../../assets/colors.scss";
 
 .container {
-  padding: 30px 15%;
+  padding: 30px 18%;
   background-color: $background;
   h1 {
     font-size: 20px;
@@ -40,5 +40,7 @@ font-size: 18px;
   font-weight: 400;
   color: #747474;
   margin: 10px 0 !important;
+  font-family: 'Montserrat',sans-serif  !important;
+
   // background-color: $background !important;
 }
