@@ -37,7 +37,7 @@ function Header() {
         />
         <PrimaryBtn
           text="Yeni Elan"
-          icon={<Icon iconName="Add" />}
+          icon={<Icon iconName="CirclePlus" />}
           handleClick={handleNew}
         />
       </div>

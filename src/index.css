@@ -6,12 +6,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+h1,h2,h3,h4,h5,h6,a,p,li{
+  font-family: 'Montserrat',sans-serif  !important;
+
+}
+
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat',sans-serif;
+  font-family: 'Montserrat',sans-serif ;
+  
+}
+*::selection{
+  color: #ffffff;
+  background-color: #620985;
 }
 a{
   text-decoration: none;
@@ -19,22 +29,29 @@ a{
 ul li{
   list-style: none;
 }
-.css-1oj2twp-MuiPagination-root{
-  display: flex !important;
-  justify-content: center !important;
-  margin: 50px 0 !important;
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  border-radius: 8px !important;
+  margin-top: 10px !important;
+  box-shadow: none !important;
+  border: 1px solid #620985 !important;
+
 }
-.MuiButtonBase-root {
-/* margin: 30px !important; */
-  /* background-color: red !important; */
-  font-size: 16px !important;
-  font-family: 'Montserrat',sans-serif !important;
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected{
+  background-color:#F4F4F4!important;
 }
-.css-10w330c-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected{
-  background-color: #620985 !important;
-  color: #ffffff !important;
+.css-ryrseu-MuiRating-root{
+  margin: 0 auto;
+  color: #D7D700 !important;
 }
-.css-10w330c-MuiButtonBase-root-MuiPaginationItem-root{
-  border: 1px solid #0000001A !important;
-  color: #0000001A !important;
+
+.MuiAutocomplete-option{
+  font-family: 'Montserrat',sans-serif  !important;
+  
+}
+.css-gdh49b-MuiAutocomplete-listbox
+{
+  border: 1px solid #620985 !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
 }
