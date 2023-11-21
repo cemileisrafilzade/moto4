@@ -9,19 +9,25 @@ function Header() {
   const handleNew = () => {
     console.log("handledddd");
   };
-  const location=useLocation()
-  
-  useEffect(()=>{
-    setActivePage(location.pathname)
-  },[location])
-  const [activePage,setActivePage]=useState('/')
+  const location = useLocation();
+
+  useEffect(() => {
+    setActivePage(location.pathname);
+  }, [location]);
+  const [activePage, setActivePage] = useState("/");
   return (
     <div className={styles.header}>
       <img src={logo} alt="" />
       <div className={styles.nav}>
-        <Link className={activePage==='/'&&styles.active} to="/">Ana səhifə</Link>
-        <Link className={activePage==='/elan'&&styles.active} to="/elan">Elanlar</Link>
-        <Link className={activePage==='/faq'&&styles.active} to="/faq">FAQ</Link>
+        <Link className={activePage === "/" && styles.active} to="/">
+          Ana səhifə
+        </Link>
+        <Link className={activePage === "/elan" && styles.active} to="/elan">
+          Elanlar
+        </Link>
+        <Link className={activePage === "/faq" && styles.active} to="/faq">
+          FAQ
+        </Link>
       </div>
       <div className={styles.btns}>
         <PrimaryBtn

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -8,12 +8,30 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export default function OptionInputMultiple({ options, holder }) {
-  const [selectedOptions, setSelectedOptions] = React.useState([]);
+export default function OptionInputMultiple({
+  options,
+  holder,
+  keyValue,
+  handleChange,
+  clear,
+  setClear,
+}) {
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const handleChange = (event, newValue) => {
-    setSelectedOptions(newValue);
+  const handleAutocompleteChange = (event, value) => {
+    setSelectedOptions(value);
+
+    setClear(false);
+    handleChange({
+      target: { name: keyValue, value: value || [] },
+    });
   };
+
+  useEffect(() => {
+    if (clear) {
+      setSelectedOptions([]);
+    }
+  }, [clear]);
 
   return (
     <Autocomplete
@@ -38,7 +56,7 @@ export default function OptionInputMultiple({ options, holder }) {
       }}
       getOptionLabel={(option) => option.title}
       value={selectedOptions}
-      onChange={handleChange}
+      onChange={handleAutocompleteChange}
       renderOption={(props, option, { selected }) => (
         <li
           {...props}
