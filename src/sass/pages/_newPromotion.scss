@@ -1,0 +1,59 @@
+@import "../style";
+
+.new__promotion {
+  width: 100%;
+  padding: 30px 275px 97px 275px;
+  background-color: $background;
+  @include flexbox(
+    $direction: column,
+    $justify: flex-start,
+    $items: flex-start
+  );
+
+  &__titles {
+    @include flexbox(
+      $direction: column,
+      $justify: flex-start,
+      $items: flex-start,
+      $gap: 2rem
+    );
+
+    &__switch {
+      @include flexbox($justify: flex-start, $items: center, $gap: 0.8rem);
+
+      &__btn {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: $lightFont;
+        @extend %font-normal;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &__icon {
+        color: $lightFont;
+        width: 24px;
+        height: 24px;
+        font-weight: normal;
+      }
+    }
+
+    &__main {
+      @extend %font-title1;
+      color: $font;
+    }
+  }
+
+  &__content {
+    @include flexbox(
+      $direction: column,
+      $justify: flex-start,
+      $items: flex-start,
+      $gap: 2rem
+    );
+    margin: 30px 0;
+  }
+}

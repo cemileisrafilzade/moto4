@@ -35,3 +35,18 @@ export const yearOptions = [
   { title: "2022" },
   { title: "2023" },
 ];
+
+export const carTypes = [
+  { name: "SUV", image: "/carTypes/suv.svg", id: 1 },
+  { name: "Compact Car", image: "/carTypes/compact.svg", id: 2 },
+  { name: "Luxury Car", image: "/carTypes/luxury.svg", id: 3 },
+  { name: "Sedan", image: "/carTypes/sedan.svg", id: 4 },
+  { name: "Hatchback", image: "/carTypes/hatchback.svg", id: 5 },
+  {
+    name: "Convertible",
+    image: "/carTypes/convertible.svg",
+    id: 6,
+  },
+  { name: "Pickup", image: "/carTypes/pickup.svg", id: 7 },
+  { name: "Van", image: "/carTypes/van.svg", id: 8 },
+];

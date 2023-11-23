@@ -62,6 +62,7 @@ export default function OptionInputSingle({
               borderTopRightRadius: `${isYear && holder === "Max" && "8px"}`,
               borderBottomRightRadius: `${isYear && holder === "Max" && "8px"}`,
               borderRadius: `${!isYear && "8px"}`,
+              border: "none",
             }}
             placeholder={holder}
           />
