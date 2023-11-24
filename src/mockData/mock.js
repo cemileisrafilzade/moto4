@@ -77,7 +77,7 @@ export const externalColors = [
   { id: 5, name: "Qəhvəyi", color: "#855E1B" },
   { id: 6, name: "Gold", color: "#ffd700" },
   { id: 7, name: "Narıncı", color: "#FF7F23" },
-  { id: 8, name: "Ağ", color: "#FFFFFF" },
+  { id: 8, name: "Ağ", color: "#fff5f5" },
   { id: 9, name: "Mavi", color: "#376EDB" },
   { id: 10, name: "Boz", color: "#ABABAB" },
   { id: 11, name: "Qırmızı", color: "#FF4040" },

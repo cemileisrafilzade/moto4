@@ -1,0 +1,30 @@
+@import '../../assets/colors.scss';
+
+.container{
+  min-height: 100vh;
+  padding: 30px 18%;
+  background-color: $background;
+  .nav {
+    font-family: 'Montserrat',sans-serif  !important;
+    a {
+      color: $lightFont !important;
+    }
+    i {
+      padding: 0 10px;
+      color: $lightFont !important;
+    }
+    margin-bottom: 30px;
+  }
+
+.wrapper{
+display: flex;
+
+justify-content: space-between;
+.leftSide{
+    width:23% ;
+}
+.rightSide{
+    width: 73%;
+
+}
+}}
