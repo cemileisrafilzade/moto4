@@ -2,7 +2,7 @@
 
 .new__promotion {
   width: 100%;
-  padding: 30px 275px 97px 275px;
+  padding: 30px 275px;
   background-color: $background;
   @include flexbox(
     $direction: column,
@@ -55,5 +55,33 @@
       $gap: 2rem
     );
     margin: 30px 0;
+
+    &__divider {
+      width: 100%;
+      height: 1px;
+      background-color: #aaa;
+    }
+
+    &__btn {
+      border-radius: 8px;
+      background: $primary;
+      padding: 15px 64px;
+      @extend %font-normal;
+      color: $white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin: 0 auto;
+
+      &:hover {
+        background-color: $hover;
+      }
+    }
+
+    &__text {
+      margin: 0 auto;
+      color: $red;
+      @extend %font-normal;
+    }
   }
 }

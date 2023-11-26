@@ -4,6 +4,13 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Type from "./components/Type";
 import Room from "./components/Room";
 import Price from "./components/Price";
+import MoreOptions from "./components/MoreOptions";
+import Colors from "./components/Colors";
+import CarSupply from "./components/CarSupply";
+import Others from "./components/Others";
+import Comment from "./components/Comment";
+import Pictures from "./components/Pictures";
+import Contact from "./components/Contact";
 
 import { useNavigate } from "react-router-dom";
 
@@ -33,6 +40,20 @@ const NewPromotion = () => {
         <Type />
         <Room />
         <Price />
+        <MoreOptions />
+        <div className="new__promotion__content__divider" />
+        <Colors />
+        <CarSupply />
+        <Others />
+        <div className="new__promotion__content__divider" />
+        <Comment />
+        <Pictures />
+        <Contact />
+        <div className="new__promotion__content__divider" />
+        <button className="new__promotion__content__btn">Elan yerləşdir</button>
+        <p className="new__promotion__content__text">
+          * olan qırmızı xanaları doldurmaq mütləqdir.
+        </p>
       </div>
     </main>
   );

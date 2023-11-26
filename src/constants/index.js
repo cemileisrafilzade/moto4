@@ -50,3 +50,326 @@ export const carTypes = [
   { name: "Pickup", image: "/carTypes/pickup.svg", id: 7 },
   { name: "Van", image: "/carTypes/van.svg", id: 8 },
 ];
+
+export const typeOfFuel = [
+  {
+    title: "Benzin",
+  },
+  {
+    title: "Dizel",
+  },
+  {
+    title: "Hibrid",
+  },
+];
+
+export const fuelConsumption = [
+  {
+    title: "51/100 km",
+  },
+  {
+    title: "61/100 km",
+  },
+  {
+    title: "71/100 km",
+  },
+];
+
+export const gearBox = [
+  {
+    title: "Mexaniki",
+  },
+  {
+    title: "Avtomat",
+  },
+  {
+    title: "Avtomat(Robot)",
+  },
+];
+
+export const transmission = [
+  {
+    title: "Ön",
+  },
+  {
+    title: "Arxa",
+  },
+  {
+    title: "Tam",
+  },
+];
+
+export const parkingSensor = [
+  {
+    title: "Ön",
+  },
+  {
+    title: "Arxa",
+  },
+  {
+    title: "360 kamera",
+  },
+];
+
+export const speedControl = [
+  {
+    title: "Hamısı",
+  },
+  {
+    title: "Sürət kontrol düzənləməsi",
+  },
+  {
+    title: "Adaptiv kontrol düzənləməsi",
+  },
+];
+
+export const innerMaterial = [
+  {
+    title: "Alkantra",
+  },
+  {
+    title: "Parça",
+  },
+  {
+    title: "Tam dəri",
+  },
+];
+
+export const airBags = [
+  {
+    title: "Hamısı",
+  },
+  {
+    title: "Sürcü hava yastığı",
+  },
+  {
+    title: "Ön təhlükəsizlik yastığı",
+  },
+];
+
+export const seatNumbers = [
+  {
+    title: "1",
+  },
+  {
+    title: "2",
+  },
+  {
+    title: "3",
+  },
+];
+
+export const seller = [
+  {
+    title: "Şəxsi satıcı",
+  },
+  {
+    title: "Satıcı",
+  },
+  {
+    title: "Şirkət",
+  },
+];
+
+export const ownNumbers = [
+  {
+    title: "1",
+  },
+  {
+    title: "2",
+  },
+  {
+    title: "3",
+  },
+];
+
+export const colors = [
+  {
+    id: 1,
+    title: "Qara",
+    code: "#1E1E1E",
+  },
+  {
+    id: 2,
+    title: "Bənövşəyi",
+    code: "#9361FF",
+  },
+  {
+    id: 3,
+    title: "Yaşıl",
+    code: "#7EBA30",
+  },
+  {
+    id: 4,
+    title: "Gümüşü",
+    code: "#EEE ",
+  },
+  {
+    id: 5,
+    title: "Qəhvəyi",
+    code: "#855E1B",
+  },
+  {
+    id: 6,
+    title: "Gold",
+    code: "#FFD200 ",
+  },
+  {
+    id: 7,
+    title: "Narıncı",
+    code: "#FF7F23",
+  },
+  {
+    id: 8,
+    title: "Ağ",
+    code: "#FFF",
+  },
+  {
+    id: 9,
+    title: "Mavi",
+    code: "#376EDB",
+  },
+  {
+    id: 10,
+    title: "Boz",
+    code: "#ABABAB",
+  },
+  {
+    id: 11,
+    title: "Qırmızı",
+    code: "#FF4040",
+  },
+  {
+    id: 12,
+    title: "Metalik",
+    code: "#DFDFDF",
+  },
+  {
+    id: 13,
+    title: "Sarı",
+    code: "#F5D300",
+  },
+  {
+    id: 14,
+    title: "Bej",
+    code: "#DBB67F",
+  },
+];
+
+export const supplies = [
+  {
+    id: 1,
+    title: "ABS",
+  },
+  {
+    id: 2,
+    title: "Məsafə xəbərdarlıq sistemi",
+  },
+  {
+    id: 3,
+    title: "Mərkəzi qapanma",
+  },
+  {
+    id: 4,
+    title: "Start-stop sistemi",
+  },
+  {
+    id: 5,
+    title: "Lyuk",
+  },
+  {
+    id: 6,
+    title: "Adaptiv döngə işıqları",
+  },
+  {
+    id: 7,
+    title: "Ehtiyyat təkər",
+  },
+  {
+    id: 8,
+    title: "Yağış sensoru",
+  },
+  {
+    id: 9,
+    title: "Ksenon lampalar",
+  },
+  {
+    id: 10,
+    title: "Yüngül lehimli disklər",
+  },
+  {
+    id: 11,
+    title: "Qızdırılan ön şüşə",
+  },
+  {
+    id: 12,
+    title: "Duman əleyhinə lampa",
+  },
+  {
+    id: 13,
+    title: "Tv",
+  },
+  {
+    id: 14,
+    title: "USB ports",
+  },
+  {
+    id: 15,
+    title: "Elektrik pəncərələr",
+  },
+  {
+    id: 16,
+    title: "Siqnalizasiya sistemi",
+  },
+  {
+    id: 17,
+    title: "Təcili zəng sistemi",
+  },
+  {
+    id: 18,
+    title: "Oturacaqların isidilməsi",
+  },
+  {
+    id: 19,
+    title: "Dəri sükan",
+  },
+  {
+    id: 20,
+    title: "Bluetooth",
+  },
+  {
+    id: 21,
+    title: "Naviqasiya sistemi",
+  },
+  {
+    id: 22,
+    title: "Oturacaqların havalandırılması",
+  },
+  {
+    id: 23,
+    title: "Toxunma ekran",
+  },
+  {
+    id: 24,
+    title: "WI-FI",
+  },
+  {
+    id: 25,
+    title: "Kondisioner",
+  },
+];
+
+export const others = [
+  {
+    id: 1,
+    title: "Vuruğu yoxdur",
+  },
+  {
+    id: 2,
+    title: "Rənglənməyib",
+  },
+  {
+    id: 3,
+    title: "Qəzalı və ya ehtiyat hissələr üçün",
+  },
+];
