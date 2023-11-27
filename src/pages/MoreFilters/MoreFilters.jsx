@@ -10,10 +10,10 @@ import Internal from "./components/Internal";
 import Additional from "./components/Additional";
 
 function MoreFilters() {
-  const navigate=useNavigate();
-  const handleFilter=()=>{
-    navigate('/result');
-  }
+  const navigate = useNavigate();
+  const handleFilter = () => {
+    navigate("/result");
+  };
   return (
     <div className={styles.container}>
       <Breadcrumbs
@@ -28,12 +28,22 @@ function MoreFilters() {
       <Fundamentals />
       <Technical />
       <External />
-      <Internal/>
-      <Additional/>
+      <Internal />
+      <Additional />
 
       <div className={styles.endBtns}>
-<button className={styles.cancelBtn}>Təmizlə <span><Icon iconName="Cancel"/></span></button>
-<button className={styles.filterBtn} onClick={handleFilter}>Filtrlə <span><Icon iconName="Equalizer"/></span></button>
+        <button className={styles.cancelBtn}>
+          Təmizlə{" "}
+          <span>
+            <Icon iconName="Cancel" />
+          </span>
+        </button>
+        <button className={styles.filterBtn} onClick={handleFilter}>
+          Filtrlə{" "}
+          <span>
+            <Icon iconName="Equalizer" />
+          </span>
+        </button>
       </div>
     </div>
   );

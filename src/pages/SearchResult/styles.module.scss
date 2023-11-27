@@ -1,11 +1,11 @@
-@import '../../assets/colors.scss';
+@import "../../assets/colors.scss";
 
-.container{
+.container {
   min-height: 100vh;
   padding: 30px 18%;
   background-color: $background;
   .nav {
-    font-family: 'Montserrat',sans-serif  !important;
+    font-family: "Montserrat", sans-serif !important;
     a {
       color: $lightFont !important;
     }
@@ -16,15 +16,31 @@
     margin-bottom: 30px;
   }
 
-.wrapper{
-display: flex;
+  .wrapper {
+    display: flex;
 
-justify-content: space-between;
-.leftSide{
-    width:23% ;
+    justify-content: space-between;
+    .leftSide {
+      width: 22%;
+    }
+    .rightSide {
+      width: 76%;
+      h1 {
+        font-weight: 600;
+        font-size: 20px;
+      }
+      .dflex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 25px;
+      }
+    }
+    .products {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+  }
 }
-.rightSide{
-    width: 73%;
-
-}
-}}

@@ -127,12 +127,12 @@
 
   .doubleSelects {
     width: 235px;
-    // margin-right: 20px;
     background-color: $white !important;
     border-radius: 8px;
     display: flex;
     border: 1px solid #0000001a;
     justify-content: space-between !important;
+    margin-right: 20px !important;
     label {
       color: $lightFont;
     }

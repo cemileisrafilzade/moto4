@@ -16,11 +16,13 @@ import {
 } from "@mui/material";
 import { Icon } from "@fluentui/react";
 import { Link } from "react-router-dom";
-import { brands, externalColors, models, years } from "../../../mockData/mock";
+import { accessories, brands, cities, externalColors, fuelTypes, models, showRoom, transmission, years } from "../../../mockData/mock";
 function SearchBar() {
   const [initial, setInitial] = useState(true);
   const [brandname, setBrandname] = useState("Mercedes-Benz ");
   const [model, setModel] = useState("test model");
+  const [city,setCity]=useState("Baku");
+  const [fuelType,setFuelType]=useState("Benzin")
   const handleChangeBrand = (e) => {
     setBrandname(e.target.innerText);
     setInitial(true);
@@ -30,6 +32,18 @@ function SearchBar() {
     // console.log(e);
     setModel("test234");
   };
+  const handleChangeCity=(e)=>{
+    setCity(e.target.innerText);
+    setInitial(true);
+
+  }
+  const handleChangeFuelType=(e)=>{
+// setInitial(true)
+console.log(e);
+  }
+  const handleChangeShowRoom=(e)=>{
+    console.log(e);
+  }
   return (
     <div className={styles.wrapper}>
       <h1>Ətraflı axtarış</h1>
@@ -107,7 +121,7 @@ function SearchBar() {
       {/* ///////////////////////////////////////////////////// */}
       <div className={styles.hr} />
       <Accordion
-         expanded={true}
+        //  expanded= {true}
         className={styles.accordion}
       >
         <AccordionSummary
@@ -305,8 +319,206 @@ function SearchBar() {
         </AccordionDetails>
       </Accordion>
       <div className={styles.hr} />
+{/* /////////////////////////////////////////// */}
+<Accordion className={styles.accordion}>
+        <AccordionSummary
+          onClick={() => {
+            setInitial(true);
+          }}
+          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
+        >
+          <h2>Şəhər</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          {initial ? (
+            <p>
+              {city}
+              <span>
+                <Link onClick={() => setInitial(false)}>Dəyiş</Link>
+              </span>
+            </p>
+          ) : (
+            <Autocomplete
+              onChange={(e) => handleChangeCity(e)}
+              className={styles.autocomplete}
+              options={cities}
+              renderInput={(params) => <TextField {...params} label="Axtar" />}
+            />
+          )}
+        </AccordionDetails>
+      </Accordion>
+        <Accordion className={styles.accordion}>
+        <AccordionSummary
+          onClick={() => {
+            setInitial(true);
+          }}
+          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
+        >
+          <h2>Yanacaq növü</h2>
+        </AccordionSummary>
+   
+        <AccordionDetails>
+          {initial ? (
+            <p>
+              {fuelType}
+              <span>
+                <Link onClick={() => setInitial(false)}>Dəyiş</Link>
+              </span>
+            </p>
+          ) : (
+            <Autocomplete
+              className={styles.autocomplete}
+              multiple
+              onChange={(e) => handleChangeFuelType(e)}
+              disableCloseOnSelect
+              renderOption={(props, option, { selected }) => (
+                <li {...props}>
+                  <Checkbox
+                    // icon={icon}
+                    // checkedIcon={checkedIcon}
+                    style={{ marginRight: 8 }}
+                    checked={selected}
+                  />
+                  {option}
+                </li>
+              )}
+              options={fuelTypes}
+              sx={{ color: "red" }}
+              renderInput={(params) => <TextField {...params} label="Axtar" />}
+            />
+          )}
+        </AccordionDetails>
+      </Accordion> 
+       <Accordion className={styles.accordion}>
+        <AccordionSummary
+          onClick={() => {
+            setInitial(true);
+          }}
+          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
+        >
+          <h2>Avtomobil növü</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          {initial ? (
+            <p>
+              {fuelType}
+              <span>
+                <Link onClick={() => setInitial(false)}>Dəyiş</Link>
+              </span>
+            </p>
+          ) : (
+            <Autocomplete
+              className={styles.autocomplete}
+              multiple
+              onChange={(e) => handleChangeShowRoom(e)}
+              disableCloseOnSelect
+              renderOption={(props, option, { selected }) => (
+                <li {...props}>
+                  <Checkbox
+                    // icon={icon}
+                    // checkedIcon={checkedIcon}
+                    style={{ marginRight: 8 }}
+                    checked={selected}
+                  />
+                  {option.name}
+                </li>
+              )}
+              options={showRoom}
+              sx={{ color: "red" }}
+              renderInput={(params) => <TextField {...params} label="Axtar" />}
+            />
+          )}
+        </AccordionDetails>
+      </Accordion> 
+       <Accordion className={styles.accordion}>
+        <AccordionSummary
+          onClick={() => {
+            setInitial(true);
+          }}
+          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
+        >
+          <h2>Transmissiya</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          {initial ? (
+            <p>
+              {fuelType}
+              <span>
+                <Link onClick={() => setInitial(false)}>Dəyiş</Link>
+              </span>
+            </p>
+          ) : (
+            <Autocomplete
+              className={styles.autocomplete}
+              multiple
+              onChange={(e) => handleChangeShowRoom(e)}
+              disableCloseOnSelect
+              renderOption={(props, option, { selected }) => (
+                <li {...props}>
+                  <Checkbox
+                    // icon={icon}
+                    // checkedIcon={checkedIcon}
+                    style={{ marginRight: 8 }}
+                    checked={selected}
+                  />
+                  {option}
+                </li>
+              )}
+              options={transmission}
+              sx={{ color: "red" }}
+              renderInput={(params) => <TextField {...params} label="Axtar" />}
+            />
+          )}
+        </AccordionDetails>
+      </Accordion>
+      <Accordion className={styles.accordion}>
+        <AccordionSummary
+          onClick={() => {
+            setInitial(true);
+          }}
+          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
+        >
+          <h2>Avtomobil təchizatları</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          {initial ? (
+            <p>
+              {fuelType}
+              <span>
+                <Link onClick={() => setInitial(false)}>Dəyiş</Link>
+              </span>
+            </p>
+          ) : (
+            <Autocomplete
+              className={styles.autocomplete}
+              multiple
+              onChange={(e) => handleChangeShowRoom(e)}
+              disableCloseOnSelect
+              renderOption={(props, option, { selected }) => (
+                <li {...props}>
+                  <Checkbox
+                    // icon={icon}
+                    // checkedIcon={checkedIcon}
+                    style={{ marginRight: 8 }}
+                    checked={selected}
+                  />
+                  {option}
+                </li>
+              )}
+              options={accessories}
+              sx={{ color: "red" }}
+              renderInput={(params) => <TextField {...params} label="Axtar" />}
+            />
+          )}
+        </AccordionDetails>
+      </Accordion>
 
 
+      <div className={styles.hr} />
+
+
+
+{/* /////////////////////////// */}
       <Accordion
    
         className={styles.accordion}

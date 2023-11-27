@@ -1,11 +1,9 @@
 import React from 'react'
 import styles from '../styles.module.scss'
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup } from '@mui/material'
-import { internalColors } from '../../../mockData/mock'
+import { accessories, internalColors } from '../../../mockData/mock'
 function Internal() {
-    const accessories=["Tv","Siqnalizasiya sistemi","Dəri sükan","Oturacaqların havalandırılması","USB ports",
-"Təcili zəng sistemi","Bluetooth","Toxunma ekran","Elektrik pəncərələr","Oturacaqların isidilməsi","Naviqasiya sistemi",
-"WI-FI","Kondisioner"]
+  
   return (
     <section>
     <h2>Daxili</h2>
@@ -200,9 +198,6 @@ function Internal() {
     <FormGroup className={`${styles.flexInputs} ${styles.gridStyle}`}>
       {
           accessories.map((item)=>(
-
-
-
 
               <FormControlLabel
                 control={
