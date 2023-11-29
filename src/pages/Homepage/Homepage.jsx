@@ -36,8 +36,8 @@ function Homepage() {
   const [data, setData] = useState(INITIAL_DATA);
   const [tabOneDefaultValue, setTabOneDefaultValue] = useState("all");
   const [tabTwoDefaultValue, setTwoOneDefaultValue] = useState("all");
-  
-  const navigate=useNavigate()
+
+  const navigate = useNavigate();
 
   const [clear, setClear] = useState(false);
 
@@ -71,7 +71,7 @@ function Homepage() {
 
     setClear(true);
   };
-  
+
   return (
     <main className="home">
       <div className="home__hero">
@@ -190,7 +190,10 @@ function Homepage() {
             >
               Təmizlə &#10005;
             </button>
-            <button onClick={()=>navigate('/more-filters')} className="home__hero__content__fourthLine__moreFilter">
+            <button
+              onClick={() => navigate("/more-filters")}
+              className="home__hero__content__fourthLine__moreFilter"
+            >
               Daha çox filtr
             </button>
             <button

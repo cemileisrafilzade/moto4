@@ -6,7 +6,7 @@ import { showRoom } from "../../mockData/mock";
 function ShowRoom() {
   return (
     <FormGroup className={styles.container}>
-      {showRoom.map((item) => {
+      {data.map((item) => {
         return (
           <FormControlLabel
             key={item.id}
