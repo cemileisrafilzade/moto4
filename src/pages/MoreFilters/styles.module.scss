@@ -216,9 +216,13 @@
 
 
 .endBtns{
-  margin: 30px auto;
+  position: fixed ;
+  bottom: 0;
+  left: 30%;
+  margin: 30px auto !important;
   border-radius: 8px;
-  width: 60%;
+  width: 40%; 
+  
   background-color: #FFFFFF;
   display: flex;
   align-items:center ;

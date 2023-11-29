@@ -1,11 +1,11 @@
-import Compact from "../assets/carTypes/Compact car side view silhouette 1.svg";
-import Luxury from "../assets/carTypes/Luxury car side view silhouette 1.svg";
-import SUV from "../assets/carTypes/Suv car side view silhouette 1.svg";
-import Pickup from "../assets/carTypes/Pickup car side view silhouette 1.svg";
-import Sedan from "../assets/carTypes/Sedan car side view silhouette 1.svg";
-import Hatchback from "../assets/carTypes/Hatchback side view silhouette 1.svg";
-import Convertible from "../assets/carTypes/Convertible car side view silhouette 1.svg";
-import Van from "../assets/carTypes/Van side view silhouette 1.svg";
+// import Compact from "../assets/carTypes/Compact car side view silhouette 1.svg";
+// import Luxury from "../assets/carTypes/Luxury car side view silhouette 1.svg";
+// import SUV from "../assets/carTypes/Suv car side view silhouette 1.svg";
+// import Pickup from "../assets/carTypes/Pickup car side view silhouette 1.svg";
+// import Sedan from "../assets/carTypes/Sedan car side view silhouette 1.svg";
+// import Hatchback from "../assets/carTypes/Hatchback side view silhouette 1.svg";
+// import Convertible from "../assets/carTypes/Convertible car side view silhouette 1.svg";
+// import Van from "../assets/carTypes/Van side view silhouette 1.svg";
 
 export const brands = [
   "Mercedes",
@@ -126,16 +126,16 @@ export const fuelTypes = [
   "Hibrid",
   "Plug-in hibrid",
 ];
-export const showRoom = [
-  { name: "SUV", image: SUV, id: 1 },
-  { name: "Compact Car", image: Compact, id: 2 },
-  { name: "Luxury Car", image: Luxury, id: 3 },
-  { name: "Sedan", image: Sedan, id: 4 },
-  { name: "Hatchback", image: Hatchback, id: 5 },
-  { name: "Convertible", image: Convertible, id: 6 },
-  { name: "Pickup", image: Pickup, id: 7 },
-  { name: "Van", image: Van, id: 8 },
-];
+// export const showRoom = [
+//   { name: "SUV", image: SUV, id: 1 },
+//   { name: "Compact Car", image: Compact, id: 2 },
+//   { name: "Luxury Car", image: Luxury, id: 3 },
+//   { name: "Sedan", image: Sedan, id: 4 },
+//   { name: "Hatchback", image: Hatchback, id: 5 },
+//   { name: "Convertible", image: Convertible, id: 6 },
+//   { name: "Pickup", image: Pickup, id: 7 },
+//   { name: "Van", image: Van, id: 8 },
+// ];
 export const accessories=["Tv","Siqnalizasiya sistemi","Dəri sükan","Oturacaqların havalandırılması","USB ports",
 "Təcili zəng sistemi","Bluetooth","Toxunma ekran","Elektrik pəncərələr","Oturacaqların isidilməsi","Naviqasiya sistemi",
 "WI-FI","Kondisioner"]

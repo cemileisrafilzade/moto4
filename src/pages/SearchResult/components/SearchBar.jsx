@@ -16,7 +16,10 @@ import {
 } from "@mui/material";
 import { Icon } from "@fluentui/react";
 import { Link } from "react-router-dom";
-import { accessories, brands, cities, externalColors, fuelTypes, models, showRoom, transmission, years } from "../../../mockData/mock";
+import { accessories, brands, cities, externalColors, fuelTypes, models,
+  //  showRoom,
+    transmission, years } from "../../../mockData/mock";
+import { carTypes } from "../../../constants";
 function SearchBar() {
   const [initial, setInitial] = useState(true);
   const [brandname, setBrandname] = useState("Mercedes-Benz ");
@@ -423,7 +426,7 @@ console.log(e);
                   {option.name}
                 </li>
               )}
-              options={showRoom}
+              options={carTypes}
               sx={{ color: "red" }}
               renderInput={(params) => <TextField {...params} label="Axtar" />}
             />

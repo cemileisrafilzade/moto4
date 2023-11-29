@@ -2,11 +2,12 @@ import React from "react";
 
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import styles from "./styles.module.scss";
-import { showRoom } from "../../mockData/mock";
+// import { showRoom } from "../../mockData/mock";
+import {carTypes} from '../../constants/index'
 function ShowRoom() {
   return (
     <FormGroup className={styles.container}>
-      {data.map((item) => {
+      {carTypes.map((item) => {
         return (
           <FormControlLabel
             key={item.id}
