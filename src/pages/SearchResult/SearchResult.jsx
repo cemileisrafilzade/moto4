@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import { Breadcrumbs, Pagination } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@fluentui/react";
 import SearchBar from "./components/SearchBar";
 import { products } from "../../mockData/products";
 import ProductCart from "../../components/productCard/ProductCart";
 import OrderFilter from "../../components/orderFilter/OrderFilter";
 function SearchResult() {
+  const navigate=useNavigate();
   return (
     <div className={styles.container}>
       <Breadcrumbs
@@ -31,9 +32,19 @@ function SearchResult() {
           
           </div>
           <div className={styles.products}>
-          {products.map(product=>(
-            <ProductCart product={product}/>
-            ))}
+            {
+              products.length?
+              products.map(product=>(
+                <ProductCart product={product}/>
+                ))
+              
+              :
+              <div className={styles.notFound}>
+                <Icon iconName="ZoomOut"/>
+                <h1>Axtarış nəticəsi tapılmadı</h1>
+                <button onClick={()=>navigate('/')}>Ana səhifəyə qayıt</button>
+              </div>
+            }
             </div>
         </div>
       </div>
@@ -44,3 +55,4 @@ function SearchResult() {
 }
 
 export default SearchResult;
+

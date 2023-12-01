@@ -16,37 +16,53 @@ import {
 } from "@mui/material";
 import { Icon } from "@fluentui/react";
 import { Link } from "react-router-dom";
-import { accessories, brands, cities, externalColors, fuelTypes, models,
+import {
+  accessories,
+  brands,
+  cities,
+  externalColors,
+  fuelTypes,
+  models,
   //  showRoom,
-    transmission, years } from "../../../mockData/mock";
-import { carTypes } from "../../../constants";
+  transmissions,
+  years,
+} from "../../../mockData/mock";
+import { carTypes, filterTabOne } from "../../../constants";
+import DoubleInputs from "./DoubleInputs";
+import MultiSelectAccordion from "./MultiSelectAccordion";
 function SearchBar() {
   const [initial, setInitial] = useState(true);
-  const [brandname, setBrandname] = useState("Mercedes-Benz ");
-  const [model, setModel] = useState("test model");
-  const [city,setCity]=useState("Baku");
-  const [fuelType,setFuelType]=useState("Benzin")
+  const [brandname, setBrandname] = useState("");
+  const [model, setModel] = useState([]);
+  const [city, setCity] = useState("");
+  const [fuelType, setFuelType] = useState([]);
+  const [showRoom, setShowRoom] = useState([]);
+  const [transmission, setTransmission] = useState([]);
+  const [accesory, setAccesory] = useState([]);
   const handleChangeBrand = (e) => {
     setBrandname(e.target.innerText);
     setInitial(true);
   };
-  const handleChangeModel = (e, value) => {
-    // console.log(value);
-    // console.log(e);
-    setModel("test234");
+  const handleChangeModel = (e, newValue) => {
+    console.log(newValue);
+    setModel([...newValue]);
   };
-  const handleChangeCity=(e)=>{
+  const handleChangeCity = (e) => {
     setCity(e.target.innerText);
     setInitial(true);
-
-  }
-  const handleChangeFuelType=(e)=>{
-// setInitial(true)
-console.log(e);
-  }
-  const handleChangeShowRoom=(e)=>{
-    console.log(e);
-  }
+  };
+  const handleChangeFuelType = (e, newValue) => {
+    setFuelType([...newValue]);
+  };
+  const handleChangeShowRoom = (e, newValue) => {
+    setShowRoom([...newValue]);
+  };
+  const handleChangeTransmission = (e, newValue) => {
+    setTransmission([...newValue]);
+  };
+  const handleChangeAccesory = (e, newVal) => {
+    setAccesory(newVal);
+  };
   return (
     <div className={styles.wrapper}>
       <h1>Ətraflı axtarış</h1>
@@ -80,47 +96,7 @@ console.log(e);
       </Accordion>
 
       {/* /////////////////////// */}
-      <Accordion className={styles.accordion}>
-        <AccordionSummary
-          onClick={() => {
-            setInitial(true);
-          }}
-          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
-        >
-          <h2>Model</h2>
-        </AccordionSummary>
-        <AccordionDetails>
-          {initial ? (
-            <p>
-              {model}
-              <span>
-                <Link onClick={() => setInitial(false)}>Dəyiş</Link>
-              </span>
-            </p>
-          ) : (
-            <Autocomplete
-              className={styles.autocomplete}
-              multiple
-              onChange={(e) => handleChangeModel(e)}
-              disableCloseOnSelect
-              renderOption={(props, option, { selected }) => (
-                <li {...props}>
-                  <Checkbox
-                    // icon={icon}
-                    // checkedIcon={checkedIcon}
-                    style={{ marginRight: 8 }}
-                    checked={selected}
-                  />
-                  {option}
-                </li>
-              )}
-              options={models}
-              sx={{ color: "red" }}
-              renderInput={(params) => <TextField {...params} label="Axtar" />}
-            />
-          )}
-        </AccordionDetails>
-      </Accordion>
+     <MultiSelectAccordion models={models}/>
       {/* ///////////////////////////////////////////////////// */}
       <div className={styles.hr} />
       <Accordion
@@ -137,9 +113,7 @@ console.log(e);
         </AccordionSummary>
         <AccordionDetails>
           <FormControl className={styles.radioGroup}>
-            <RadioGroup
-             value="all"
-             >
+            <RadioGroup defaultValue="all">
               <FormControlLabel
                 control={
                   <Radio
@@ -154,7 +128,6 @@ console.log(e);
                 value="all"
                 label="Hamısı"
               />
-
               <FormControlLabel
                 control={
                   <Radio
@@ -169,7 +142,6 @@ console.log(e);
                 value="new"
                 label="Yeni"
               />
-
               <FormControlLabel
                 control={
                   <Radio
@@ -189,49 +161,18 @@ console.log(e);
         </AccordionDetails>
       </Accordion>
       <div className={styles.hr} />
-      {/* ////////////////////////////////////////// */}
       <h2>Qiymət</h2>
-      <div className={styles.doubleInputs}>
-        <TextField
-          className={styles.first}
-          id="outlined-basic"
-          type="number"
-          label="Min"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-basic"
-          type="number"
-          label="Max"
-          variant="outlined"
-        />
-      </div>
-      {/* ////////////////////////////////////////// */}
+      <DoubleInputs l1="Min" l2="Max" />
+
       <h2>Yürüyüş</h2>
-      <div className={styles.doubleInputs}>
-        <TextField
-          className={styles.first}
-          id="outlined-basic"
-          type="number"
-          label="Min"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-basic"
-          type="number"
-          label="Max"
-          variant="outlined"
-        />
-      </div>
+      <DoubleInputs l1="Min" l2="Max" />
       <h2>İl</h2>
 
       <div className={styles.doubleSelects}>
         <Autocomplete
           options={years}
           className={styles.first}
-          renderInput={(params) => (
-            <TextField {...params} label="Min" />
-          )}
+          renderInput={(params) => <TextField {...params} label="Min" />}
         />
         <Autocomplete
           className={styles.second}
@@ -239,50 +180,15 @@ console.log(e);
           renderInput={(params) => <TextField {...params} label="Max" />}
         />
       </div>
-      {/* ////////////////////////////////////////// */}
       <h2>Güc, kW</h2>
-      <div className={styles.doubleInputs}>
-        <TextField
-          className={styles.first}
-          id="outlined-basic"
-          type="number"
-          label="Min"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-basic"
-          type="number"
-          label="Max"
-          variant="outlined"
-        />
-      </div>
-      {/* ////////////////////////////////////////// */}
+      <DoubleInputs l1="Min" l2="Max" />
       <h2>
         Həcm,
         <sup className={styles.sup}> sm3</sup>
       </h2>
-      <div className={styles.doubleInputs}>
-        <TextField
-          className={styles.first}
-          id="outlined-basic"
-          type="number"
-          label="Min"
-          variant="outlined"
-        />
-        <TextField
-          id="outlined-basic"
-          type="number"
-          label="Max"
-          variant="outlined"
-        />
-      </div>
+      <DoubleInputs l1="Min" l2="Max" />
       <div className={styles.hr} />
-   
-
-      <Accordion
-   
-        className={styles.accordion}
-      >
+      <Accordion className={styles.accordion}>
         <AccordionSummary
           onClick={() => {
             setInitial(true);
@@ -292,38 +198,32 @@ console.log(e);
           <h2>Xarici rəngi</h2>
         </AccordionSummary>
         <AccordionDetails>
-        <FormGroup className={`${styles.flexInputs} ${styles.colors}`}>
-        {
-            externalColors.map((item)=>(
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      sx={{
-                        '& .MuiSvgIcon-root': {
-                            color: item.color,
-                          },
-                          '&.Mui-checked': {
-                            '& .MuiSvgIcon-root': {
-                              backgroundColor: 'transparent',
-                            },
-                          },
-                      }}
-                    />
-                  }
-                  // label={item.name}
-                />
-
-            ))
-        }
-       
-    
-      
-      </FormGroup>
+          <FormGroup className={`${styles.flexInputs} ${styles.colors}`}>
+            {externalColors.map((item) => (
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    sx={{
+                      "& .MuiSvgIcon-root": {
+                        color: item.color,
+                      },
+                      "&.Mui-checked": {
+                        "& .MuiSvgIcon-root": {
+                          backgroundColor: "transparent",
+                        },
+                      },
+                    }}
+                  />
+                }
+                // label={item.name}
+              />
+            ))}
+          </FormGroup>
         </AccordionDetails>
       </Accordion>
       <div className={styles.hr} />
-{/* /////////////////////////////////////////// */}
-<Accordion className={styles.accordion}>
+      {/* /////////////////////////////////////////// */}
+      <Accordion className={styles.accordion}>
         <AccordionSummary
           onClick={() => {
             setInitial(true);
@@ -350,7 +250,7 @@ console.log(e);
           )}
         </AccordionDetails>
       </Accordion>
-        <Accordion className={styles.accordion}>
+      <Accordion className={styles.accordion}>
         <AccordionSummary
           onClick={() => {
             setInitial(true);
@@ -359,11 +259,13 @@ console.log(e);
         >
           <h2>Yanacaq növü</h2>
         </AccordionSummary>
-   
+
         <AccordionDetails>
           {initial ? (
             <p>
-              {fuelType}
+              {fuelType.map((item) => (
+                <>{item} , </>
+              ))}
               <span>
                 <Link onClick={() => setInitial(false)}>Dəyiş</Link>
               </span>
@@ -372,7 +274,7 @@ console.log(e);
             <Autocomplete
               className={styles.autocomplete}
               multiple
-              onChange={(e) => handleChangeFuelType(e)}
+              onChange={(e, value) => handleChangeFuelType(e, value)}
               disableCloseOnSelect
               renderOption={(props, option, { selected }) => (
                 <li {...props}>
@@ -391,8 +293,8 @@ console.log(e);
             />
           )}
         </AccordionDetails>
-      </Accordion> 
-       <Accordion className={styles.accordion}>
+      </Accordion>
+      <Accordion className={styles.accordion}>
         <AccordionSummary
           onClick={() => {
             setInitial(true);
@@ -404,7 +306,9 @@ console.log(e);
         <AccordionDetails>
           {initial ? (
             <p>
-              {fuelType}
+              {showRoom.map((item) => (
+                <>{item.name} , </>
+              ))}
               <span>
                 <Link onClick={() => setInitial(false)}>Dəyiş</Link>
               </span>
@@ -413,7 +317,7 @@ console.log(e);
             <Autocomplete
               className={styles.autocomplete}
               multiple
-              onChange={(e) => handleChangeShowRoom(e)}
+              onChange={(e, newValue) => handleChangeShowRoom(e, newValue)}
               disableCloseOnSelect
               renderOption={(props, option, { selected }) => (
                 <li {...props}>
@@ -427,13 +331,14 @@ console.log(e);
                 </li>
               )}
               options={carTypes}
+              getOptionLabel={(option) => option.name}
               sx={{ color: "red" }}
               renderInput={(params) => <TextField {...params} label="Axtar" />}
             />
           )}
         </AccordionDetails>
-      </Accordion> 
-       <Accordion className={styles.accordion}>
+      </Accordion>
+      <Accordion className={styles.accordion}>
         <AccordionSummary
           onClick={() => {
             setInitial(true);
@@ -445,7 +350,9 @@ console.log(e);
         <AccordionDetails>
           {initial ? (
             <p>
-              {fuelType}
+              {transmission.map((item) => (
+                <>{item} , </>
+              ))}
               <span>
                 <Link onClick={() => setInitial(false)}>Dəyiş</Link>
               </span>
@@ -454,7 +361,7 @@ console.log(e);
             <Autocomplete
               className={styles.autocomplete}
               multiple
-              onChange={(e) => handleChangeShowRoom(e)}
+              onChange={(e, newVal) => handleChangeTransmission(e, newVal)}
               disableCloseOnSelect
               renderOption={(props, option, { selected }) => (
                 <li {...props}>
@@ -467,7 +374,7 @@ console.log(e);
                   {option}
                 </li>
               )}
-              options={transmission}
+              options={transmissions}
               sx={{ color: "red" }}
               renderInput={(params) => <TextField {...params} label="Axtar" />}
             />
@@ -486,7 +393,9 @@ console.log(e);
         <AccordionDetails>
           {initial ? (
             <p>
-              {fuelType}
+              {accesory.map((item) => (
+                <>{item} ,</>
+              ))}
               <span>
                 <Link onClick={() => setInitial(false)}>Dəyiş</Link>
               </span>
@@ -495,7 +404,7 @@ console.log(e);
             <Autocomplete
               className={styles.autocomplete}
               multiple
-              onChange={(e) => handleChangeShowRoom(e)}
+              onChange={(e, newVal) => handleChangeAccesory(e, newVal)}
               disableCloseOnSelect
               renderOption={(props, option, { selected }) => (
                 <li {...props}>
@@ -516,16 +425,9 @@ console.log(e);
         </AccordionDetails>
       </Accordion>
 
-
       <div className={styles.hr} />
-
-
-
-{/* /////////////////////////// */}
-      <Accordion
-   
-        className={styles.accordion}
-      >
+      {/* /////////////////////////// */}
+      <Accordion className={styles.accordion}>
         <AccordionSummary
           onClick={() => {
             setInitial(true);
@@ -536,9 +438,7 @@ console.log(e);
         </AccordionSummary>
         <AccordionDetails>
           <FormControl className={styles.radioGroup}>
-            <RadioGroup
-             value="all"
-             >
+            <RadioGroup defaultValue="all">
               <FormControlLabel
                 control={
                   <Radio
@@ -587,83 +487,89 @@ console.log(e);
           </FormControl>
         </AccordionDetails>
       </Accordion>
-      <Accordion
-   
-   className={styles.accordion}
- >
-   <AccordionSummary
-     onClick={() => {
-       setInitial(true);
-     }}
-     expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
-   >
-     <h2>Satıcı reytinqi</h2>
-   </AccordionSummary>
-   <AccordionDetails>
-     <FormControl className={styles.radioGroup}>
-       <RadioGroup
-        // value="all"
+      <Accordion className={styles.accordion}>
+        <AccordionSummary
+          onClick={() => {
+            setInitial(true);
+          }}
+          expandIcon={<Icon className={styles.bold} iconName="ChevronUp" />}
         >
-         <FormControlLabel
-           control={
-             <Radio
-               sx={{
-                 color: "#bbbbbb",
-                 "&.Mui-checked": {
-                   color: "#620985",
-                 },
-               }}
-             />
-           }
-           value="all"
-           label={<Rating
-            className={styles.ratings}
-                name="size-medium" value={3}
-                readOnly
-            />}
-         />
+          <h2>Satıcı reytinqi</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          <FormControl className={styles.radioGroup}>
+            <RadioGroup
+            // value="all"
+            >
+              <FormControlLabel
+                control={
+                  <Radio
+                    sx={{
+                      color: "#bbbbbb",
+                      "&.Mui-checked": {
+                        color: "#620985",
+                      },
+                    }}
+                  />
+                }
+                value="all"
+                label={
+                  <Rating
+                    className={styles.ratings}
+                    name="size-medium"
+                    value={3}
+                    readOnly
+                  />
+                }
+              />
 
-         <FormControlLabel
-           control={
-             <Radio
-               sx={{
-                 color: "#bbbbbb",
-                 "&.Mui-checked": {
-                   color: "#620985",
-                 },
-               }}
-             />
-           }
-           value="seller"
-           label={<Rating
-            className={styles.ratings}
-                name="size-medium" value={4}
-                readOnly
-            />}
-         />
+              <FormControlLabel
+                control={
+                  <Radio
+                    sx={{
+                      color: "#bbbbbb",
+                      "&.Mui-checked": {
+                        color: "#620985",
+                      },
+                    }}
+                  />
+                }
+                value="seller"
+                label={
+                  <Rating
+                    className={styles.ratings}
+                    name="size-medium"
+                    value={4}
+                    readOnly
+                  />
+                }
+              />
 
-         <FormControlLabel
-           control={
-             <Radio
-               sx={{
-                 color: "#bbbbbb",
-                 "&.Mui-checked": {
-                   color: "#620985",
-                 },
-               }}
-             />
-           }
-           value="private"
-           label={<Rating
-            className={styles.ratings}
-                name="size-medium" value={5}
-                readOnly
-            />}
-         />
-       </RadioGroup>
-     </FormControl>
-   </AccordionDetails>
- </Accordion>
+              <FormControlLabel
+                control={
+                  <Radio
+                    sx={{
+                      color: "#bbbbbb",
+                      "&.Mui-checked": {
+                        color: "#620985",
+                      },
+                    }}
+                  />
+                }
+                value="private"
+                label={
+                  <Rating
+                    className={styles.ratings}
+                    name="size-medium"
+                    value={5}
+                    readOnly
+                  />
+                }
+              />
+            </RadioGroup>
+          </FormControl>
+        </AccordionDetails>
+      </Accordion>
     </div>
   );
 }

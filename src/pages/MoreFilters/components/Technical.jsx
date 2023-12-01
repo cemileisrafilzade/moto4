@@ -13,7 +13,7 @@ import {
 import {
   fuelConsumption,
   fuelTypes,
-  transmission,
+  transmissions,
 } from "../../../mockData/mock";
 function Technical() {
   return (
@@ -39,7 +39,7 @@ function Technical() {
       </FormGroup>
       <h3>Transmissiya</h3>
       <FormGroup className={styles.flexInputs}>
-        {transmission.map((item) => (
+        {transmissions.map((item) => (
           <FormControlLabel
             control={
               <Checkbox

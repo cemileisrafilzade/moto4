@@ -112,7 +112,7 @@ export const internalColors = [
   { id: 8, name: "Digər", color: "#FFFFFF" },
 ];
 
-export const transmission = [
+export const transmissions = [
   "Mexaniki",
   "Avtomat",
   "Avtomat(robot)",
