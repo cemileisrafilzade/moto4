@@ -136,6 +136,33 @@ export const fuelTypes = [
 //   { name: "Pickup", image: Pickup, id: 7 },
 //   { name: "Van", image: Van, id: 8 },
 // ];
-export const accessories=["Tv","Siqnalizasiya sistemi","Dəri sükan","Oturacaqların havalandırılması","USB ports",
-"Təcili zəng sistemi","Bluetooth","Toxunma ekran","Elektrik pəncərələr","Oturacaqların isidilməsi","Naviqasiya sistemi",
-"WI-FI","Kondisioner"]
+export const accessories = [
+  "Tv",
+  "Siqnalizasiya sistemi",
+  "Dəri sükan",
+  "Oturacaqların havalandırılması",
+  "USB ports",
+  "Təcili zəng sistemi",
+  "Bluetooth",
+  "Toxunma ekran",
+  "Elektrik pəncərələr",
+  "Oturacaqların isidilməsi",
+  "Naviqasiya sistemi",
+  "WI-FI",
+  "Kondisioner",
+];
+
+export const status = [ {id:1,label:"Hamısı",value:"all"},{id:2,label:"Yeni",value:"new"},{ id:3,label:"Sürülmüş",value:"old"}];
+export const seller = [{id:1,label:"Hamısı",value:"all"},{ id:2,label:"Satıcı",value:"seller"}, {id:3,label:"Şəxsi satıcı",value:"private"}];
+export const rating=[
+  {
+    id:1,
+    label:"3",value:3
+  }, {
+    id:2,
+    label:"4",value:4
+  }, {
+    id:3,
+    label:"5",value:5
+  },
+]

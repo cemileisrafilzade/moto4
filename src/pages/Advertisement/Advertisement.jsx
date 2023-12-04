@@ -4,6 +4,7 @@ import OrderFilter from "../../components/orderFilter/OrderFilter";
 import { products } from "../../mockData/products";
 import ProductCart from "../../components/productCard/ProductCart";
 import { Pagination } from "@mui/material";
+import { Icon } from "@fluentui/react";
 
 
 
@@ -14,7 +15,8 @@ function Advertisement() {
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
         <h1>Statistik elanlar</h1>
-        <OrderFilter title="Rating" />
+        <a href="">Hamısına bax <span><Icon iconName="ChromeBackMirrored"/></span></a>
+        {/* <OrderFilter title="Rating" /> */}
       </div>
 
       <div className={styles.products}>
@@ -28,7 +30,9 @@ function Advertisement() {
 {/* //////////////////////////// */}
 <div className={styles.titleWrapper}>
         <h1>Yeni elanlar</h1>
-        <OrderFilter title="Tarix" />
+        <a href="">Hamısına bax <span><Icon iconName="ChromeBackMirrored"/></span></a>
+
+        {/* <OrderFilter title="Tarix" /> */}
       </div>
 
       <div className={styles.products}>

@@ -7,8 +7,9 @@ import SearchBar from "./components/SearchBar";
 import { products } from "../../mockData/products";
 import ProductCart from "../../components/productCard/ProductCart";
 import OrderFilter from "../../components/orderFilter/OrderFilter";
+import notFound from '../../assets/Unhappy Result.svg'
 function SearchResult() {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       <Breadcrumbs
@@ -17,7 +18,7 @@ function SearchResult() {
         aria-label="breadcrumb"
       >
         <Link to="/">Ana səhifə</Link>
-        <Link to='/more-filters'>Axtarışım</Link>
+        <Link to="/more-filters">Axtarışım</Link>
         <Link>2000 nəticə</Link>
       </Breadcrumbs>
       <div className={styles.wrapper}>
@@ -26,33 +27,28 @@ function SearchResult() {
         </div>
         <div className={styles.rightSide}>
           <div className={styles.dflex}>
-
-<h1>Mercedes-Benz, S 500</h1>
-          <OrderFilter title="Sırala"/>
-          
+            <h1>Mercedes-Benz, S 500</h1>
+            <OrderFilter title="Sırala" />
           </div>
           <div className={styles.products}>
-            {
-              products.length?
-              products.map(product=>(
-                <ProductCart product={product}/>
-                ))
-              
-              :
+            {products.length ? (
+              products.map((product) => <ProductCart product={product} />)
+            ) : (
               <div className={styles.notFound}>
-                <Icon iconName="ZoomOut"/>
+                <img src={notFound} alt="" />
+                {/* <Icon iconName="ZoomOut" /> */}
                 <h1>Axtarış nəticəsi tapılmadı</h1>
-                <button onClick={()=>navigate('/')}>Ana səhifəyə qayıt</button>
+                <button onClick={() => navigate("/")}>
+                  Ana səhifəyə qayıt
+                </button>
               </div>
-            }
-            </div>
+            )}
+          </div>
         </div>
       </div>
-      <Pagination  count={10} shape="rounded" />
-
+      <Pagination count={10} shape="rounded" />
     </div>
   );
 }
 
 export default SearchResult;
-
