@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../../sass/pages/_carDetail.scss";
 
 import CarSwipper from "../../scenes/CarSwipper";
+import { carPictures } from "../../assets/index";
 
 const CarDetail = () => {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
@@ -71,12 +72,12 @@ const CarDetail = () => {
         </div>
         {isSliderOpen && (
           <div className="car__detail__modal">
-            <CarSwipper />
+            <CarSwipper images={carPictures} />
             <button
               className="car__detail__modal__closeBtn"
               onClick={handleOpenSlider}
             >
-              Close
+              <img src="/carDetail/close.png" alt="close" />
             </button>
           </div>
         )}

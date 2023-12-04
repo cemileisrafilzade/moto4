@@ -1,7 +1,25 @@
-import React from "react";
+import PropTypes from "prop-types";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
-const CarSwipper = () => {
-  return <div>swipper</div>;
+import "../sass/layout/_carSwipper.scss";
+
+const CarSwipper = (props) => {
+  return (
+    <div className="carousel__container">
+      <Carousel infiniteLoop autoPlay>
+        {props.images.map((img, index) => (
+          <div className="image">
+            <img key={index} src={img} alt="car" />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
+
+CarSwipper.propTypes = {
+  images: PropTypes.array.isRequired,
 };
 
 export default CarSwipper;

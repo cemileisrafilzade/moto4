@@ -129,19 +129,23 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
     top: 0;
     left: 0;
 
     &__closeBtn {
       position: fixed;
-      top: 20px;
-      right: 20px;
-      color: $white;
-      cursor: pointer;
+      top: 25px;
+      right: 25px;
       border: none;
       outline: none;
       background-color: transparent;
+
+      img {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+      }
     }
   }
 }
