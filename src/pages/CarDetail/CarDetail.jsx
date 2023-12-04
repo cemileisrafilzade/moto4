@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import "../../sass/pages/_carDetail.scss";
 
 import CarSwipper from "../../scenes/CarSwipper";
+import ExtraInfo from "./components/ExtraInfo";
+import OwnerInfo from "./components/OwnerInfo";
+import CurrencyConvertor from "./components/CurrencyConvertor";
+
 import { carPictures } from "../../assets/index";
 
 const CarDetail = () => {
@@ -81,6 +85,23 @@ const CarDetail = () => {
             </button>
           </div>
         )}
+      </div>
+      <div className="car__detail__additional">
+        <div className="car__detail__additional__left">
+          <ExtraInfo />
+        </div>
+        <div className="car__detail__additional__right">
+          <CurrencyConvertor />
+          <OwnerInfo />
+          <div className="car__detail__additional__right__vin">
+            <div className="car__detail__additional__right__vin__key">
+              VİN kod:
+            </div>
+            <div className="car__detail__additional__right__vin__value">
+              WDD12345678901234
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
