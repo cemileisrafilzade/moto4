@@ -11,6 +11,7 @@ import Advertisement from "./pages/Advertisement/Advertisement";
 import MoreFilters from "./pages/MoreFilters/MoreFilters";
 import NewPromotion from "./pages/NewPromotion/NewPromotion";
 import SearchResult from "./pages/SearchResult/SearchResult";
+import ComparisonPage from "./pages/Comparison/ComparisonPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -24,6 +25,7 @@ root.render(
           <Route path="/more-filters" element={<MoreFilters />} />
           <Route path="/new-promotion" element={<NewPromotion />} />
           <Route path="/result" element={<SearchResult/>}/>
+          <Route path="/comparison" element={<ComparisonPage/>}/>
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -5,6 +5,7 @@
   max-width: 250px;
   background-color: $white;
   cursor: pointer;
+  transition: .2s ease-in-out;
   ul {
     display: flex;
     align-items: center;

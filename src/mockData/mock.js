@@ -166,3 +166,8 @@ export const rating=[
     label:"5",value:5
   },
 ]
+export const comparisons=[
+  {id:1,label:"Hamısı",value:"all"},
+  {id:2,label:"Oxşarlıqlar",value:"similar"},
+  {id:3,label:"Fərqlər",value:"difference"},
+]
