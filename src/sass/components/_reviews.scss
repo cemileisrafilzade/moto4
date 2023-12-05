@@ -20,8 +20,44 @@
   &__content {
     width: 100%;
 
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 24px;
+      height: 24px;
+      color: $primary;
+    }
+
     &__item {
-      text-align: center;
+      @include flexbox(
+        $direction: column,
+        $justify: space-between,
+        $items: flex-start,
+        $gap: 1rem
+      );
+      padding: 0 50px;
+
+      &__header {
+        @include flexbox($justify: flex-start, $items: center, $gap: 0.625rem);
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 100px;
+          object-fit: cover;
+        }
+
+        &__name {
+          @extend %font-normal2;
+          color: $font;
+        }
+      }
+
+      &__body {
+        margin-top: 0.5rem;
+        @extend %font-normal;
+        letter-spacing: 0.16px;
+        color: $grey1;
+      }
     }
   }
 }

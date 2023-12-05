@@ -1081,13 +1081,13 @@ export const products = [
       {
         id: 1,
         person: "Ruslan Qasımov",
-        imgUrl: "/carDetail/person1.png",
+        imgUrl: "person1.jpg",
         note: "Vüqar bəydən mən də maşın  almışam və təcrübəmi bölüşmək istəyirəm. Heç bir qüsuru yoxdur və artıq 3 ildir ki, sürürəm. ",
       },
       {
         id: 2,
         person: "Arif Bayramlı",
-        imgUrl: "/carDetail/person2.png",
+        imgUrl: "person2.jpg",
         note: "Vuruğu,udarı yoxdur. Otur sür. Artıq 3 ildir ki, sürürəm.",
       },
     ],

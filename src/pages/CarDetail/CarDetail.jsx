@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "../../sass/pages/_carDetail.scss";
+
+import { products } from "../../mockData/products";
 
 import CarSwipper from "../../scenes/CarSwipper";
 import ExtraInfo from "./components/ExtraInfo";
@@ -12,6 +14,8 @@ import OtherAdvantages from "./components/OtherAdvantages";
 import Note from "./components/Note";
 import AboutDealer from "./components/AboutDealer";
 import Reviews from "./components/Reviews";
+
+import ProductCart from "../../components/productCard/ProductCart";
 
 import { carPictures } from "../../assets/index";
 
@@ -101,6 +105,7 @@ const CarDetail = () => {
           <Note />
           <AboutDealer />
           <Reviews />
+          <div className="car__detail__additional__left__divider" />
         </div>
         <div className="car__detail__additional__right">
           <CurrencyConvertor />
@@ -113,6 +118,21 @@ const CarDetail = () => {
               WDD12345678901234
             </div>
           </div>
+        </div>
+      </div>
+      <div className="car__detail__similar">
+        <div className="car__detail__similar__header">
+          <div className="car__detail__similar__header__title">
+            Bənzər elanlar
+          </div>
+          <a href="/" className="car__detail__similar__header__link">
+            Hamısına bax <img src="/carDetail/link.png" alt="link" />
+          </a>
+        </div>
+        <div className="car__detail__similar__content">
+          {products.map((product) => {
+            return <ProductCart key={product.id} product={product} />;
+          })}
         </div>
       </div>
     </div>

@@ -25,8 +25,17 @@ const Reviews = () => {
         modules={[Navigation]}
         className="mySwiper reviews__content"
       >
-        <SwiperSlide className="reviews__content__item">Slide 1</SwiperSlide>
-        <SwiperSlide className="reviews__content__item">Slide 2</SwiperSlide>
+        {product[0].reviews.map((review) => (
+          <SwiperSlide className="reviews__content__item">
+            <div key={review.id} className="reviews__content__item__header">
+              <img src={`/carDetail/person${review.id}.jpg`} alt="person" />
+              <span className="reviews__content__item__header__name">
+                {review.person}
+              </span>
+            </div>
+            <div className="reviews__content__item__body">{review.note}</div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

@@ -10,7 +10,10 @@ function ProductCart({ product }) {
   return (
     <div
       className={styles.cardWrapper}
-      onClick={() => navigate(`/auto/${product.id}`)}
+      onClick={() => {
+        navigate(`/auto/${product.id}`);
+        window.scrollTo(0, 0);
+      }}
     >
       <div className={styles.top}>
         <div className={styles.btns}>
