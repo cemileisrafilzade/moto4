@@ -1,3 +1,12 @@
+// import Compact from "../assets/carTypes/Compact car side view silhouette 1.svg";
+// import Luxury from "../assets/carTypes/Luxury car side view silhouette 1.svg";
+// import SUV from "../assets/carTypes/Suv car side view silhouette 1.svg";
+// import Pickup from "../assets/carTypes/Pickup car side view silhouette 1.svg";
+// import Sedan from "../assets/carTypes/Sedan car side view silhouette 1.svg";
+// import Hatchback from "../assets/carTypes/Hatchback side view silhouette 1.svg";
+// import Convertible from "../assets/carTypes/Convertible car side view silhouette 1.svg";
+// import Van from "../assets/carTypes/Van side view silhouette 1.svg";
+
 export const brands = [
   "Mercedes",
   "Toyota",
@@ -77,7 +86,7 @@ export const externalColors = [
   { id: 5, name: "Qəhvəyi", color: "#855E1B" },
   { id: 6, name: "Gold", color: "#ffd700" },
   { id: 7, name: "Narıncı", color: "#FF7F23" },
-  { id: 8, name: "Ağ", color: "#FFFFFF" },
+  { id: 8, name: "Ağ", color: "#fff5f5" },
   { id: 9, name: "Mavi", color: "#376EDB" },
   { id: 10, name: "Boz", color: "#ABABAB" },
   { id: 11, name: "Qırmızı", color: "#FF4040" },
@@ -102,3 +111,58 @@ export const internalColors = [
   },
   { id: 8, name: "Digər", color: "#FFFFFF" },
 ];
+
+export const transmissions = [
+  "Mexaniki",
+  "Avtomat",
+  "Avtomat(robot)",
+  " Avtomat(variator)",
+  "Reduktor",
+];
+export const fuelTypes = [
+  "Benzin",
+  "Dizel",
+  "Elektrik",
+  "Hibrid",
+  "Plug-in hibrid",
+];
+// export const showRoom = [
+//   { name: "SUV", image: SUV, id: 1 },
+//   { name: "Compact Car", image: Compact, id: 2 },
+//   { name: "Luxury Car", image: Luxury, id: 3 },
+//   { name: "Sedan", image: Sedan, id: 4 },
+//   { name: "Hatchback", image: Hatchback, id: 5 },
+//   { name: "Convertible", image: Convertible, id: 6 },
+//   { name: "Pickup", image: Pickup, id: 7 },
+//   { name: "Van", image: Van, id: 8 },
+// ];
+export const accessories = [
+  "Tv",
+  "Siqnalizasiya sistemi",
+  "Dəri sükan",
+  "Oturacaqların havalandırılması",
+  "USB ports",
+  "Təcili zəng sistemi",
+  "Bluetooth",
+  "Toxunma ekran",
+  "Elektrik pəncərələr",
+  "Oturacaqların isidilməsi",
+  "Naviqasiya sistemi",
+  "WI-FI",
+  "Kondisioner",
+];
+
+export const status = [ {id:1,label:"Hamısı",value:"all"},{id:2,label:"Yeni",value:"new"},{ id:3,label:"Sürülmüş",value:"old"}];
+export const seller = [{id:1,label:"Hamısı",value:"all"},{ id:2,label:"Satıcı",value:"seller"}, {id:3,label:"Şəxsi satıcı",value:"private"}];
+export const rating=[
+  {
+    id:1,
+    label:"3",value:3
+  }, {
+    id:2,
+    label:"4",value:4
+  }, {
+    id:3,
+    label:"5",value:5
+  },
+]

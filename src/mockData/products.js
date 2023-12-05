@@ -6,6 +6,7 @@ import mercedesS500 from "../assets/productImgs/mercedesS500.svg";
 import mercedesG55 from "../assets/productImgs/mercedesG55.svg";
 
 export const products = [
+
   {
     id: 1,
     salon: false,

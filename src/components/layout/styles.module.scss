@@ -18,6 +18,7 @@
       font-weight: 400;
       color: $primary;
       &:hover {
+        transition: .2s ease-in-out;
         font-weight: 500;
         color: $focus;
         padding-bottom: 5px;

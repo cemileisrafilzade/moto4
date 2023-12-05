@@ -1,149 +1,62 @@
-import React from 'react'
-import styles from '../styles.module.scss'
-import { Autocomplete, Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, TextField } from '@mui/material'
-import { fuelConsumption } from '../../../mockData/mock'
+import React from "react";
+import styles from "../styles.module.scss";
+import {
+  Autocomplete,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
+import {
+  fuelConsumption,
+  fuelTypes,
+  transmissions,
+} from "../../../mockData/mock";
 function Technical() {
   return (
     <section>
-    <h2>Texniki məlumatlar</h2>
-    <h3>Yanacaq növü</h3>
-    <FormGroup className={styles.flexInputs}>
-      <FormControlLabel
-        control={
-          <Checkbox
-          sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
+      <h2>Texniki məlumatlar</h2>
+      <h3>Yanacaq növü</h3>
+      <FormGroup className={styles.flexInputs}>
+        {fuelTypes.map((item) => (
+          <FormControlLabel
+            control={
+              <Checkbox
+                sx={{
+                  color: "#BBBBBB",
+                  "&.Mui-checked": {
+                    color: "#620985",
+                  },
+                }}
+              />
+            }
+            label={item}
           />
-        }
-        label="Benzin"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
+        ))}
+      </FormGroup>
+      <h3>Transmissiya</h3>
+      <FormGroup className={styles.flexInputs}>
+        {transmissions.map((item) => (
+          <FormControlLabel
+            control={
+              <Checkbox
+                sx={{
+                  color: "#BBBBBB",
+                  "&.Mui-checked": {
+                    color: "#620985",
+                  },
+                }}
+              />
+            }
+            label={item}
           />
-        }
-        label="Dizel"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Elektrik"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Hibrid"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Plug-in hibrid"
-      />
-    </FormGroup>
-    <h3>Transmissiya</h3>
-    <FormGroup className={styles.flexInputs}>
-      <FormControlLabel
-        control={
-          <Checkbox
-          sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Mexaniki"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Avtomat"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Avtomat(Robot)"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Avtomat(Variator)"
-      />
-      <FormControlLabel
-        control={
-          <Checkbox
-            sx={{
-              color: "#BBBBBB",
-              "&.Mui-checked": {
-                color: "#620985",
-              },
-            }}
-          />
-        }
-        label="Reduktor"
-      />
-    </FormGroup>
+        ))}
+      </FormGroup>
 
-    <div className={styles.technicalInputs}>
+      <div className={styles.technicalInputs}>
         <div className={styles.doubleInputs}>
           <TextField
             className={styles.first}
@@ -175,17 +88,17 @@ function Technical() {
           />
         </div>
         <Autocomplete
-        className={styles.autocomplete}
-        options={fuelConsumption}
-        renderInput={(params) => (
-          <TextField {...params} label="Yanacaq sərfiyyatı" />
-        )}
-      />{" "}
+          className={styles.autocomplete}
+          options={fuelConsumption}
+          renderInput={(params) => (
+            <TextField {...params} label="Yanacaq sərfiyyatı" />
+          )}
+        />{" "}
       </div>
 
-    <h3>Ötürücü</h3>
-    
-    <FormControl className={styles.radioGroup}>
+      <h3>Ötürücü</h3>
+
+      <FormControl className={styles.radioGroup}>
         <RadioGroup>
           <FormControlLabel
             control={
@@ -233,8 +146,8 @@ function Technical() {
           />
         </RadioGroup>
       </FormControl>
-  </section>
-  )
+    </section>
+  );
 }
 
-export default Technical
+export default Technical;
