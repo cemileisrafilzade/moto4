@@ -10,6 +10,7 @@ import { initializeIcons } from "@fluentui/react";
 import Advertisement from "./pages/Advertisement/Advertisement";
 import MoreFilters from "./pages/MoreFilters/MoreFilters";
 import NewPromotion from "./pages/NewPromotion/NewPromotion";
+import CarDetail from "./pages/CarDetail/CarDetail";
 import SearchResult from "./pages/SearchResult/SearchResult";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -23,6 +24,7 @@ root.render(
           <Route path="/faq" element={<Faq />} />
           <Route path="/more-filters" element={<MoreFilters />} />
           <Route path="/new-promotion" element={<NewPromotion />} />
+          <Route path="/auto/:id" element={<CarDetail />} />
           <Route path="/result" element={<SearchResult/>}/>
         </Routes>
       </Layout>
