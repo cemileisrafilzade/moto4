@@ -6,6 +6,12 @@ import CarSwipper from "../../scenes/CarSwipper";
 import ExtraInfo from "./components/ExtraInfo";
 import OwnerInfo from "./components/OwnerInfo";
 import CurrencyConvertor from "./components/CurrencyConvertor";
+import Basic from "./components/Basic";
+import Supplies from "./components/Supplies";
+import OtherAdvantages from "./components/OtherAdvantages";
+import Note from "./components/Note";
+import AboutDealer from "./components/AboutDealer";
+import Reviews from "./components/Reviews";
 
 import { carPictures } from "../../assets/index";
 
@@ -89,6 +95,12 @@ const CarDetail = () => {
       <div className="car__detail__additional">
         <div className="car__detail__additional__left">
           <ExtraInfo />
+          <Basic />
+          <Supplies />
+          <OtherAdvantages />
+          <Note />
+          <AboutDealer />
+          <Reviews />
         </div>
         <div className="car__detail__additional__right">
           <CurrencyConvertor />

@@ -155,6 +155,12 @@
 
     &__left {
       width: 70%;
+      @include flexbox(
+        $direction: column,
+        $justify: flex-start,
+        $items: flex-start,
+        $gap: 1.375rem
+      );
     }
 
     &__right {

@@ -1,0 +1,27 @@
+@import "../style";
+
+.reviews {
+  width: 100%;
+  background: $white-light;
+  padding: 20px;
+  border-radius: 8px;
+  @include flexbox(
+    $direction: column,
+    $justify: flex-start,
+    $items: flex-start,
+    $gap: 1.25rem
+  );
+
+  &__title {
+    @extend %font-title5;
+    color: $font;
+  }
+
+  &__content {
+    width: 100%;
+
+    &__item {
+      text-align: center;
+    }
+  }
+}
