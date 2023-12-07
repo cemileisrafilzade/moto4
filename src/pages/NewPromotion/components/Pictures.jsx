@@ -1,43 +1,164 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 import "../../../sass/components/_pictures.scss";
 
+const INITIAL__IMAGES = {
+  frontView: "",
+  backView: "",
+  panelView: "",
+  others: [],
+};
+
 const Pictures = () => {
+  const [images, setImages] = useState(INITIAL__IMAGES);
+  const frontView = useRef();
+  const backView = useRef();
+  const panelView = useRef();
+  const otherslView = useRef();
+
+  const urlFront = images.frontView && URL.createObjectURL(images.frontView);
+  const urlBack = images.backView && URL.createObjectURL(images.backView);
+  const urlPanel = images.panelView && URL.createObjectURL(images.panelView);
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImages((preValues) => {
+        return {
+          ...preValues,
+          [e.target.name]: e.target.files[0],
+        };
+      });
+    }
+  };
+
+  const handleOtherFilesChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setImages((preValues) => {
+        return {
+          ...preValues,
+          others: [...preValues.others, ...e.target.files],
+        };
+      });
+    }
+  };
+
+  const handleUploadClick = (name) => {
+    if (name.current) {
+      name.current.click();
+    }
+  };
+
+  const handleImageDelete = (img) => {
+    setImages((preValues) => {
+      return {
+        ...preValues,
+        others: preValues.others.filter((e) => e !== img),
+      };
+    });
+  };
+
+  console.log(images);
+
   return (
     <div className="pictures">
       <div className="pictures__title">Şəkillər</div>
       <div className="pictures__content">
-        <button className="pictures__content__item">
+        <button
+          className="pictures__content__item"
+          onClick={() => handleUploadClick(frontView)}
+        >
           <img
-            src="/promotion/car_front.png"
+            src={urlFront ? urlFront : "/promotion/car_front.png"}
             alt="car__front"
             className="pictures__content__item__img"
           />
           <p className="pictures__content__item__text">Ön görünüş</p>
+          <input
+            type="file"
+            accept="image/*"
+            name="frontView"
+            ref={frontView}
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+          />
         </button>
-        <button className="pictures__content__item">
+        <button
+          className="pictures__content__item"
+          onClick={() => handleUploadClick(backView)}
+        >
           <img
-            src="/promotion/car_back.png"
+            src={urlBack ? urlBack : "/promotion/car_back.png"}
             alt="car__front"
             className="pictures__content__item__img"
           />
           <p className="pictures__content__item__text">Arxa görünüş</p>
+          <input
+            type="file"
+            accept="image/*"
+            name="backView"
+            ref={backView}
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+          />
         </button>
-        <button className="pictures__content__item">
+        <button
+          className="pictures__content__item"
+          onClick={() => handleUploadClick(panelView)}
+        >
           <img
-            src="/promotion/car_panel.jpeg"
+            src={urlPanel ? urlPanel : "/promotion/car_panel.jpeg"}
             alt="car__front"
             className="pictures__content__item__img"
           />
           <p className="pictures__content__item__text">Ön panel</p>
+          <input
+            type="file"
+            accept="image/*"
+            name="panelView"
+            ref={panelView}
+            style={{ display: "none" }}
+            onChange={handleFileChange}
+          />
         </button>
-        <button className="pictures__content__item extra">
+        {images.others.length > 0 &&
+          images.others.map((img, index) => {
+            const url = URL.createObjectURL(img);
+
+            return (
+              <div key={index} className="pictures__content__item">
+                <img
+                  src={url}
+                  alt="car__front"
+                  className="pictures__content__item__img"
+                />
+                <button
+                  className="pictures__content__item__deleteBtn"
+                  onClick={() => handleImageDelete(img)}
+                >
+                  Sil
+                </button>
+              </div>
+            );
+          })}
+        <button
+          className="pictures__content__item extra"
+          onClick={() => handleUploadClick(otherslView)}
+        >
           <img
             src="/promotion/extra.png"
             alt="car__front"
             className="pictures__content__item__extraImg"
           />
           <p className="pictures__content__item__text">Şəkil əlavə et</p>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            name="others"
+            ref={otherslView}
+            style={{ display: "none" }}
+            onChange={handleOtherFilesChange}
+          />
         </button>
       </div>
       <div className="pictures__notes">

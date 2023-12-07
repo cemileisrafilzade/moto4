@@ -183,7 +183,7 @@ export const ownNumbers = [
   },
 ];
 
-export const colors = [
+export const innerColors = [
   {
     id: 1,
     title: "Qara",
@@ -253,6 +253,29 @@ export const colors = [
     id: 14,
     title: "Bej",
     code: "#DBB67F",
+  },
+];
+
+export const outerColors = [
+  {
+    id: 1,
+    title: "Qara",
+    code: "#1E1E1E",
+  },
+  {
+    id: 2,
+    title: "Bənövşəyi",
+    code: "#9361FF",
+  },
+  {
+    id: 3,
+    title: "Yaşıl",
+    code: "#7EBA30",
+  },
+  {
+    id: 4,
+    title: "Gümüşü",
+    code: "#EEE ",
   },
 ];
 
