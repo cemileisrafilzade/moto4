@@ -22,8 +22,6 @@ const Contact = () => {
     }));
   };
 
-  console.log(data);
-
   return (
     <div className="contact">
       <div className="contact__title">Əlaqə</div>

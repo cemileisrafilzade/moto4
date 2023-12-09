@@ -46,8 +46,6 @@ const MoreOptions = () => {
     }));
   };
 
-  console.log(data);
-
   return (
     <div className="more__options">
       <OptionInputSingle

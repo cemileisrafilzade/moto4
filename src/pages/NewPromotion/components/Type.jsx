@@ -7,28 +7,24 @@ import FormControl from "@mui/material/FormControl";
 
 import "../../../sass/components/_type.scss";
 
+import { useDispatch } from "react-redux";
+import { handleNewPromotionState } from "../../../features/appSlice";
+
 import { brandOptions, modelOptions } from "../../../constants/index";
 
 import OptionInputSingle from "../../../components/OptionInputSingle/OptionInputSingle";
 import OptionInputMultiple from "../../../components/OptionInputMultiple/OptionInputMultiple";
 
-export const INITIAL_DATA = {
-  brand: "",
-  model: [],
-};
-
 const Type = () => {
-  const [data, setData] = useState(INITIAL_DATA);
   const [clear, setClear] = useState(false);
 
-  const handleChange = ({ target }) => {
-    setData((prevValues) => ({
-      ...prevValues,
-      [target.name]: target.value,
-    }));
-  };
+  const dispatch = useDispatch();
 
-  console.log(data);
+  const handleChange = ({ target }) => {
+    dispatch(
+      handleNewPromotionState({ name: target.name, value: target.value })
+    );
+  };
 
   return (
     <div className="new__promotion__main__type">

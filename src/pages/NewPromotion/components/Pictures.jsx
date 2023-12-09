@@ -2,6 +2,9 @@ import React, { useRef, useState } from "react";
 
 import "../../../sass/components/_pictures.scss";
 
+import { useDispatch, useSelector } from "react-redux";
+import { handleNewPromotionState } from "../../../features/appSlice";
+
 const INITIAL__IMAGES = {
   frontView: "",
   backView: "",
@@ -16,6 +19,10 @@ const Pictures = () => {
   const panelView = useRef();
   const otherslView = useRef();
 
+  const dispatch = useDispatch();
+
+  const newPromotion = useSelector((state) => state.newPromotion);
+
   const urlFront = images.frontView && URL.createObjectURL(images.frontView);
   const urlBack = images.backView && URL.createObjectURL(images.backView);
   const urlPanel = images.panelView && URL.createObjectURL(images.panelView);
@@ -28,10 +35,25 @@ const Pictures = () => {
           [e.target.name]: e.target.files[0],
         };
       });
+
+      dispatch(
+        handleNewPromotionState({ name: e.target.name, value: e.target.value })
+      );
     }
   };
 
   const handleOtherFilesChange = (e) => {
+    const newImages = Array.from(e.target.files);
+
+    newImages.forEach((image) => {
+      dispatch(
+        handleNewPromotionState({
+          name: "others",
+          value: [...newPromotion.others, image.name],
+        })
+      );
+    });
+
     if (e.target.files && e.target.files.length > 0) {
       setImages((preValues) => {
         return {
@@ -57,7 +79,7 @@ const Pictures = () => {
     });
   };
 
-  console.log(images);
+  console.log(newPromotion);
 
   return (
     <div className="pictures">

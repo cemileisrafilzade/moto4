@@ -5,9 +5,20 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
+import { useDispatch } from "react-redux";
+import { handleNewPromotionState } from "../../../features/appSlice";
+
 import "../../../sass/components/_price.scss";
 
 const Price = () => {
+  const dispatch = useDispatch();
+
+  const handleChange = (target) => {
+    dispatch(
+      handleNewPromotionState({ name: target.name, value: target.value })
+    );
+  };
+
   return (
     <div className="new__promotion__price">
       <div className="new__promotion__price__inputs">
@@ -15,8 +26,14 @@ const Price = () => {
           type="number"
           className="new__promotion__price__inputs__amount"
           placeholder="Qiymət"
+          name="price"
+          onChange={(e) => handleChange(e.target)}
         />
-        <select className="new__promotion__price__inputs__currency">
+        <select
+          className="new__promotion__price__inputs__currency"
+          name="currency"
+          onChange={(e) => handleChange(e.target)}
+        >
           <option value="AZN">AZN</option>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
