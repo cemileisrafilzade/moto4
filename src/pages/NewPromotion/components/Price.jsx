@@ -6,7 +6,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 
 import { useDispatch } from "react-redux";
-import { handleNewPromotionState } from "../../../features/appSlice";
+import { setNewPromotionState } from "../../../features/appSlice";
 
 import "../../../sass/components/_price.scss";
 
@@ -14,9 +14,7 @@ const Price = () => {
   const dispatch = useDispatch();
 
   const handleChange = (target) => {
-    dispatch(
-      handleNewPromotionState({ name: target.name, value: target.value })
-    );
+    dispatch(setNewPromotionState({ name: target.name, value: target.value }));
   };
 
   return (

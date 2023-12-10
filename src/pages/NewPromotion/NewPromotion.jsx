@@ -1,16 +1,18 @@
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import Type from "./components/Type";
-import Room from "./components/Room";
-import Price from "./components/Price";
-import MoreOptions from "./components/MoreOptions";
-import Colors from "./components/Colors";
-import CarSupply from "./components/CarSupply";
-import Others from "./components/Others";
-import Comment from "./components/Comment";
-import Pictures from "./components/Pictures";
-import Contact from "./components/Contact";
+import {
+  Type,
+  Room,
+  Price,
+  MoreOptions,
+  Colors,
+  CarSupply,
+  Others,
+  Comment,
+  Pictures,
+  Contact,
+} from "./components/index";
 
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +20,11 @@ import "../../sass/pages/_newPromotion.scss";
 
 const NewPromotion = () => {
   const navigate = useNavigate();
+
+  const submitNewPromotion = () => {
+    navigate("/");
+    window.scrollTo(0, 0);
+  };
 
   return (
     <main className="new__promotion">
@@ -50,7 +57,12 @@ const NewPromotion = () => {
         <Pictures />
         <Contact />
         <div className="new__promotion__content__divider" />
-        <button className="new__promotion__content__btn">Elan yerləşdir</button>
+        <button
+          className="new__promotion__content__btn"
+          onClick={submitNewPromotion}
+        >
+          Elan yerləşdir
+        </button>
         <p className="new__promotion__content__text">
           * olan qırmızı xanaları doldurmaq mütləqdir.
         </p>

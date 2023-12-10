@@ -18,13 +18,16 @@ function Header() {
     <div className={styles.header}>
       <img src={logo} alt="" />
       <div className={styles.nav}>
-        <Link className={activePage === "/" && styles.active} to="/">
+        <Link className={activePage === "/" ? styles.active : ""} to="/">
           Ana səhifə
         </Link>
-        <Link className={activePage === "/elan" && styles.active} to="/elan">
+        <Link
+          className={activePage === "/elan" ? styles.active : ""}
+          to="/elan"
+        >
           Elanlar
         </Link>
-        <Link className={activePage === "/faq" && styles.active} to="/faq">
+        <Link className={activePage === "/faq" ? styles.active : ""} to="/faq">
           FAQ
         </Link>
       </div>

@@ -2,24 +2,20 @@ import React, { useState } from "react";
 
 import "../../../sass/components/_contact.scss";
 
+import { useDispatch } from "react-redux";
+import { setNewPromotionState } from "../../../features/appSlice";
+
 import OptionInputSingle from "../../../components/OptionInputSingle/OptionInputSingle";
 
 import { cityOptions } from "../../../constants";
 
-export const INITIAL_DATA = {
-  city: "",
-};
-
 const Contact = () => {
-  const [data, setData] = useState(INITIAL_DATA);
+  const dispatch = useDispatch();
 
   const [clear, setClear] = useState(false);
 
   const handleChange = ({ target }) => {
-    setData((prevValues) => ({
-      ...prevValues,
-      [target.name]: target.value,
-    }));
+    dispatch(setNewPromotionState({ name: target.name, value: target.value }));
   };
 
   return (
@@ -29,11 +25,15 @@ const Contact = () => {
         <input
           type="text"
           placeholder="Ad"
+          name="firstName"
+          onChange={(e) => handleChange(e)}
           className="contact__content__item"
         />
         <input
           type="text"
           placeholder="Soyad"
+          name="lastName"
+          onChange={(e) => handleChange(e)}
           className="contact__content__item"
         />
         <OptionInputSingle
@@ -44,18 +44,26 @@ const Contact = () => {
           setClear={setClear}
           handleChange={handleChange}
         />
-        <select className="contact__content__select">
+        <select
+          className="contact__content__select"
+          name="phonePrefix"
+          onChange={(e) => handleChange(e)}
+        >
           <option value="(050)">(050)</option>
           <option value="(055)">(055)</option>
           <option value="(070)">(070)</option>
         </select>
         <input
           type="number"
+          name="phone"
+          onChange={(e) => handleChange(e)}
           placeholder="Mobil nömrə"
           className="contact__content__phone"
         />
         <input
           type="mail"
+          name="mail"
+          onChange={(e) => handleChange(e)}
           placeholder="E-mail"
           className="contact__content__item"
         />

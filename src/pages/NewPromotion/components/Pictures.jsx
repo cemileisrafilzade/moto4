@@ -2,14 +2,14 @@ import React, { useRef, useState } from "react";
 
 import "../../../sass/components/_pictures.scss";
 
-import { useDispatch, useSelector } from "react-redux";
-import { handleNewPromotionState } from "../../../features/appSlice";
+import { useDispatch } from "react-redux";
+import { setNewPromotionState } from "../../../features/appSlice";
 
 const INITIAL__IMAGES = {
   frontView: "",
   backView: "",
   panelView: "",
-  others: [],
+  otherImages: [],
 };
 
 const Pictures = () => {
@@ -21,44 +21,43 @@ const Pictures = () => {
 
   const dispatch = useDispatch();
 
-  const newPromotion = useSelector((state) => state.newPromotion);
-
   const urlFront = images.frontView && URL.createObjectURL(images.frontView);
   const urlBack = images.backView && URL.createObjectURL(images.backView);
   const urlPanel = images.panelView && URL.createObjectURL(images.panelView);
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files.length > 0) {
+      const selectedFile = e.target.files[0];
+
       setImages((preValues) => {
         return {
           ...preValues,
-          [e.target.name]: e.target.files[0],
+          [e.target.name]: selectedFile,
         };
       });
 
       dispatch(
-        handleNewPromotionState({ name: e.target.name, value: e.target.value })
+        setNewPromotionState({
+          name: e.target.name,
+          value: selectedFile,
+        })
       );
     }
   };
 
   const handleOtherFilesChange = (e) => {
-    const newImages = Array.from(e.target.files);
-
-    newImages.forEach((image) => {
-      dispatch(
-        handleNewPromotionState({
-          name: "others",
-          value: [...newPromotion.others, image.name],
-        })
-      );
-    });
+    dispatch(
+      setNewPromotionState({
+        name: "otherImages",
+        value: [...images.otherImages, ...e.target.files],
+      })
+    );
 
     if (e.target.files && e.target.files.length > 0) {
       setImages((preValues) => {
         return {
           ...preValues,
-          others: [...preValues.others, ...e.target.files],
+          otherImages: [...preValues.otherImages, ...e.target.files],
         };
       });
     }
@@ -74,12 +73,17 @@ const Pictures = () => {
     setImages((preValues) => {
       return {
         ...preValues,
-        others: preValues.others.filter((e) => e !== img),
+        otherImages: preValues.otherImages.filter((other) => other !== img),
       };
     });
-  };
 
-  console.log(newPromotion);
+    dispatch(
+      setNewPromotionState({
+        name: "otherImages",
+        value: images.otherImages.filter((other) => other !== img),
+      })
+    );
+  };
 
   return (
     <div className="pictures">
@@ -142,8 +146,8 @@ const Pictures = () => {
             onChange={handleFileChange}
           />
         </button>
-        {images.others.length > 0 &&
-          images.others.map((img, index) => {
+        {images.otherImages.length > 0 &&
+          images.otherImages.map((img, index) => {
             const url = URL.createObjectURL(img);
 
             return (
@@ -176,7 +180,7 @@ const Pictures = () => {
             type="file"
             accept="image/*"
             multiple
-            name="others"
+            name="otherImages"
             ref={otherslView}
             style={{ display: "none" }}
             onChange={handleOtherFilesChange}

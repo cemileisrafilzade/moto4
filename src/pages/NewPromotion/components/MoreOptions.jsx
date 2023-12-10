@@ -17,33 +17,19 @@ import {
   ownNumbers,
 } from "../../../constants/index";
 
+import { useDispatch } from "react-redux";
+import { setNewPromotionState } from "../../../features/appSlice";
+
 import OptionInputSingle from "../../../components/OptionInputSingle/OptionInputSingle";
 import OptionInputMultiple from "../../../components/OptionInputMultiple/OptionInputMultiple";
 
-export const INITIAL_DATA = {
-  year: "",
-  fuelType: "",
-  fuelConsumption: "",
-  gearBox: "",
-  transmission: "",
-  pankingSensor: [],
-  speedControl: [],
-  innerMaterial: "",
-  airBags: [],
-  seatNumbers: "",
-  seller: "",
-  ownNumbers: "",
-};
-
 const MoreOptions = () => {
-  const [data, setData] = useState(INITIAL_DATA);
   const [clear, setClear] = useState(false);
 
+  const dispatch = useDispatch();
+
   const handleChange = ({ target }) => {
-    setData((prevValues) => ({
-      ...prevValues,
-      [target.name]: target.value,
-    }));
+    dispatch(setNewPromotionState({ name: target.name, value: target.value }));
   };
 
   return (
@@ -59,16 +45,22 @@ const MoreOptions = () => {
       <input
         type="text"
         placeholder="Yürüş, km"
+        name="distance"
+        onChange={(e) => handleChange(e)}
         className="more__options__input"
       />
       <input
         type="text"
         placeholder="Həcm, (sm3)"
+        name="volume"
+        onChange={(e) => handleChange(e)}
         className="more__options__input"
       />
       <input
         type="text"
         placeholder="Güc, kW"
+        name="power"
+        onChange={(e) => handleChange(e)}
         className="more__options__input"
       />
       <OptionInputSingle

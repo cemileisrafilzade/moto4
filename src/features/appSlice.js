@@ -9,7 +9,7 @@ const initialState = {
     frontView: null,
     backView: null,
     panelView: null,
-    others: [],
+    otherImages: [],
     year: "",
     fuelType: "",
     fuelConsumption: "",
@@ -23,6 +23,16 @@ const initialState = {
     seller: "",
     ownNumbers: "",
     city: "",
+    firstName: "",
+    lastName: "",
+    phonePrefix: "",
+    phone: "",
+    mail: "",
+    distance: "",
+    volume: "",
+    power: "",
+    comment: "",
+    vin: "",
   },
 };
 
@@ -30,27 +40,20 @@ export const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    emptyNewPromotion: (state) => {
+    setEmptyNewPromotion: (state) => {
       state.newPromotion = {};
     },
-    handleNewPromotionState: (state, action) => {
+    setNewPromotionState: (state, action) => {
       const { name, value } = action.payload;
 
-      if (name === "others" && Array.isArray(value)) {
-        state.newPromotion = {
-          ...state.newPromotion,
-          others: [...state.newPromotion.others, value],
-        };
-      } else {
-        state.newPromotion = {
-          ...state.newPromotion,
-          [name]: value,
-        };
-      }
+      state.newPromotion = {
+        ...state.newPromotion,
+        [name]: value,
+      };
     },
   },
 });
 
-export const { emptyNewPromotion, handleNewPromotionState } = appSlice.actions;
+export const { setEmptyNewPromotion, setNewPromotionState } = appSlice.actions;
 
 export default appSlice.reducer;
