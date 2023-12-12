@@ -16,13 +16,22 @@ import {
 
 import { useNavigate } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 import "../../sass/pages/_newPromotion.scss";
 
 const NewPromotion = () => {
   const navigate = useNavigate();
 
-  const submitNewPromotion = () => {
+  const newPromotion = useSelector((state) => state.newPromotion);
+
+  const submitNewPromotion = (e) => {
+    e.preventDefault();
+
+    console.log(newPromotion);
+
     navigate("/");
+
     window.scrollTo(0, 0);
   };
 
@@ -43,7 +52,7 @@ const NewPromotion = () => {
         </div>
         <div className="new__promotion__titles__main">Elan yerləşdir</div>
       </div>
-      <div className="new__promotion__content">
+      <form className="new__promotion__content">
         <Type />
         <Room />
         <Price />
@@ -58,15 +67,16 @@ const NewPromotion = () => {
         <Contact />
         <div className="new__promotion__content__divider" />
         <button
+          type="submit"
           className="new__promotion__content__btn"
-          onClick={submitNewPromotion}
+          onClick={(e) => submitNewPromotion(e)}
         >
           Elan yerləşdir
         </button>
         <p className="new__promotion__content__text">
           * olan qırmızı xanaları doldurmaq mütləqdir.
         </p>
-      </div>
+      </form>
     </main>
   );
 };
