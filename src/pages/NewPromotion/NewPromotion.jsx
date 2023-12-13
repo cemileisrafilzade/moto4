@@ -52,7 +52,7 @@ const NewPromotion = () => {
         </div>
         <div className="new__promotion__titles__main">Elan yerləşdir</div>
       </div>
-      <form className="new__promotion__content">
+      <div className="new__promotion__content">
         <Type />
         <Room />
         <Price />
@@ -76,7 +76,7 @@ const NewPromotion = () => {
         <p className="new__promotion__content__text">
           * olan qırmızı xanaları doldurmaq mütləqdir.
         </p>
-      </form>
+      </div>
     </main>
   );
 };

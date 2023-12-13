@@ -102,6 +102,10 @@ const CarDetail = () => {
                 handleLeftArrow();
               }}
             />
+            <div className="car__detail__general__pictures__main__counter">
+              <ImageIcon sx={{ color: "#fff" }} />
+              {currentImageIndex + 1}/{maxLength}
+            </div>
           </div>
           <div className="car__detail__general__pictures__aside">
             <div className="car__detail__general__pictures__aside__item">

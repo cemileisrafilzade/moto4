@@ -108,3 +108,14 @@
     }
   }
 }
+
+.currency__convertor__credit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 90;
+  @include flexbox($justify: center, $items: center);
+}

@@ -71,7 +71,8 @@
         &:hover {
           .car__detail__general__pictures__main__expand,
           .car__detail__general__pictures__main__rightArrow,
-          .car__detail__general__pictures__main__leftArrow {
+          .car__detail__general__pictures__main__leftArrow,
+          .car__detail__general__pictures__main__counter {
             visibility: visible;
           }
         }
@@ -119,6 +120,18 @@
             background-color: rgba(0, 0, 0, 0.6);
             cursor: pointer;
           }
+        }
+
+        &__counter {
+          visibility: hidden;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          background-color: rgba(0, 0, 0, 0.4);
+          @include flexbox($justify: flex-start, $items: center, $gap: 0.4rem);
+          padding: 5px;
+          color: $white;
+          border-radius: 0.5rem;
         }
       }
 
