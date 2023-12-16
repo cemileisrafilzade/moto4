@@ -1,9 +1,24 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import "../../../sass/components/_aboutDealer.scss";
 
+import { locationOfCity } from "../../../constants";
+
+import { products } from "../../../mockData/products";
+
+import { useParams } from "react-router-dom";
+
 const AboutDealer = () => {
+  const params = useParams();
+
+  const product = products.filter(
+    (product) => product.id === Number(params.id)
+  );
+
   return (
     <div className="about__dealer">
-      <div className="about__dealer__title">Dealer haqqında</div>
+      <div className="about__dealer__title">
+        {product[0].leasing ? "Salon haqqında" : "Dealer haqqında"}
+      </div>
       <div className="about__dealer__rating">
         <div className="about__dealer__rating__number">4.0</div>
         <div className="about__dealer__rating__stars">
@@ -68,6 +83,28 @@ const AboutDealer = () => {
           </div>
         </div>
       </div>
+      {product[0].leasing && (
+        <div className="about__dealer__special">
+          <div className="about__dealer__special__divider" />
+          <div className="about__dealer__special__map">
+            <div className="about__dealer__special__map__title">Xəritə</div>
+            <div className="about__dealer__special__map__links">
+              <div className="about__dealer__special__map__links__place">
+                Bakı şəh., Sumqayıt şossesi, 6-cı km.
+              </div>
+              <div className="about__dealer__special__map__links__switch">
+                Xəritəyə keç
+              </div>
+            </div>
+          </div>
+          <iframe
+            src={locationOfCity}
+            loading="lazy"
+            className="about__dealer__special__view"
+            title="Car place"
+          ></iframe>
+        </div>
+      )}
     </div>
   );
 };
