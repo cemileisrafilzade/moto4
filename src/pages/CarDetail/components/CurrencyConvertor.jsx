@@ -84,16 +84,29 @@ const CurrencyConvertor = () => {
               />
             </div>
             <div className="currency__convertor__calc__content__body">
-              <input
-                type="number"
-                defaultValue={200000}
-                className="currency__convertor__calc__content__body__input"
-              />
-              <select className="currency__convertor__calc__content__body__currency">
-                <option value="AZN">AZN</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-              </select>
+              <div className="currency__convertor__calc__content__body__item">
+                <input
+                  type="number"
+                  defaultValue={200000}
+                  className="currency__convertor__calc__content__body__item__input"
+                />
+                <select className="currency__convertor__calc__content__body__item__currency">
+                  <option value="AZN">AZN</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
+              <div className="currency__convertor__calc__content__body__item">
+                <input
+                  type="number"
+                  className="currency__convertor__calc__content__body__item__input"
+                />
+                <select className="currency__convertor__calc__content__body__item__currency">
+                  <option value="AZN">AZN</option>
+                  <option value="USD">USD</option>
+                  <option value="EUR">EUR</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
