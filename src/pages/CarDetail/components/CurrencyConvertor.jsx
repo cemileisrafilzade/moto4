@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import { useParams } from "react-router-dom";
 import { products } from "../../../mockData/products";
-import CloseIcon from "@mui/icons-material/Close";
 
 import CarDetailCredit from "../../../scenes/CarDetailCredit";
+import CurrencyCalc from "../../../scenes/CurrencyCalc";
 
 const CurrencyConvertor = () => {
   const [isCreditOpen, setIsCreditOpen] = useState(false);
@@ -71,46 +71,7 @@ const CurrencyConvertor = () => {
           <CarDetailCredit closeBtn={setIsCreditOpen} />
         </div>
       )}
-      {isCalcOpen && (
-        <div className="currency__convertor__calc">
-          <div className="currency__convertor__calc__content">
-            <div className="currency__convertor__calc__content__title">
-              <div className="currency__convertor__calc__content__title__text">
-                Valyuta çevirici
-              </div>
-              <CloseIcon
-                className="currency__convertor__calc__content__title__btn"
-                onClick={() => setIsCalcOpen(false)}
-              />
-            </div>
-            <div className="currency__convertor__calc__content__body">
-              <div className="currency__convertor__calc__content__body__item">
-                <input
-                  type="number"
-                  defaultValue={200000}
-                  className="currency__convertor__calc__content__body__item__input"
-                />
-                <select className="currency__convertor__calc__content__body__item__currency">
-                  <option value="AZN">AZN</option>
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                </select>
-              </div>
-              <div className="currency__convertor__calc__content__body__item">
-                <input
-                  type="number"
-                  className="currency__convertor__calc__content__body__item__input"
-                />
-                <select className="currency__convertor__calc__content__body__item__currency">
-                  <option value="AZN">AZN</option>
-                  <option value="USD">USD</option>
-                  <option value="EUR">EUR</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      {isCalcOpen && <CurrencyCalc setIsCalcOpen={setIsCalcOpen} />}
     </div>
   );
 };
