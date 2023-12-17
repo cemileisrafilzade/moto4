@@ -11,7 +11,7 @@ function Advertisement() {
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
         <h1>Statistik elanlar</h1>
-        <a href="">
+        <a href="/elan">
           Hamısına bax{" "}
           <span>
             <Icon iconName="ChromeBackMirrored" />
@@ -31,7 +31,7 @@ function Advertisement() {
       {/* //////////////////////////// */}
       <div className={styles.titleWrapper}>
         <h1>Yeni elanlar</h1>
-        <a href="">
+        <a href="/elan">
           Hamısına bax{" "}
           <span>
             <Icon iconName="ChromeBackMirrored" />
