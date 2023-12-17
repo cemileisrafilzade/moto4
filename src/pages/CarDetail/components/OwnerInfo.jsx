@@ -1,6 +1,10 @@
+import { useState } from "react";
+
 import "../../../sass/components/_ownerInfo.scss";
 
 const OwnerInfo = () => {
+  const [showPhone, setShowPhone] = useState();
+
   return (
     <div className="owner__info">
       <div className="owner__info__detail">
@@ -24,10 +28,19 @@ const OwnerInfo = () => {
         <img src="/carDetail/filled.png" alt="filled" />
         <img src="/carDetail/empty.png" alt="empty" />
       </div>
-      <div className="owner__info__btn">
+      <button
+        className="owner__info__btn"
+        onClick={() => {
+          setShowPhone((prev) => !prev);
+        }}
+      >
         <img src="/carDetail/phone.png" alt="phone" />
-        <span>(050) 555 6* **</span>
-      </div>
+        {showPhone ? (
+          <span>(050) 555 67 72</span>
+        ) : (
+          <span>(050) 555 6* **</span>
+        )}
+      </button>
     </div>
   );
 };

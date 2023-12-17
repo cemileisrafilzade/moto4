@@ -2,7 +2,16 @@ import React from "react";
 
 import "../../../sass/components/_comment.scss";
 
+import { useDispatch } from "react-redux";
+import { setNewPromotionState } from "../../../features/appSlice";
+
 const Comment = () => {
+  const dispatch = useDispatch();
+
+  const handleChange = ({ target }) => {
+    dispatch(setNewPromotionState({ name: target.name, value: target.value }));
+  };
+
   return (
     <div className="comment">
       <div className="comment__title">Əlavə qeyd</div>
@@ -12,11 +21,15 @@ const Comment = () => {
           rows="5"
           placeholder="Əlavə məlumatlarınızı qeyd edin."
           className="comment__content__area"
+          name="comment"
+          onChange={(e) => handleChange(e)}
         ></textarea>
         <input
           type="text"
           placeholder="VİN/Ban kodu"
           className="comment__content__input"
+          name="vin"
+          onChange={(e) => handleChange(e)}
         />
         <img
           src="/promotion/question.png"

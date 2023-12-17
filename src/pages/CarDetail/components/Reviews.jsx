@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "../../../sass/components/_reviews.scss";
 
 import { products } from "../../../mockData/products";
@@ -6,37 +8,58 @@ import { useParams } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import { Navigation } from "swiper/modules";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const Reviews = () => {
+  const [aciveReview, setActiveReview] = useState(0);
+
   const params = useParams();
 
   const product = products.filter(
     (product) => product.id === Number(params.id)
   );
 
+  const maxLength = product[0].reviews.length;
+
+  const currentItem = product[0].reviews[aciveReview];
+
+  const handleRightArrow = () => {
+    setActiveReview((prevIndex) =>
+      prevIndex === maxLength - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handleLeftArrow = () => {
+    setActiveReview((prevIndex) =>
+      prevIndex === 0 ? maxLength - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <div className="reviews">
       <div className="reviews__title">Rəylər</div>
-      <Swiper
-        navigation={true}
-        modules={[Navigation]}
-        className="mySwiper reviews__content"
-      >
-        {product[0].reviews.map((review) => (
-          <SwiperSlide className="reviews__content__item">
-            <div key={review.id} className="reviews__content__item__header">
-              <img src={`/carDetail/person${review.id}.jpg`} alt="person" />
-              <span className="reviews__content__item__header__name">
-                {review.person}
-              </span>
-            </div>
-            <div className="reviews__content__item__body">{review.note}</div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="reviews__content">
+        <div className="reviews__content__item">
+          <div key={currentItem.id} className="reviews__content__item__header">
+            <img src={`/carDetail/person${currentItem.id}.jpg`} alt="person" />
+            <span className="reviews__content__item__header__name">
+              {currentItem.person}
+            </span>
+          </div>
+          <div className="reviews__content__item__body">{currentItem.note}</div>
+        </div>
+        <ArrowBackIosIcon
+          sx={{ color: "#a3a3a3", "&:hover": { color: "#000" } }}
+          className="reviews__content__leftArrow"
+          onClick={handleLeftArrow}
+        />
+        <ArrowForwardIosIcon
+          sx={{ color: "#a3a3a3", "&:hover": { color: "#000" } }}
+          className="reviews__content__rightArrow"
+          onClick={handleRightArrow}
+        />
+      </div>
     </div>
   );
 };

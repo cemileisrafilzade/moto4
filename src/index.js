@@ -13,21 +13,26 @@ import NewPromotion from "./pages/NewPromotion/NewPromotion";
 import CarDetail from "./pages/CarDetail/CarDetail";
 import SearchResult from "./pages/SearchResult/SearchResult";
 
+import { Provider } from "react-redux";
+import state from "./state/index";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/elan" element={<Advertisement />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/more-filters" element={<MoreFilters />} />
-          <Route path="/new-promotion" element={<NewPromotion />} />
-          <Route path="/auto/:id" element={<CarDetail />} />
-          <Route path="/result" element={<SearchResult/>}/>
-        </Routes>
-      </Layout>
+      <Provider store={state}>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/elan" element={<Advertisement />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/more-filters" element={<MoreFilters />} />
+            <Route path="/new-promotion" element={<NewPromotion />} />
+            <Route path="/auto/:id" element={<CarDetail />} />
+            <Route path="/result" element={<SearchResult />} />
+          </Routes>
+        </Layout>
+      </Provider>
     </BrowserRouter>
     {/* <App /> */}
   </React.StrictMode>

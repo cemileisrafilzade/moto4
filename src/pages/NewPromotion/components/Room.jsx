@@ -20,8 +20,9 @@ const Room = () => {
             className="new__promotion__room__content__control"
             style={{ flexDirection: "row" }}
           >
-            {carTypes.map((type) => (
+            {carTypes.map((type, index) => (
               <FormControlLabel
+                key={index}
                 className="new__promotion__room__content__control__item"
                 value={type.name}
                 control={

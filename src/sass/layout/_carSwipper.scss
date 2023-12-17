@@ -31,14 +31,13 @@
   .thumb {
     border: 1px solid transparent;
     border-radius: 10px;
-
     padding: 0;
 
     &:hover,
     &:focus {
       border: 1px solid transparent;
-
       padding: 0;
+      cursor: pointer;
     }
   }
 

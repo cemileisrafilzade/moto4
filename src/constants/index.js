@@ -183,7 +183,7 @@ export const ownNumbers = [
   },
 ];
 
-export const colors = [
+export const innerColors = [
   {
     id: 1,
     title: "Qara",
@@ -253,6 +253,29 @@ export const colors = [
     id: 14,
     title: "Bej",
     code: "#DBB67F",
+  },
+];
+
+export const outerColors = [
+  {
+    id: 1,
+    title: "Qara",
+    code: "#1E1E1E",
+  },
+  {
+    id: 2,
+    title: "Bənövşəyi",
+    code: "#9361FF",
+  },
+  {
+    id: 3,
+    title: "Yaşıl",
+    code: "#7EBA30",
+  },
+  {
+    id: 4,
+    title: "Gümüşü",
+    code: "#EEE ",
   },
 ];
 
@@ -373,3 +396,9 @@ export const others = [
     title: "Qəzalı və ya ehtiyat hissələr üçün",
   },
 ];
+
+export const locationOfCity =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194472.76853003306!2d49.69014890705255!3d40.394737007992184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku!5e0!3m2!1sen!2saz!4v1698083147829!5m2!1sen!2saz";
+
+export const CurrencyAPI =
+  "http://data.fixer.io/api/latest?access_key=5a9ef5f2b04f78dbacb021a3c7bad49a";

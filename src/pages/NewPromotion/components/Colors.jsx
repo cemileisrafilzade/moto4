@@ -6,7 +6,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 import "../../../sass/components/_colors.scss";
 
-import { colors } from "../../../constants/index";
+import { innerColors, outerColors } from "../../../constants/index";
 
 const Colors = () => {
   const [activeBtn, setActiveBtn] = useState("inner");
@@ -18,6 +18,8 @@ const Colors = () => {
       setActiveBtn("inner");
     }
   };
+
+  const colors = activeBtn === "inner" ? innerColors : outerColors;
 
   return (
     <div className="colors">
