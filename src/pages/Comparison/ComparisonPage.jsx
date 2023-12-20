@@ -32,7 +32,7 @@ function ComparisonPage() {
       ) : (
         <div className={styles.wrapper}>
           <div className={styles.top}>
-            <div>
+            <div className={styles.leftBar}>
               <p className={styles.deleteLink} onClick={() => setCount(0)}>
                 Hamısını sil{" "}
                 <span>
@@ -59,6 +59,11 @@ function ComparisonPage() {
                   ))}
                 </RadioGroup>
               </FormControl>
+              <ul className={styles.infoList}>
+                  {products[0].extraInfo.map((item) => (
+                    <li>{item.title}</li>
+                  ))}
+                </ul>
             </div>
             {comparisonPrdoucts.map((product) => (
               <div className={styles.products}>
@@ -69,6 +74,11 @@ function ComparisonPage() {
                   <Icon iconName="ChromeClose" />
                 </button>
                 <ProductCart className={styles.product} product={product} />
+                <ul className={styles.infoList}>
+                  {product.extraInfo.map((item) => (
+                    <li>{item.value}</li>
+                  ))}
+                </ul>
               </div>
             ))}
             {count < 3 && (

@@ -1,13 +1,29 @@
 import React from "react";
-import OrderFilter from "../orderFilter/OrderFilter";
 
 import "../../sass/components/_sectionHeader.scss";
 
+import { useNavigate } from "react-router-dom";
+
 const SectionHeader = ({ title, filterTitle }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="section__header">
       <div className="section__header__title">{title}</div>
-      {filterTitle && <OrderFilter title={filterTitle} />}
+      <button
+        className="section__header__link"
+        onClick={() => {
+          window.scroll(0, 0);
+          navigate("/elan");
+        }}
+      >
+        Hamısına bax
+        <img
+          src="/carDetail/right-arrow.png"
+          alt="arrow"
+          className="section__header__link__img"
+        />
+      </button>
     </div>
   );
 };

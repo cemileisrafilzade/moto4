@@ -13,4 +13,14 @@
     line-height: normal;
     color: $mainDark;
   }
+
+  &__link {
+    color: $primary;
+    @extend %font-normal2;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    @include flexbox($justify: center, $items: center, $gap: 1rem);
+    cursor: pointer;
+  }
 }

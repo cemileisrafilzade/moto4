@@ -53,7 +53,9 @@
     background: $grayish;
     padding: 15px 45px;
     width: 100%;
-    @include flexbox($justify: center, $items: center, $gap: 1rem);
+    @include flexbox($justify: center, $items: center, $gap: 0.5rem);
+    border: none;
+    outline: none;
 
     &:hover {
       cursor: pointer;
@@ -68,6 +70,8 @@
     span {
       color: $white;
       @extend %font-normal2;
+      display: block;
+      width: 100%;
     }
   }
 }

@@ -14,22 +14,27 @@ import CarDetail from "./pages/CarDetail/CarDetail";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import ComparisonPage from "./pages/Comparison/ComparisonPage";
 
+import { Provider } from "react-redux";
+import state from "./state/index";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/elan" element={<Advertisement />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/more-filters" element={<MoreFilters />} />
-          <Route path="/new-promotion" element={<NewPromotion />} />
-          <Route path="/auto/:id" element={<CarDetail />} />
-          <Route path="/result" element={<SearchResult/>}/>
-          <Route path="/comparison" element={<ComparisonPage/>}/>
-        </Routes>
-      </Layout>
+      <Provider store={state}>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/elan" element={<Advertisement />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/more-filters" element={<MoreFilters />} />
+            <Route path="/new-promotion" element={<NewPromotion />} />
+            <Route path="/auto/:id" element={<CarDetail />} />
+            <Route path="/result" element={<SearchResult />} />
+            <Route path="/comparison" element={<ComparisonPage/>}/>
+          </Routes>
+        </Layout>
+      </Provider>
     </BrowserRouter>
     {/* <App /> */}
   </React.StrictMode>

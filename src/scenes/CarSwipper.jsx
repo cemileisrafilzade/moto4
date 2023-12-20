@@ -9,8 +9,8 @@ const CarSwipper = (props) => {
     <div className="carousel__container">
       <Carousel infiniteLoop autoPlay>
         {props.images.map((img, index) => (
-          <div className="image">
-            <img key={index} src={img} alt="car" />
+          <div key={index} className="image">
+            <img src={img} alt="car" />
           </div>
         ))}
       </Carousel>
