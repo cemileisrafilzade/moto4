@@ -45,13 +45,19 @@ export default function OptionInputMultiple({
         overflow: "hidden",
         marginLeft: "0",
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-          { borderColor: "#620985" },
+          { borderColor: "#620985", borderRadius: "8px", borderWidth: "1px" },
         "& .MuiAutocomplete-inputRoot": { padding: "5px" },
         borderRadius: "8px",
         "& .MuiAutocomplete-tag": {
           display: "flex",
           alignItems: "center",
           gap: "8px",
+        },
+        ".MuiOutlinedInput-notchedOutline": {
+          borderColor: "transparent",
+        },
+        "&:hover .MuiOutlinedInput-notchedOutline": {
+          borderColor: "transparent",
         },
       }}
       getOptionLabel={(option) => option.title}

@@ -35,15 +35,24 @@ export default function OptionInputSingle({
     <div>
       <Autocomplete
         id="highlights-demo"
-        classes={{ popupIndicator: "custom-popup-indicator" }}
+        classes={{
+          popupIndicator: "custom-popup-indicator",
+        }}
         sx={{
           minWidth: `${isYear ? "117px" : "235px"}`,
           marginLeft: "0",
           margin: `${isYear && "0"}`,
           "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-            { borderColor: "#620985" },
+            { borderColor: "#620985", borderRadius: "8px", borderWidth: "1px" },
           "& .MuiAutocomplete-inputRoot": { padding: "5px" },
           borderRadius: "8px",
+          ".MuiOutlinedInput-notchedOutline": {
+            borderColor: "transparent",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#fff",
+            borderWidth: 0,
+          },
         }}
         options={options}
         getOptionLabel={(option) => option.title}
@@ -74,7 +83,13 @@ export default function OptionInputSingle({
           const parts = parse(option.title, matches);
 
           return (
-            <li {...props} style={{ padding: "5px", fontSize: "16px" }}>
+            <li
+              {...props}
+              style={{
+                padding: "5px",
+                fontSize: "16px",
+              }}
+            >
               <div>
                 {parts.map((part, index) => (
                   <span
