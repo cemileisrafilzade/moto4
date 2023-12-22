@@ -5,6 +5,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
 
 import "../../sass/layout/_topBar.scss";
+import { Link } from "react-router-dom";
 
 const TopBar = () => {
   return (
@@ -18,7 +19,10 @@ const TopBar = () => {
           <option value="AZ">AZ</option>
           <option value="EN">EN</option>
         </select>
+        <Link to='/comparison'>
+        
         <BalanceIcon className="topbar__more__balance" sx={{ color: "#fff" }} />
+        </Link>
         <FavoriteBorderIcon
           className="topbar__more__heart"
           sx={{ color: "#fff" }}
