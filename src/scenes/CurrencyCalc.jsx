@@ -19,7 +19,6 @@ const CurrencyCalc = ({ setIsCalcOpen }) => {
 
   useEffect(() => {
     axios.get(CurrencyAPI).then((response) => {
-      console.log(response.data.rates);
       setRates(response.data.rates);
     });
   }, []);
@@ -79,6 +78,7 @@ const CurrencyCalc = ({ setIsCalcOpen }) => {
             currencies={Object.keys(rates)}
             amount={amount1}
             currency={currency1}
+            key={1}
           />
           <CurrencyInput
             onAmountChange={handleAmount2Change}
@@ -86,6 +86,7 @@ const CurrencyCalc = ({ setIsCalcOpen }) => {
             currencies={Object.keys(rates)}
             amount={amount2}
             currency={currency2}
+            key={2}
           />
         </div>
       </div>

@@ -31,7 +31,7 @@ root.render(
             <Route path="/new-promotion" element={<NewPromotion />} />
             <Route path="/auto/:id" element={<CarDetail />} />
             <Route path="/result" element={<SearchResult />} />
-            <Route path="/comparison" element={<ComparisonPage/>}/>
+            <Route path="/comparison" element={<ComparisonPage />} />
           </Routes>
         </Layout>
       </Provider>
