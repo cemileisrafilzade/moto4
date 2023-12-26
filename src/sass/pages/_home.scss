@@ -3,6 +3,7 @@
 .home {
   background-color: $background;
   height: auto;
+  width: 100%;
 
   &__hero {
     width: 100%;
@@ -12,33 +13,40 @@
     background-repeat: no-repeat;
     background-size: cover;
     animation: bgChange 10s infinite ease-in-out;
-    padding: 20px;
+    padding: 20px 15%;
 
     &__content {
-      max-width: 1000px;
+      width: 100%;
       margin: 0 auto;
       text-align: center;
       height: 100%;
-      padding: auto 220px 0;
       @include flexbox(
         $direction: column,
         $justify: flex-end,
         $items: flex-start,
-        $gap: 1.5rem
+        $gap: 1.25rem
       );
 
       &__firstLine {
-        @include flexbox($justify: flex-start, $items: center, $gap: 1.3rem);
+        @include flexbox($justify: flex-start, $items: center, $gap: 1.25rem);
         width: 100%;
       }
 
       &__secondLine {
-        @include flexbox($justify: space-between, $items: center, $gap: 1rem);
+        @include flexbox(
+          $justify: space-between,
+          $items: center,
+          $gap: 1.25rem
+        );
         width: 100%;
       }
 
       &__thirdLine {
-        @include flexbox($justify: space-between, $items: center, $gap: 1.3rem);
+        @include flexbox(
+          $justify: space-between,
+          $items: center,
+          $gap: 1.25rem
+        );
         width: 100%;
 
         &__amount {
@@ -121,7 +129,7 @@
       }
 
       &__fourthLine {
-        @include flexbox($justify: flex-start, $items: center, $gap: 4.5rem);
+        @include flexbox($justify: center, $items: center, $gap: 5.5rem);
         width: 100%;
 
         &__clearBtn {
@@ -154,10 +162,15 @@
           background-color: $primary;
           border-radius: 8px;
           height: 40px;
+          @include flexbox($justify: center, $items: center, $gap: 0.5rem);
 
           &:hover {
             cursor: pointer;
             background-color: $hover;
+          }
+
+          &__text {
+            @extend %font-normal;
           }
         }
       }

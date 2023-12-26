@@ -39,7 +39,8 @@ export default function OptionInputSingle({
           popupIndicator: "custom-popup-indicator",
         }}
         sx={{
-          minWidth: `${isYear ? "117px" : "235px"}`,
+          minWidth: `${isYear ? "135px" : "235px"}`,
+          flexGrow: 1,
           marginLeft: "0",
           margin: `${isYear && "0"}`,
           "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
@@ -86,8 +87,10 @@ export default function OptionInputSingle({
             <li
               {...props}
               style={{
-                padding: "5px",
+                padding: "10px",
                 fontSize: "16px",
+                display: "block",
+                marginLeft: "0",
               }}
             >
               <div>
