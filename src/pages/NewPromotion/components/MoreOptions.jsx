@@ -21,7 +21,6 @@ import { useDispatch } from "react-redux";
 import { setNewPromotionState } from "../../../features/appSlice";
 
 import OptionInputSingle from "../../../components/OptionInputSingle/OptionInputSingle";
-import OptionInputMultiple from "../../../components/OptionInputMultiple/OptionInputMultiple";
 
 const MoreOptions = () => {
   const [clear, setClear] = useState(false);
@@ -95,7 +94,7 @@ const MoreOptions = () => {
         setClear={setClear}
         handleChange={handleChange}
       />
-      <OptionInputMultiple
+      <OptionInputSingle
         options={parkingSensor}
         holder="Parking sensoru"
         keyValue="pankingSensor"
@@ -103,7 +102,7 @@ const MoreOptions = () => {
         setClear={setClear}
         handleChange={handleChange}
       />
-      <OptionInputMultiple
+      <OptionInputSingle
         options={speedControl}
         holder="Sürət kontrol düzənləməsi"
         keyValue="speedControl"
@@ -119,7 +118,7 @@ const MoreOptions = () => {
         setClear={setClear}
         handleChange={handleChange}
       />
-      <OptionInputMultiple
+      <OptionInputSingle
         options={airBags}
         holder="Hava yastıqları"
         keyValue="airBags"

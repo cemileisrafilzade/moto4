@@ -21,11 +21,12 @@ const Others = () => {
                   <Checkbox
                     sx={{
                       "& .MuiSvgIcon-root": {
-                        color: "#620985",
+                        color: "#bbb",
                       },
                       "&.Mui-checked": {
                         "& .MuiSvgIcon-root": {
                           backgroundColor: "transparent",
+                          color: "#620985",
                         },
                       },
                     }}

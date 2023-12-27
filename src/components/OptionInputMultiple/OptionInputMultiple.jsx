@@ -42,6 +42,7 @@ export default function OptionInputMultiple({
       classes={{ popupIndicator: "custom-popup-indicator" }}
       sx={{
         minWidth: "235px",
+        flexGrow: 1,
         overflow: "hidden",
         marginLeft: "0",
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
@@ -71,6 +72,7 @@ export default function OptionInputMultiple({
             justifyContent: "space-between",
             alignItems: "center",
             padding: "10px",
+            marginLeft: "0",
           }}
         >
           {option.title}

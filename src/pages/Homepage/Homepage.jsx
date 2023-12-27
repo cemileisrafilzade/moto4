@@ -6,6 +6,8 @@ import OptionInputMultiple from "../../components/OptionInputMultiple/OptionInpu
 import OptionInputSingle from "../../components/OptionInputSingle/OptionInputSingle";
 import HomeCars from "../../scenes/HomeCars";
 
+import SearchIcon from "@mui/icons-material/Search";
+
 import {
   filterTabOne,
   filterTabTwo,
@@ -200,7 +202,10 @@ function Homepage() {
               className="home__hero__content__fourthLine__search"
               onClick={handleSearch}
             >
-              Axtar
+              <div className="home__hero__content__fourthLine__search__text">
+                Axtar
+              </div>
+              <SearchIcon />
             </button>
           </div>
         </div>

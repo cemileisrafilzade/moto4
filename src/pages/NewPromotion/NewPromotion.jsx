@@ -73,7 +73,7 @@ const NewPromotion = () => {
         >
           Elan yerləşdir
         </button>
-        <p className="new__promotion__content__text">
+        <p className="new__promotion__content__text" style={{}}>
           * olan qırmızı xanaları doldurmaq mütləqdir.
         </p>
       </div>

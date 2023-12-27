@@ -13,7 +13,6 @@ import { setNewPromotionState } from "../../../features/appSlice";
 import { brandOptions, modelOptions } from "../../../constants/index";
 
 import OptionInputSingle from "../../../components/OptionInputSingle/OptionInputSingle";
-import OptionInputMultiple from "../../../components/OptionInputMultiple/OptionInputMultiple";
 
 const Type = () => {
   const [clear, setClear] = useState(false);
@@ -34,7 +33,7 @@ const Type = () => {
         setClear={setClear}
         handleChange={handleChange}
       />
-      <OptionInputMultiple
+      <OptionInputSingle
         options={modelOptions}
         holder="Model"
         keyValue="model"
