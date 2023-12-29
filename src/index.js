@@ -13,6 +13,7 @@ import NewPromotion from "./pages/NewPromotion/NewPromotion";
 import CarDetail from "./pages/CarDetail/CarDetail";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import ComparisonPage from "./pages/Comparison/ComparisonPage";
+import Favorites from "./pages/Favorites/Favorites";
 
 import { Provider } from "react-redux";
 import state from "./state/index";
@@ -32,6 +33,7 @@ root.render(
             <Route path="/auto/:id" element={<CarDetail />} />
             <Route path="/result" element={<SearchResult />} />
             <Route path="/comparison" element={<ComparisonPage />} />
+            <Route path="/favorites" element={<Favorites />} />
           </Routes>
         </Layout>
       </Provider>

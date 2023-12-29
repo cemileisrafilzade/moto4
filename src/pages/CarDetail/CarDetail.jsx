@@ -20,13 +20,36 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import ImageIcon from "@mui/icons-material/Image";
 
+import { Icon } from "@fluentui/react";
+
 import ProductCart from "../../components/productCard/ProductCart";
 
+import { useParams } from "react-router-dom";
+
 import { carPictures } from "../../assets/index";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setFavCarIds } from "../../features/appSlice";
 
 const CarDetail = () => {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const params = useParams();
+
+  const product = products.filter(
+    (product) => product.id === Number(params.id)
+  );
+
+  const favCarIds = useSelector((state) => state.favCarIds);
+
+  const isFav = favCarIds.some((fav) => fav === product[0].id);
+
+  const dispatch = useDispatch();
+
+  const handleFavCar = (id) => {
+    dispatch(setFavCarIds({ ID: id }));
+  };
 
   const maxLength = carPictures.length;
 
@@ -65,7 +88,23 @@ const CarDetail = () => {
             Mercedes-Benz, S 500, 2021 il, 5.5 L, 110 000 km
           </div>
           <div className="car__detail__general__header__links">
-            <img src="/carDetail/heart.png" alt="heart" />
+            <button
+              className="car__detail__general__header__links__fav"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleFavCar(product[0].id);
+              }}
+            >
+              {isFav ? (
+                <Icon
+                  style={{ color: "red" }}
+                  iconName="HeartFill"
+                  className="fav__icon"
+                />
+              ) : (
+                <Icon iconName="HeartFill" className="fav__icon" />
+              )}
+            </button>
             <img src="/carDetail/balance.png" alt="balance" />
             <img src="/carDetail/shield.png" alt="shield" />
             <img src="/carDetail/upload.png" alt="upload" />

@@ -1,11 +1,23 @@
 import React from "react";
 import styles from "./style.module.scss";
 import { Icon } from "@fluentui/react";
+import { useSelector, useDispatch } from "react-redux";
+import { setFavCarIds } from "../../features/appSlice";
 
 import { useNavigate } from "react-router-dom";
 
 function ProductCart({ product }) {
   const navigate = useNavigate();
+
+  const favCarIds = useSelector((state) => state.favCarIds);
+
+  const isFav = favCarIds.some((fav) => fav === product.id);
+
+  const dispatch = useDispatch();
+
+  const handleFavCar = (id) => {
+    dispatch(setFavCarIds({ ID: id }));
+  };
 
   return (
     <div
@@ -34,7 +46,19 @@ function ProductCart({ product }) {
               </li>
             )}
           </ul>
-          <Icon className={styles.heart} iconName="HeartFill" />
+          <button
+            className={styles.heart}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleFavCar(product.id);
+            }}
+          >
+            {isFav ? (
+              <Icon style={{ color: "red" }} iconName="HeartFill" />
+            ) : (
+              <Icon iconName="HeartFill" />
+            )}
+          </button>
         </div>
         <img src={product.img} alt="" />
       </div>

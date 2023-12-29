@@ -34,6 +34,7 @@ const initialState = {
     comment: "",
     vin: "",
   },
+  favCarIds: [],
 };
 
 export const appSlice = createSlice({
@@ -51,9 +52,21 @@ export const appSlice = createSlice({
         [name]: value,
       };
     },
+    setFavCarIds: (state, action) => {
+      const carId = action.payload.ID;
+
+      if (state.favCarIds.includes(carId)) {
+        const index = state.favCarIds.indexOf(carId);
+
+        state.favCarIds.splice(index, 1);
+      } else {
+        state.favCarIds.push(carId);
+      }
+    },
   },
 });
 
-export const { setEmptyNewPromotion, setNewPromotionState } = appSlice.actions;
+export const { setEmptyNewPromotion, setNewPromotionState, setFavCarIds } =
+  appSlice.actions;
 
 export default appSlice.reducer;
