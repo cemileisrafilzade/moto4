@@ -37,10 +37,12 @@
       }
 
       &__img {
-        width: 196px;
+        width: 200px;
         height: 142px;
         border-radius: 8px;
         object-fit: cover;
+        display: block;
+        margin: 0 auto;
       }
 
       &__extraImg {
