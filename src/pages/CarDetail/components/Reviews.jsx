@@ -2,27 +2,18 @@ import { useState } from "react";
 
 import "../../../sass/components/_reviews.scss";
 
-import { products } from "../../../mockData/products";
-import { useParams } from "react-router-dom";
-
 import "swiper/css";
 import "swiper/css/navigation";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
-const Reviews = () => {
+const Reviews = ({ product }) => {
   const [aciveReview, setActiveReview] = useState(0);
 
-  const params = useParams();
+  const maxLength = product.reviews.length;
 
-  const product = products.filter(
-    (product) => product.id === Number(params.id)
-  );
-
-  const maxLength = product[0].reviews.length;
-
-  const currentItem = product[0].reviews[aciveReview];
+  const currentItem = product.reviews[aciveReview];
 
   const handleRightArrow = () => {
     setActiveReview((prevIndex) =>

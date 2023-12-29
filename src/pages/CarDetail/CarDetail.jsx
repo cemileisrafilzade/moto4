@@ -5,15 +5,21 @@ import "../../sass/pages/_carDetail.scss";
 import { products } from "../../mockData/products";
 
 import CarSwipper from "../../scenes/CarSwipper";
-import ExtraInfo from "./components/ExtraInfo";
-import OwnerInfo from "./components/OwnerInfo";
-import CurrencyConvertor from "./components/CurrencyConvertor";
-import Basic from "./components/Basic";
-import Supplies from "./components/Supplies";
-import OtherAdvantages from "./components/OtherAdvantages";
-import Note from "./components/Note";
-import AboutDealer from "./components/AboutDealer";
-import Reviews from "./components/Reviews";
+import {
+  AboutDealer,
+  Basic,
+  CurrencyConvertor,
+  ExtraInfo,
+  Note,
+  OtherAdvantages,
+  OwnerInfo,
+  Reviews,
+  Supplies,
+} from "./components";
+
+import ProductCart from "../../components/productCard/ProductCart";
+
+import { carPictures } from "../../assets/index";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
@@ -22,11 +28,7 @@ import ImageIcon from "@mui/icons-material/Image";
 
 import { Icon } from "@fluentui/react";
 
-import ProductCart from "../../components/productCard/ProductCart";
-
 import { useParams } from "react-router-dom";
-
-import { carPictures } from "../../assets/index";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setFavCarIds } from "../../features/appSlice";
@@ -44,14 +46,13 @@ const CarDetail = () => {
   const favCarIds = useSelector((state) => state.favCarIds);
 
   const isFav = favCarIds.some((fav) => fav === product[0].id);
+  const maxLength = carPictures.length;
 
   const dispatch = useDispatch();
 
   const handleFavCar = (id) => {
     dispatch(setFavCarIds({ ID: id }));
   };
-
-  const maxLength = carPictures.length;
 
   const handleOpenSlider = () => {
     setIsSliderOpen((prevValue) => !prevValue);
@@ -177,17 +178,17 @@ const CarDetail = () => {
       </div>
       <div className="car__detail__additional">
         <div className="car__detail__additional__left">
-          <ExtraInfo />
-          <Basic />
-          <Supplies />
-          <OtherAdvantages />
-          <Note />
-          <AboutDealer />
-          <Reviews />
+          <ExtraInfo product={product[0]} />
+          <Basic product={product[0]} />
+          <Supplies product={product[0]} />
+          <OtherAdvantages product={product[0]} />
+          <Note product={product[0]} />
+          <AboutDealer product={product[0]} />
+          <Reviews product={product[0]} />
           <div className="car__detail__additional__left__divider" />
         </div>
         <div className="car__detail__additional__right">
-          <CurrencyConvertor />
+          <CurrencyConvertor product={product[0]} />
           <OwnerInfo />
           <div className="car__detail__additional__right__vin">
             <div className="car__detail__additional__right__vin__key">

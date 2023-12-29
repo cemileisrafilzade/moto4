@@ -1,23 +1,12 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
 import "../../../sass/components/_aboutDealer.scss";
 
 import { locationOfCity } from "../../../constants";
 
-import { products } from "../../../mockData/products";
-
-import { useParams } from "react-router-dom";
-
-const AboutDealer = () => {
-  const params = useParams();
-
-  const product = products.filter(
-    (product) => product.id === Number(params.id)
-  );
-
+const AboutDealer = ({ product }) => {
   return (
     <div className="about__dealer">
       <div className="about__dealer__title">
-        {product[0].leasing ? "Salon haqqında" : "Dealer haqqında"}
+        {product.leasing ? "Salon haqqında" : "Dealer haqqında"}
       </div>
       <div className="about__dealer__rating">
         <div className="about__dealer__rating__number">4.0</div>
@@ -83,7 +72,7 @@ const AboutDealer = () => {
           </div>
         </div>
       </div>
-      {product[0].leasing && (
+      {product.leasing && (
         <div className="about__dealer__special">
           <div className="about__dealer__special__divider" />
           <div className="about__dealer__special__map">
