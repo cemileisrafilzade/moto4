@@ -18,15 +18,20 @@ import {
 } from "./components";
 
 import ProductCart from "../../components/productCard/ProductCart";
+import DegreeSlider from "../../components/DegreeSlider/DegreeSlider";
 
 import { carPictures } from "../../assets/index";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import GppMaybeIcon from "@mui/icons-material/GppMaybe";
+import BalanceIcon from "@mui/icons-material/Balance";
+import UploadIcon from "@mui/icons-material/Upload";
 import ImageIcon from "@mui/icons-material/Image";
-
-import { Icon } from "@fluentui/react";
+import ThreeSixtyIcon from "@mui/icons-material/ThreeSixty";
+import CloseIcon from "@mui/icons-material/Close";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import { useParams } from "react-router-dom";
 
@@ -35,6 +40,8 @@ import { setFavCarIds } from "../../features/appSlice";
 
 const CarDetail = () => {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
+  const [isDegreeOpen, setIsDegreeOpen] = useState(false);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const params = useParams();
@@ -70,6 +77,10 @@ const CarDetail = () => {
     );
   };
 
+  const handle360Degree = () => {
+    setIsDegreeOpen((degree) => !degree);
+  };
+
   return (
     <div className="car__detail">
       <div className="car__detail__topLinks">
@@ -90,25 +101,44 @@ const CarDetail = () => {
           </div>
           <div className="car__detail__general__header__links">
             <button
-              className="car__detail__general__header__links__fav"
+              className="car__detail__general__header__links__btn"
               onClick={(e) => {
                 e.stopPropagation();
                 handleFavCar(product[0].id);
               }}
             >
               {isFav ? (
-                <Icon
-                  style={{ color: "red" }}
-                  iconName="HeartFill"
-                  className="fav__icon"
-                />
+                <FavoriteIcon sx={{ color: "red" }} iconName="HeartFill" />
               ) : (
-                <Icon iconName="HeartFill" className="fav__icon" />
+                <FavoriteIcon
+                  iconName="HeartFill"
+                  sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+                />
               )}
             </button>
-            <img src="/carDetail/balance.png" alt="balance" />
-            <img src="/carDetail/shield.png" alt="shield" />
-            <img src="/carDetail/upload.png" alt="upload" />
+            <button className="car__detail__general__header__links__btn">
+              <BalanceIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
+            <button className="car__detail__general__header__links__btn">
+              <GppMaybeIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
+            <button className="car__detail__general__header__links__btn">
+              <UploadIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
+            <button
+              className="car__detail__general__header__links__btn"
+              onClick={handle360Degree}
+            >
+              <ThreeSixtyIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
           </div>
         </div>
         <div className="car__detail__general__pictures">
@@ -172,6 +202,23 @@ const CarDetail = () => {
               onClick={handleOpenSlider}
             >
               <img src="/carDetail/close.png" alt="close" />
+            </button>
+          </div>
+        )}
+        {isDegreeOpen && (
+          <div className="car__detail__degree">
+            <DegreeSlider />
+            <button
+              className="car__detail__degree__close"
+              onClick={handle360Degree}
+            >
+              <CloseIcon
+                sx={{
+                  color: "#fff",
+                  fontSize: "40px",
+                  "&:hover": { color: "red" },
+                }}
+              />
             </button>
           </div>
         )}
