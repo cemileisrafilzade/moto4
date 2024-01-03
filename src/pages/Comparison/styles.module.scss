@@ -53,12 +53,12 @@ transition: .3s ease-in-out;
     justify-content: space-between;
     padding-bottom: 100px;
    .leftBar{
-    min-width: 180px;
+    min-width: 20%;
      background-color: $white;
      border-radius: 8px;
      padding: 10px;
      ul{
-       padding-top: 145px;
+       padding-top: 160px;
      }
    } 
     .deleteLink{
@@ -79,7 +79,7 @@ transition: .3s ease-in-out;
 .addBox{
 background-color: #FFFFFF4D;
 border-radius: 8px;
-width: 235px;
+min-width: 235px;
 height: 295px;
 cursor: pointer;
 transition: .2s ease-in-out;
@@ -108,8 +108,17 @@ button{
     margin-top: 10px;
   }
 }
+.rightSide{
+  display: flex;
+  justify-content: space-between;
+  max-width:78% ;
+  overflow-x: scroll;
+  padding-top: 15px;
+  gap: 15px;
+}
 .products{
     position: relative;
+    min-width: 235px !important;
   .product{
   }
   .cancelBtn{

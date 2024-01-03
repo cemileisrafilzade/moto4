@@ -65,6 +65,8 @@ function ComparisonPage() {
                   ))}
                 </ul>
             </div>
+            <div className={styles.rightSide}>
+
             {comparisonPrdoucts.map((product) => (
               <div className={styles.products}>
                 <button
@@ -81,7 +83,7 @@ function ComparisonPage() {
                 </ul>
               </div>
             ))}
-            {count < 3 && (
+            {/* {count < 3 && ( */}
               <div
                 onClick={() => {
                   setCount(count + 1);
@@ -92,8 +94,10 @@ function ComparisonPage() {
                   <Icon iconName="Add" />
                 </button>
               </div>
-            )}
+            {/* )} */}
           </div>
+          </div>
+
         </div>
       )}
     </div>
