@@ -5,30 +5,61 @@ import "../../sass/pages/_carDetail.scss";
 import { products } from "../../mockData/products";
 
 import CarSwipper from "../../scenes/CarSwipper";
-import ExtraInfo from "./components/ExtraInfo";
-import OwnerInfo from "./components/OwnerInfo";
-import CurrencyConvertor from "./components/CurrencyConvertor";
-import Basic from "./components/Basic";
-import Supplies from "./components/Supplies";
-import OtherAdvantages from "./components/OtherAdvantages";
-import Note from "./components/Note";
-import AboutDealer from "./components/AboutDealer";
-import Reviews from "./components/Reviews";
+import {
+  AboutDealer,
+  Basic,
+  CurrencyConvertor,
+  ExtraInfo,
+  Note,
+  OtherAdvantages,
+  OwnerInfo,
+  Reviews,
+  Supplies,
+} from "./components";
+
+import ProductCart from "../../components/productCard/ProductCart";
+import DegreeSlider from "../../components/DegreeSlider/DegreeSlider";
+
+import { carPictures } from "../../assets/index";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
+import GppMaybeIcon from "@mui/icons-material/GppMaybe";
+import BalanceIcon from "@mui/icons-material/Balance";
+import UploadIcon from "@mui/icons-material/Upload";
 import ImageIcon from "@mui/icons-material/Image";
+import ThreeSixtyIcon from "@mui/icons-material/ThreeSixty";
+import CloseIcon from "@mui/icons-material/Close";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
-import ProductCart from "../../components/productCard/ProductCart";
+import { useParams } from "react-router-dom";
 
-import { carPictures } from "../../assets/index";
+import { useSelector, useDispatch } from "react-redux";
+import { setFavCarIds } from "../../features/appSlice";
 
 const CarDetail = () => {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
+  const [isDegreeOpen, setIsDegreeOpen] = useState(false);
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const params = useParams();
+
+  const product = products.filter(
+    (product) => product.id === Number(params.id)
+  );
+
+  const favCarIds = useSelector((state) => state.favCarIds);
+
+  const isFav = favCarIds.some((fav) => fav === product[0].id);
   const maxLength = carPictures.length;
+
+  const dispatch = useDispatch();
+
+  const handleFavCar = (id) => {
+    dispatch(setFavCarIds({ ID: id }));
+  };
 
   const handleOpenSlider = () => {
     setIsSliderOpen((prevValue) => !prevValue);
@@ -44,6 +75,10 @@ const CarDetail = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? maxLength - 1 : prevIndex - 1
     );
+  };
+
+  const handle360Degree = () => {
+    setIsDegreeOpen((degree) => !degree);
   };
 
   return (
@@ -65,10 +100,45 @@ const CarDetail = () => {
             Mercedes-Benz, S 500, 2021 il, 5.5 L, 110 000 km
           </div>
           <div className="car__detail__general__header__links">
-            <img src="/carDetail/heart.png" alt="heart" />
-            <img src="/carDetail/balance.png" alt="balance" />
-            <img src="/carDetail/shield.png" alt="shield" />
-            <img src="/carDetail/upload.png" alt="upload" />
+            <button
+              className="car__detail__general__header__links__btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleFavCar(product[0].id);
+              }}
+            >
+              {isFav ? (
+                <FavoriteIcon sx={{ color: "red" }} iconName="HeartFill" />
+              ) : (
+                <FavoriteIcon
+                  iconName="HeartFill"
+                  sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+                />
+              )}
+            </button>
+            <button className="car__detail__general__header__links__btn">
+              <BalanceIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
+            <button className="car__detail__general__header__links__btn">
+              <GppMaybeIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
+            <button className="car__detail__general__header__links__btn">
+              <UploadIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
+            <button
+              className="car__detail__general__header__links__btn"
+              onClick={handle360Degree}
+            >
+              <ThreeSixtyIcon
+                sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
+              />
+            </button>
           </div>
         </div>
         <div className="car__detail__general__pictures">
@@ -135,20 +205,37 @@ const CarDetail = () => {
             </button>
           </div>
         )}
+        {isDegreeOpen && (
+          <div className="car__detail__degree">
+            <DegreeSlider />
+            <button
+              className="car__detail__degree__close"
+              onClick={handle360Degree}
+            >
+              <CloseIcon
+                sx={{
+                  color: "#fff",
+                  fontSize: "40px",
+                  "&:hover": { color: "red" },
+                }}
+              />
+            </button>
+          </div>
+        )}
       </div>
       <div className="car__detail__additional">
         <div className="car__detail__additional__left">
-          <ExtraInfo />
-          <Basic />
-          <Supplies />
-          <OtherAdvantages />
-          <Note />
-          <AboutDealer />
-          <Reviews />
+          <ExtraInfo product={product[0]} />
+          <Basic product={product[0]} />
+          <Supplies product={product[0]} />
+          <OtherAdvantages product={product[0]} />
+          <Note product={product[0]} />
+          <AboutDealer product={product[0]} />
+          <Reviews product={product[0]} />
           <div className="car__detail__additional__left__divider" />
         </div>
         <div className="car__detail__additional__right">
-          <CurrencyConvertor />
+          <CurrencyConvertor product={product[0]} />
           <OwnerInfo />
           <div className="car__detail__additional__right__vin">
             <div className="car__detail__additional__right__vin__key">

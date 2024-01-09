@@ -397,6 +397,81 @@ export const others = [
   },
 ];
 
+export const moreOptionsIterator = [
+  {
+    id: 1,
+    options: yearOptions,
+    holder: "İl",
+    keyValue: "year",
+  },
+  {
+    id: 2,
+    options: typeOfFuel,
+    holder: "Yanacaq növü",
+    keyValue: "fuelType",
+  },
+  {
+    id: 3,
+    options: fuelConsumption,
+    holder: "Yanacaq sərfiyyatı",
+    keyValue: "fuelConsumption",
+  },
+  {
+    id: 4,
+    options: gearBox,
+    holder: "Sürətlər qutusu",
+    keyValue: "gearBox",
+  },
+  {
+    id: 5,
+    options: transmission,
+    holder: "Ötürücü",
+    keyValue: "transmission",
+  },
+  {
+    id: 6,
+    options: parkingSensor,
+    holder: "Parking sensoru",
+    keyValue: "pankingSensor",
+  },
+  {
+    id: 7,
+    options: speedControl,
+    holder: "Sürət kontrol düzənləməsi",
+    keyValue: "speedControl",
+  },
+  {
+    id: 8,
+    options: innerMaterial,
+    holder: "Daxili material",
+    keyValue: "innerMaterial",
+  },
+  {
+    id: 9,
+    options: airBags,
+    holder: "Hava yastıqları",
+    keyValue: "airBags",
+  },
+  {
+    id: 10,
+    options: seatNumbers,
+    holder: "Oturacaq sayı",
+    keyValue: "seatNumbers",
+  },
+  {
+    id: 11,
+    options: seller,
+    holder: "Satıcı",
+    keyValue: "seller",
+  },
+  {
+    id: 12,
+    options: ownNumbers,
+    holder: "Neçənsi sahibisiniz",
+    keyValue: "ownNumbers",
+  },
+];
+
 export const locationOfCity =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194472.76853003306!2d49.69014890705255!3d40.394737007992184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku!5e0!3m2!1sen!2saz!4v1698083147829!5m2!1sen!2saz";
 

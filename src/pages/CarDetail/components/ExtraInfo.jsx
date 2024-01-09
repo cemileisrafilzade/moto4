@@ -1,15 +1,6 @@
 import "../../../sass/components/_extraInfo.scss";
 
-import { useParams } from "react-router-dom";
-import { products } from "../../../mockData/products";
-
-const ExtraInfo = () => {
-  const params = useParams();
-
-  const product = products.filter(
-    (product) => product.id === Number(params.id)
-  );
-
+const ExtraInfo = ({ product }) => {
   return (
     <div className="extra__info">
       <div className="extra__info__updated">
@@ -24,7 +15,7 @@ const ExtraInfo = () => {
         </div>
       </div>
       <div className="extra__info__table">
-        {product[0].extraInfo.map((item, index) => (
+        {product.extraInfo.map((item, index) => (
           <div key={index} className="extra__info__table__item">
             <img
               src={`/carDetail/extra/${item.imgName}.png`}

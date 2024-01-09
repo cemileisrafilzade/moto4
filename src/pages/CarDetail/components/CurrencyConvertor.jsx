@@ -2,21 +2,12 @@ import "../../../sass/components/_currencyConvertor.scss";
 
 import { useState } from "react";
 
-import { useParams } from "react-router-dom";
-import { products } from "../../../mockData/products";
-
 import CarDetailCredit from "../../../scenes/CarDetailCredit";
 import CurrencyCalc from "../../../scenes/CurrencyCalc";
 
-const CurrencyConvertor = () => {
+const CurrencyConvertor = ({ product }) => {
   const [isCreditOpen, setIsCreditOpen] = useState(false);
   const [isCalcOpen, setIsCalcOpen] = useState(false);
-
-  const params = useParams();
-
-  const product = products.filter(
-    (product) => product.id === Number(params.id)
-  );
 
   const handleCreditOpen = () => {
     setIsCreditOpen((prevValue) => !prevValue);
@@ -27,17 +18,17 @@ const CurrencyConvertor = () => {
       <div className="currency__convertor__amount">200 000 AZN</div>
       <div className="currency__convertor__options">
         <div className="currency__convertor__options__cases">
-          {product[0].leasing && (
+          {product.leasing && (
             <div className="currency__convertor__options__cases__item leasing">
               <img src="/carDetail/currency/leasing.png" alt="leasing" />
             </div>
           )}
-          {product[0].credit && (
+          {product.credit && (
             <div className="currency__convertor__options__cases__item barter">
               <img src="/carDetail/currency/barter.png" alt="barter" />
             </div>
           )}
-          {product[0].barter && (
+          {product.barter && (
             <div className="currency__convertor__options__cases__item credit">
               <img src="/carDetail/currency/credit.png" alt="credit" />
             </div>

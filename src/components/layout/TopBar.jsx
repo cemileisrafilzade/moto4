@@ -1,13 +1,17 @@
 import React from "react";
 import PhoneIcon from "@mui/icons-material/Phone";
 import BalanceIcon from "@mui/icons-material/Balance";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
+import { Icon } from "@fluentui/react";
 
 import "../../sass/layout/_topBar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const TopBar = () => {
+  const location = useLocation();
+
+  const isOpen = location.pathname === "/favorites";
+
   return (
     <div className="topbar">
       <div className="topbar__phone">
@@ -19,14 +23,19 @@ const TopBar = () => {
           <option value="AZ">AZ</option>
           <option value="EN">EN</option>
         </select>
-        <Link to='/comparison'>
-        
-        <BalanceIcon className="topbar__more__balance" sx={{ color: "#fff" }} />
+        <Link to="/comparison">
+          <BalanceIcon
+            className="topbar__more__balance"
+            sx={{ color: "#fff" }}
+          />
         </Link>
-        <FavoriteBorderIcon
-          className="topbar__more__heart"
-          sx={{ color: "#fff" }}
-        />
+        <Link to="/favorites">
+          {isOpen ? (
+            <Icon style={{ color: "red" }} iconName="HeartFill" />
+          ) : (
+            <Icon style={{ color: "#fff" }} iconName="HeartFill" />
+          )}
+        </Link>
         <div className="topbar__more__account">
           <PersonIcon
             className="topbar__more__account__icon"
