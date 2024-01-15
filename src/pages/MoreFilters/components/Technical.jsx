@@ -23,6 +23,7 @@ function Technical() {
       <FormGroup className={styles.flexInputs}>
         {fuelTypes.map((item) => (
           <FormControlLabel
+            key={item}
             control={
               <Checkbox
                 sx={{
@@ -41,6 +42,7 @@ function Technical() {
       <FormGroup className={styles.flexInputs}>
         {transmissions.map((item) => (
           <FormControlLabel
+            key={item}
             control={
               <Checkbox
                 sx={{

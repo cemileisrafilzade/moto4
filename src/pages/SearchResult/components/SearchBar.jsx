@@ -7,7 +7,6 @@ import {
   Checkbox,
   FormControlLabel,
   FormGroup,
-
 } from "@mui/material";
 import { Icon } from "@fluentui/react";
 import {
@@ -35,15 +34,17 @@ function SearchBar() {
       <SelectAccordion title="Marka" data={brands} />
       <SelectAccordion type="multi" data={models} title="Model" />
       <div className={styles.hr} />
-      <RadioAccordion data={status} title="Vəziyyəti"/>
+      <RadioAccordion data={status} title="Vəziyyəti" />
       <div className={styles.hr} />
 
       <DoubleInputs title="Qiymət" l1="Min" l2="Max" />
       <DoubleInputs title="Yürüyüş" l1="Min" l2="Max" />
-      <DoubleInputs type='select' title="İl" l1="Min" l2="Max" />    
-      <DoubleInputs title='Güc, kW' l1="Min" l2="Max" />
-      <h2>Həcm, sm<sup className={styles.sup}>3</sup></h2>
-      <DoubleInputs  l1="Min" l2="Max" />
+      <DoubleInputs type="select" title="İl" l1="Min" l2="Max" />
+      <DoubleInputs title="Güc, kW" l1="Min" l2="Max" />
+      <h2>
+        Həcm, sm<sup className={styles.sup}>3</sup>
+      </h2>
+      <DoubleInputs l1="Min" l2="Max" />
       <div className={styles.hr} />
       <Accordion className={styles.accordion}>
         <AccordionSummary
@@ -56,8 +57,9 @@ function SearchBar() {
         </AccordionSummary>
         <AccordionDetails>
           <FormGroup className={`${styles.flexInputs} ${styles.colors}`}>
-            {externalColors.map((item) => (
+            {externalColors.map((item, index) => (
               <FormControlLabel
+                key={index}
                 control={
                   <Checkbox
                     sx={{
@@ -90,8 +92,8 @@ function SearchBar() {
         title="Avtomobil təchizatları"
       />
       <div className={styles.hr} />
-      <RadioAccordion title='Satıcı' data={seller}/>
-      <RadioAccordion title='Satıcı reytinqi' data={rating} type="rating"/>
+      <RadioAccordion title="Satıcı" data={seller} />
+      <RadioAccordion title="Satıcı reytinqi" data={rating} type="rating" />
     </div>
   );
 }

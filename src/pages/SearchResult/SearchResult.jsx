@@ -7,7 +7,7 @@ import SearchBar from "./components/SearchBar";
 import { products } from "../../mockData/products";
 import ProductCart from "../../components/productCard/ProductCart";
 import OrderFilter from "../../components/orderFilter/OrderFilter";
-import notFound from '../../assets/Unhappy Result.svg'
+import notFound from "../../assets/Unhappy Result.svg";
 function SearchResult() {
   const navigate = useNavigate();
   return (
@@ -32,7 +32,9 @@ function SearchResult() {
           </div>
           <div className={styles.products}>
             {products.length ? (
-              products.map((product) => <ProductCart product={product} />)
+              products.map((product) => (
+                <ProductCart key={product.id} product={product} />
+              ))
             ) : (
               <div className={styles.notFound}>
                 <img src={notFound} alt="" />

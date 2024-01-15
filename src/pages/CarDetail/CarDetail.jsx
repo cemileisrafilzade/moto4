@@ -108,10 +108,10 @@ const CarDetail = () => {
               }}
             >
               {isFav ? (
-                <FavoriteIcon sx={{ color: "red" }} iconName="HeartFill" />
+                <FavoriteIcon sx={{ color: "red" }} iconname="HeartFill" />
               ) : (
                 <FavoriteIcon
-                  iconName="HeartFill"
+                  iconname="HeartFill"
                   sx={{ color: "#4e4e4e", "&:hover": { color: "#620985" } }}
                 />
               )}

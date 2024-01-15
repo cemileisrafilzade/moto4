@@ -15,7 +15,6 @@ function ComparisonPage() {
   const navigate = useNavigate();
   const [count, setCount] = useState(2);
   const comparisonPrdoucts = products.slice(0, count);
-  console.log(comparisonPrdoucts);
   return (
     <div className={styles.container}>
       <h1>Müqayisələr</h1>
@@ -41,8 +40,9 @@ function ComparisonPage() {
               </p>
               <FormControl className={styles.radioGroup}>
                 <RadioGroup defaultValue="all">
-                  {comparisons.map((item) => (
+                  {comparisons.map((item, index) => (
                     <FormControlLabel
+                      key={index}
                       control={
                         <Radio
                           sx={{
@@ -60,13 +60,13 @@ function ComparisonPage() {
                 </RadioGroup>
               </FormControl>
               <ul className={styles.infoList}>
-                  {products[0].extraInfo.map((item) => (
-                    <li>{item.title}</li>
-                  ))}
-                </ul>
+                {products[0].extraInfo.map((item, index) => (
+                  <li key={index}>{item.title}</li>
+                ))}
+              </ul>
             </div>
             {comparisonPrdoucts.map((product) => (
-              <div className={styles.products}>
+              <div key={product.id} className={styles.products}>
                 <button
                   className={styles.cancelBtn}
                   onClick={() => setCount(count - 1)}
@@ -75,8 +75,8 @@ function ComparisonPage() {
                 </button>
                 <ProductCart className={styles.product} product={product} />
                 <ul className={styles.infoList}>
-                  {product.extraInfo.map((item) => (
-                    <li>{item.value}</li>
+                  {product.extraInfo.map((item, index) => (
+                    <li key={index}>{item.value}</li>
                   ))}
                 </ul>
               </div>
