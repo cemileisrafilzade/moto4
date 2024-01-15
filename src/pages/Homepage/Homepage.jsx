@@ -86,6 +86,7 @@ function Homepage() {
               tabDefaultValue={tabOneDefaultValue}
               setTabDefaultValue={setTabOneDefaultValue}
               tabKey="tabOne"
+              key="tabOne"
             />
             <FilterTab
               handleChange={handleChange}
@@ -93,6 +94,7 @@ function Homepage() {
               tabDefaultValue={tabTwoDefaultValue}
               setTabDefaultValue={setTwoOneDefaultValue}
               tabKey="tabTwo"
+              key="tabTwo"
             />
           </div>
           <div className="home__hero__content__secondLine">
@@ -103,6 +105,7 @@ function Homepage() {
               clear={clear}
               setClear={setClear}
               handleChange={handleChange}
+              key="brand"
             />
             <OptionInputMultiple
               options={modelOptions}
@@ -111,6 +114,7 @@ function Homepage() {
               clear={clear}
               setClear={setClear}
               handleChange={handleChange}
+              key="model"
             />
             <OptionInputMultiple
               options={banOptions}
@@ -119,6 +123,7 @@ function Homepage() {
               clear={clear}
               setClear={setClear}
               handleChange={handleChange}
+              key="banType"
             />
             <OptionInputSingle
               options={cityOptions}
@@ -127,6 +132,7 @@ function Homepage() {
               clear={clear}
               setClear={setClear}
               handleChange={handleChange}
+              key="city"
             />
           </div>
           <div className="home__hero__content__thirdLine">
@@ -152,6 +158,7 @@ function Homepage() {
               className="home__hero__content__thirdLine__currency"
               value={data.currency}
               onChange={handleCurrencyChange}
+              name="currency"
             >
               <option value="AZN">AZN</option>
               <option value="USD">USD</option>
@@ -166,6 +173,7 @@ function Homepage() {
                 clear={clear}
                 setClear={setClear}
                 handleChange={handleChange}
+                key="minYear"
               />
               <OptionInputSingle
                 options={yearOptions}
@@ -175,6 +183,7 @@ function Homepage() {
                 clear={clear}
                 setClear={setClear}
                 handleChange={handleChange}
+                key="maxYear"
               />
             </div>
             <input

@@ -50,6 +50,7 @@ const MoreOptions = () => {
             clear={clear}
             setClear={setClear}
             handleChange={handleChange}
+            key={option.keyValue}
           />
         );
       })}

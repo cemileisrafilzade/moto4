@@ -19,28 +19,27 @@
     border: none !important;
   }
   border-radius: 8px !important;
-
 }
 .accordion {
   margin-bottom: 30px;
   background-color: $background !important;
 }
-.qstn{
+.qstn {
   border-radius: 8px !important;
-font-size: 18px;
+  font-size: 18px;
   font-weight: 500;
   background-color: $white !important;
   // padding: 20px 10px !important;
 }
 
-
-.answer{
+.answer {
   // background-color: green !important;
   font-size: 16px;
   font-weight: 400;
   color: #747474;
   margin: 10px 0 !important;
-  font-family: 'Montserrat',sans-serif  !important;
+  font-family: "Montserrat", sans-serif !important;
+  line-height: 137%;
 
   // background-color: $background !important;
 }

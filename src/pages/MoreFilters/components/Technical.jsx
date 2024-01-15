@@ -23,6 +23,7 @@ function Technical() {
       <FormGroup className={styles.flexInputs}>
         {fuelTypes.map((item) => (
           <FormControlLabel
+            key={item}
             control={
               <Checkbox
                 sx={{
@@ -41,6 +42,7 @@ function Technical() {
       <FormGroup className={styles.flexInputs}>
         {transmissions.map((item) => (
           <FormControlLabel
+            key={item}
             control={
               <Checkbox
                 sx={{
@@ -90,6 +92,14 @@ function Technical() {
         <Autocomplete
           className={styles.autocomplete}
           options={fuelConsumption}
+          componentsProps={{
+            paper: {
+              sx: {
+                borderRadius: "8px",
+                marginTop: "10px",
+              },
+            },
+          }}
           renderInput={(params) => (
             <TextField {...params} label="Yanacaq sərfiyyatı" />
           )}

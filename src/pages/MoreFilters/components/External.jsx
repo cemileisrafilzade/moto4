@@ -1,44 +1,54 @@
-import { Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup } from "@mui/material";
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
 import React from "react";
 import styles from "../styles.module.scss";
 import { externalColors } from "../../../mockData/mock";
 function External() {
-    const others=["ABS",'Məsafə xəbərdarlıq sistemi','Mərkəzi qapanma','Start-stop sistemi','Lyuk','Adaptiv döngə işıqları','Ehtiyyat təkər',
-'Yağış sensoru','Ksenon lampalar','Yüngül lehimli disklər','Qızdırılan ön şüşə','Duman əleyhinə lampa']
+  const others = [
+    "ABS",
+    "Məsafə xəbərdarlıq sistemi",
+    "Mərkəzi qapanma",
+    "Start-stop sistemi",
+    "Lyuk",
+    "Adaptiv döngə işıqları",
+    "Ehtiyyat təkər",
+    "Yağış sensoru",
+    "Ksenon lampalar",
+    "Yüngül lehimli disklər",
+    "Qızdırılan ön şüşə",
+    "Duman əleyhinə lampa",
+  ];
   return (
     <section>
       <h2>Xarici</h2>
       <h3>Xarici rəng</h3>
       <FormGroup className={`${styles.flexInputs} ${styles.colors}`}>
-        {
-            externalColors.map((item)=>(
-
-
-
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      sx={{
-                        '& .MuiSvgIcon-root': {
-                            color: item.color, // İç kutunun rengi
-                          },
-                          '&.Mui-checked': {
-                            '& .MuiSvgIcon-root': {
-                              backgroundColor: 'transparent', // Şeffaf arkaplan rengi
-                            },
-                          },
-                      }}
-                    />
-                  }
-                  label={item.name}
-                />
-
-            ))
-        }
-       
-    
-      
+        {externalColors.map((item, index) => (
+          <FormControlLabel
+            key={index}
+            control={
+              <Checkbox
+                sx={{
+                  "& .MuiSvgIcon-root": {
+                    color: item.color, // İç kutunun rengi
+                  },
+                  "&.Mui-checked": {
+                    "& .MuiSvgIcon-root": {
+                      backgroundColor: "transparent", // Şeffaf arkaplan rengi
+                    },
+                  },
+                }}
+              />
+            }
+            label={item.name}
+          />
+        ))}
       </FormGroup>
       <h3>Parkinq sensoru</h3>
       <FormGroup className={styles.flexInputs}>
@@ -109,8 +119,8 @@ function External() {
         />
       </FormGroup>
       <h3>Sürət kontrol düzənləyici</h3>
-          
-    <FormControl className={styles.radioGroup}>
+
+      <FormControl className={styles.radioGroup}>
         <RadioGroup>
           <FormControlLabel
             control={
@@ -160,31 +170,22 @@ function External() {
       </FormControl>
       <h3>Digər</h3>
       <FormGroup className={`${styles.flexInputs} ${styles.gridStyle}`}>
-        {
-            others.map((item)=>(
-
-
-
-
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      sx={{
-                        color: "#BBBBBB",
-                        "&.Mui-checked": {
-                          color: "#620985",
-                        },
-                      }}
-                    />
-                  }
-                  label={item}
-                />
-
-            ))
-        }
-       
-    
-      
+        {others.map((item, index) => (
+          <FormControlLabel
+            key={index}
+            control={
+              <Checkbox
+                sx={{
+                  color: "#BBBBBB",
+                  "&.Mui-checked": {
+                    color: "#620985",
+                  },
+                }}
+              />
+            }
+            label={item}
+          />
+        ))}
       </FormGroup>
     </section>
   );

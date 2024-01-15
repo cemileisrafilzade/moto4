@@ -61,6 +61,14 @@ export default function OptionInputMultiple({
           borderColor: "transparent",
         },
       }}
+      componentsProps={{
+        paper: {
+          sx: {
+            borderRadius: "8px",
+            marginTop: "10px",
+          },
+        },
+      }}
       getOptionLabel={(option) => option.title}
       value={selectedOptions}
       onChange={handleAutocompleteChange}
@@ -71,7 +79,7 @@ export default function OptionInputMultiple({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            padding: "10px",
+            padding: "5px 10px",
             marginLeft: "0",
           }}
         >

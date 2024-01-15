@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React from "react";
 
 import "../sass/layout/_homeCars.scss";
@@ -17,6 +16,8 @@ const HomeCars = () => {
           {products.map((product) => {
             if (product.leasing) {
               return <ProductCart key={product.id} product={product} />;
+            } else {
+              return undefined;
             }
           })}
         </div>

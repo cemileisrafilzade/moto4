@@ -3,6 +3,7 @@ import styles from "./style.module.scss";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { faqData } from "../../mockData/faq";
 import { Icon } from "@fluentui/react";
+
 function Faq() {
   const [expanded, setExpanded] = useState(false);
   const handleChange = (id) => {
@@ -19,7 +20,7 @@ function Faq() {
           key={item.id}
         >
           <AccordionSummary
-          className={styles.qstn}
+            className={styles.qstn}
             expandIcon={
               expanded !== item.id ? (
                 <Icon iconName="Add" />
@@ -30,7 +31,9 @@ function Faq() {
           >
             {item.question}
           </AccordionSummary>
-          <AccordionDetails className={styles.answer}>{item.answer}</AccordionDetails>
+          <AccordionDetails className={styles.answer}>
+            {item.answer}
+          </AccordionDetails>
         </Accordion>
       ))}
     </div>

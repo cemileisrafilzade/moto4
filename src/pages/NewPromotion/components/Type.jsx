@@ -32,6 +32,7 @@ const Type = () => {
         clear={clear}
         setClear={setClear}
         handleChange={handleChange}
+        key="brand"
       />
       <OptionInputSingle
         options={modelOptions}
@@ -40,6 +41,7 @@ const Type = () => {
         clear={clear}
         setClear={setClear}
         handleChange={handleChange}
+        key="model"
       />
       <FormControl>
         <RadioGroup

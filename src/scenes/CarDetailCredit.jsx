@@ -152,6 +152,7 @@ const CarDetailCredit = ({ closeBtn }) => {
                 onChange={(e) => handleChange(e.target)}
                 className="credit__container__stepTwo__form__item__input"
                 placeholder="Ad, soyad, ata adı*"
+                autoComplete="off"
               />
             </div>
             <div className="credit__container__stepTwo__form__item phone">
@@ -160,6 +161,7 @@ const CarDetailCredit = ({ closeBtn }) => {
                 value={currency}
                 name="currency"
                 onChange={(e) => handleChange(e.target)}
+                autoComplete="off"
               >
                 <option value="AZE">AZE</option>
                 <option value="USD">USD</option>
@@ -172,6 +174,7 @@ const CarDetailCredit = ({ closeBtn }) => {
                 onChange={(e) => handleChange(e.target)}
                 className="credit__container__stepTwo__form__item__input"
                 placeholder="Mobil nömrə*"
+                autoComplete="off"
               />
             </div>
             <div className="credit__container__stepTwo__form__item">
@@ -182,6 +185,7 @@ const CarDetailCredit = ({ closeBtn }) => {
                 onChange={(e) => handleChange(e.target)}
                 className="credit__container__stepTwo__form__item__input"
                 placeholder="Şəxsiyyətin FİN kodu*"
+                autoComplete="off"
               />
               <button
                 className="credit__container__stepTwo__form__item__question"
