@@ -37,7 +37,16 @@ function Header() {
           newPageTitle="new-promotion"
           icon={<Icon iconName="Add" />}
         />
-        <PrimaryBtn text="Yeni Elan" icon={<Icon iconName="CirclePlus" />} />
+        <button className={styles.specialBtn}>
+          <Link
+            to="https://motofour.streamlit.app"
+            target="_blank"
+            className={styles.switch}
+          >
+            Yeni Elan
+          </Link>
+          <Icon iconName="CirclePlus" />
+        </button>
       </div>
     </div>
   );
