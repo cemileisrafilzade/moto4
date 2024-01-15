@@ -90,6 +90,14 @@ function Technical() {
         <Autocomplete
           className={styles.autocomplete}
           options={fuelConsumption}
+          componentsProps={{
+            paper: {
+              sx: {
+                borderRadius: "8px",
+                marginTop: "10px",
+              },
+            },
+          }}
           renderInput={(params) => (
             <TextField {...params} label="Yanacaq sərfiyyatı" />
           )}

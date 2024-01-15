@@ -55,6 +55,14 @@ export default function OptionInputSingle({
             borderWidth: 0,
           },
         }}
+        componentsProps={{
+          paper: {
+            sx: {
+              borderRadius: "8px",
+              marginTop: "10px",
+            },
+          },
+        }}
         options={options}
         getOptionLabel={(option) => option.title}
         blurOnSelect={false}
