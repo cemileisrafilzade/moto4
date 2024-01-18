@@ -12,7 +12,7 @@
     }
   }
   .nav {
-    font-family: 'Montserrat',sans-serif  !important;
+    font-family: "Montserrat", sans-serif !important;
     a {
       color: $lightFont !important;
     }
@@ -58,11 +58,8 @@
     &:focus-within {
       border: 1px solid $primary !important;
     }
-    fieldset {
-    }
+
     .css-1h51icj-MuiAutocomplete-root {
-      &:focus {
-      }
       .Mui-focused,
       .MuiAutocomplete-hasPopupIcon {
         border: 1px solid $primary !important;
@@ -88,9 +85,6 @@
     * {
       font-weight: 400;
       font-family: "Montserrat", sans-serif !important;
-    }
-
-    .MuiFormControlLabel-label {
     }
   }
   .dflex {
@@ -200,61 +194,59 @@
     grid-template-columns: auto auto auto auto;
   }
   .colors {
-    label{
+    label {
       width: 120px;
     }
     gap: 20px;
   }
-  .ratings{
-  margin-top: 5px;
+  .ratings {
+    margin-top: 5px;
   }
-  .lastSection{
+  .lastSection {
     border: none !important;
   }
 }
 
-
-
-.endBtns{
-  position: fixed ;
+.endBtns {
+  position: fixed;
   bottom: 0;
   left: 30%;
   margin: 30px auto !important;
   border-radius: 8px;
-  width: 40%; 
+  width: 40%;
   z-index: 999;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: flex;
-  align-items:center ;
+  align-items: center;
   justify-content: center;
   padding: 15px;
   gap: 20px;
-  box-shadow: 0px 4px 12px -10px rgba(0,0,0,0.1);
-  button{
-  width: 25%;
+  box-shadow: 0px 4px 12px -10px rgba(0, 0, 0, 0.1);
+  button {
+    width: 25%;
     border: none;
     background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 16px;
-cursor: pointer;
+    cursor: pointer;
     font-weight: 500;
-  span{
-    padding: 0 20px;
-    margin-top: 5px;
+    span {
+      padding: 0 20px;
+      margin-top: 5px;
+    }
   }
+  .cancelBtn {
+    color: #ff3e3e;
   }
-  .cancelBtn{
-    color: #FF3E3E;
-  }
-  .filterBtn{
+  .filterBtn {
     color: $white;
     background-color: $primary;
     padding: 15px;
     border-radius: 8px;
-    &:hover{
-      background-color: #A72FD7;
+    &:hover {
+      background-color: #a72fd7;
     }
   }
 }

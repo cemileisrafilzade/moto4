@@ -8,6 +8,7 @@ import { products } from "../../mockData/products";
 import ProductCart from "../../components/productCard/ProductCart";
 import OrderFilter from "../../components/orderFilter/OrderFilter";
 import notFound from "../../assets/Unhappy Result.svg";
+
 function SearchResult() {
   const navigate = useNavigate();
   return (

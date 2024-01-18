@@ -1,13 +1,19 @@
-import React from 'react'
-import styles from '../styles.module.scss'
-import { FormControl, FormControlLabel, Radio, RadioGroup, Rating } from '@mui/material'
-import { Icon } from '@fluentui/react'
+import React from "react";
+import styles from "../styles.module.scss";
+import {
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Rating,
+} from "@mui/material";
+
 function Additional() {
   return (
-<section className={styles.lastSection}>
-    <h2>Əlavə</h2>
-    <h3>Satıcı</h3>
-    <FormControl className={styles.radioGroup}>
+    <section className={styles.lastSection}>
+      <h2>Əlavə</h2>
+      <h3>Satıcı</h3>
+      <FormControl className={styles.radioGroup}>
         <RadioGroup>
           <FormControlLabel
             control={
@@ -69,8 +75,8 @@ function Additional() {
           />
         </RadioGroup>
       </FormControl>
-    <h3>Satıcı reytinqi</h3>
-    <FormControl className={`${styles.radioGroup} `}>
+      <h3>Satıcı reytinqi</h3>
+      <FormControl className={`${styles.radioGroup} `}>
         <RadioGroup>
           <FormControlLabel
             control={
@@ -99,13 +105,16 @@ function Additional() {
               />
             }
             value="three"
-            label={<Rating
-            className={styles.ratings}
-                name="size-medium" value={3}
+            label={
+              <Rating
+                className={styles.ratings}
+                name="size-medium"
+                value={3}
                 readOnly
-            />}
+              />
+            }
           />
-<FormControlLabel
+          <FormControlLabel
             control={
               <Radio
                 sx={{
@@ -117,13 +126,16 @@ function Additional() {
               />
             }
             value="four"
-            label={<Rating
-            className={styles.ratings}
-                name="size-medium" value={4}
+            label={
+              <Rating
+                className={styles.ratings}
+                name="size-medium"
+                value={4}
                 readOnly
-            />}
+              />
+            }
           />
-        <FormControlLabel
+          <FormControlLabel
             control={
               <Radio
                 sx={{
@@ -135,16 +147,19 @@ function Additional() {
               />
             }
             value="full"
-            label={<Rating
-            className={styles.ratings}
-                name="size-medium" value={5}
+            label={
+              <Rating
+                className={styles.ratings}
+                name="size-medium"
+                value={5}
                 readOnly
-            />}
+              />
+            }
           />
         </RadioGroup>
       </FormControl>
-</section>
-    )
+    </section>
+  );
 }
 
-export default Additional
+export default Additional;

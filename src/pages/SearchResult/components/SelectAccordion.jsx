@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { Icon } from "@fluentui/react";
+
 function SelectAccordion({ data, title, type }) {
   const [initial, setInitial] = useState(true);
   const [choosen, setChoosen] = useState([]);
