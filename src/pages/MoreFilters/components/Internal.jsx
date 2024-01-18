@@ -9,6 +9,7 @@ import {
   RadioGroup,
 } from "@mui/material";
 import { accessories, internalColors } from "../../../mockData/mock";
+
 function Internal() {
   return (
     <section>

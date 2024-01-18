@@ -25,6 +25,7 @@ import { carTypes } from "../../../constants";
 import DoubleInputs from "./DoubleInputs";
 import SelectAccordion from "./SelectAccordion";
 import RadioAccordion from "./RadioAccordion";
+
 function SearchBar() {
   const [initial, setInitial] = useState(true);
 

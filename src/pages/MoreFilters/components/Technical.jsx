@@ -15,6 +15,7 @@ import {
   fuelTypes,
   transmissions,
 } from "../../../mockData/mock";
+
 function Technical() {
   return (
     <section>

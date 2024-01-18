@@ -58,7 +58,7 @@ function Fundamentals() {
                 <Checkbox
                   // icon={icon}
                   // checkedIcon={checkedIcon}
-                  style={{ marginRight: 8 }}
+                  style={{ marginRight: 8, display: "block", marginLeft: "0" }}
                   checked={selected}
                 />
                 {option}

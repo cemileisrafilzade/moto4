@@ -9,6 +9,7 @@ import {
 import React from "react";
 import styles from "../styles.module.scss";
 import { externalColors } from "../../../mockData/mock";
+
 function External() {
   const others = [
     "ABS",
@@ -36,11 +37,11 @@ function External() {
               <Checkbox
                 sx={{
                   "& .MuiSvgIcon-root": {
-                    color: item.color, // İç kutunun rengi
+                    color: item.color,
                   },
                   "&.Mui-checked": {
                     "& .MuiSvgIcon-root": {
-                      backgroundColor: "transparent", // Şeffaf arkaplan rengi
+                      backgroundColor: "transparent",
                     },
                   },
                 }}

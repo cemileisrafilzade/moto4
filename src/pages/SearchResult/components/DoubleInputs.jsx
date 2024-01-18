@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { Autocomplete, TextField } from "@mui/material";
 import { years } from "../../../mockData/mock";
+
 function DoubleInputs({ l1, l2, type, title }) {
   return (
     <>
