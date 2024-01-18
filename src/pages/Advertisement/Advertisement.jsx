@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import OrderFilter from "../../components/orderFilter/OrderFilter";
 import { products } from "../../mockData/products";
@@ -6,7 +6,29 @@ import ProductCart from "../../components/productCard/ProductCart";
 import { Pagination } from "@mui/material";
 import { Icon } from "@fluentui/react";
 
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 function Advertisement() {
+  const [isSeenUpArrow, setIsSeenUpArrow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      setIsSeenUpArrow(scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleUpToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
@@ -78,6 +100,11 @@ function Advertisement() {
       </div>
 
       <Pagination count={10} shape="rounded" />
+      {isSeenUpArrow && (
+        <button className={styles.upArrow} onClick={handleUpToTop}>
+          <KeyboardArrowUpIcon sx={{ color: "#7b7b7b", fontSize: 30 }} />
+        </button>
+      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../sass/pages/_home.scss";
 
 import FilterTab from "../../components/FilterTab/FilterTab";
@@ -7,6 +7,7 @@ import OptionInputSingle from "../../components/OptionInputSingle/OptionInputSin
 import HomeCars from "../../scenes/HomeCars";
 
 import SearchIcon from "@mui/icons-material/Search";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 import {
   filterTabOne,
@@ -39,6 +40,25 @@ function Homepage() {
   const [data, setData] = useState(INITIAL_DATA);
   const [tabOneDefaultValue, setTabOneDefaultValue] = useState("all");
   const [tabTwoDefaultValue, setTwoOneDefaultValue] = useState("all");
+  const [isSeenUpArrow, setIsSeenUpArrow] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      setIsSeenUpArrow(scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleUpToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const navigate = useNavigate();
 
@@ -221,6 +241,11 @@ function Homepage() {
         </div>
       </div>
       <HomeCars />
+      {isSeenUpArrow && (
+        <button className="up__arrow" onClick={handleUpToTop}>
+          <KeyboardArrowUpIcon sx={{ color: "#7b7b7b", fontSize: 30 }} />
+        </button>
+      )}
     </main>
   );
 }
