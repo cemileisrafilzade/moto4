@@ -2,8 +2,9 @@ import React from "react";
 
 import "../sass/layout/_homeCars.scss";
 
+import { Pagination } from "@mui/material";
+
 import { products } from "../mockData/products";
-import { topBrands } from "../mockData/topBrands";
 import ProductCart from "../components/productCard/ProductCart";
 import SectionHeader from "../components/SectionHeader/SectionHeader";
 
@@ -21,6 +22,7 @@ const HomeCars = () => {
             }
           })}
         </div>
+        <Pagination count={10} shape="rounded" />
       </section>
       <section className="home__cars__section">
         <SectionHeader title="Yeni elanlar" filterTitle="Tarix" />
@@ -30,7 +32,9 @@ const HomeCars = () => {
           })}
         </div>
       </section>
-      <section className="home__cars__section">
+      {/*FOR NOW THERE IS NO NEED*/}
+
+      {/* <section className="home__cars__section">
         <SectionHeader title="Top Markalar" />
         <div className="home__cars__section__topBrands">
           {topBrands.map((brand) => (
@@ -49,23 +53,7 @@ const HomeCars = () => {
             </div>
           ))}
         </div>
-      </section>
-      <section className="home__cars__section">
-        <SectionHeader title="Tövsiyə olunanlar" filterTitle="Sırala" />
-        <div className="home__cars__section__content">
-          {products.map((product) => {
-            return <ProductCart key={product.id} product={product} />;
-          })}
-        </div>
-      </section>
-      <section className="home__cars__section">
-        <SectionHeader title="Elanlar" filterTitle="Sırala" />
-        <div className="home__cars__section__content">
-          {products.map((product) => {
-            return <ProductCart key={product.id} product={product} />;
-          })}
-        </div>
-      </section>
+      </section> */}
     </div>
   );
 };

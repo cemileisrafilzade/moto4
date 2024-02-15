@@ -31,3 +31,13 @@
     background-color: $hover;
   }
 }
+
+@media only screen and (max-width: 827px) {
+  .filter__tab {
+    min-width: 250px;
+
+    &__item {
+      min-width: 50px;
+    }
+  }
+}

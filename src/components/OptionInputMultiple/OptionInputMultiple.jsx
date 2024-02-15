@@ -41,7 +41,7 @@ export default function OptionInputMultiple({
       disableCloseOnSelect
       classes={{ popupIndicator: "custom-popup-indicator" }}
       sx={{
-        minWidth: "235px",
+        width: "235px",
         flexGrow: 1,
         overflow: "hidden",
         marginLeft: "0",

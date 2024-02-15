@@ -209,3 +209,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 1400px) {
+  .home__hero {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .home__hero {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
