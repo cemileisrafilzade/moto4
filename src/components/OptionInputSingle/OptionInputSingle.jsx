@@ -39,7 +39,7 @@ export default function OptionInputSingle({
           popupIndicator: "custom-popup-indicator",
         }}
         sx={{
-          minWidth: `${isYear ? "135px" : "235px"}`,
+          width: `${isYear ? "135px" : "235px"}`,
           flexGrow: 1,
           marginLeft: "0",
           margin: `${isYear && "0"}`,

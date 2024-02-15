@@ -50,3 +50,15 @@
     }
   }
 }
+
+@media only screen and (max-width: 1400px) {
+  .topbar {
+    padding: 0 10%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .topbar {
+    padding: 0 5%;
+  }
+}
